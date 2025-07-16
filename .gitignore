@@ -122,8 +122,8 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-# ML/AI specific
-models/
+# ML/AI specific - trained model files and artifacts
+/models/
 *.pth
 *.pt
 *.onnx
