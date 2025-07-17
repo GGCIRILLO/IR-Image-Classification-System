@@ -129,7 +129,6 @@ dmypy.json
 *.onnx
 *.pkl
 *.joblib
-data/raw/
 data/processed/
 logs/
 wandb/
