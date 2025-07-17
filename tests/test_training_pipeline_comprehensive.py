@@ -10,19 +10,25 @@ This test verifies all sub-tasks:
 
 import sys
 import os
-sys.path.append(os.path.join(os.path.dirname(__file__), 'src'))
+
+# Add the project root directory to sys.path
+project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, project_root)
+
+# Add the src directory to sys.path for absolute imports
+src_path = os.path.join(project_root, 'src')
+sys.path.insert(0, src_path)
 
 import numpy as np
 import torch
 from datetime import datetime
-from typing import List
 
 def test_model_trainer_with_triplet_loss():
     """Test ModelTrainer class with triplet loss optimization."""
     print("🧪 Testing ModelTrainer with triplet loss optimization...")
     
     from training.trainer import ModelTrainer, TripletLoss, IRImageDataset
-    from training.model_adapters import IRResNet50Adapter
+    from training.model_adapters import BaseModelAdapter
     from training.model_config import TrainingConfig
     from models.data_models import IRImage
     
@@ -71,17 +77,24 @@ def test_model_trainer_with_triplet_loss():
     config = TrainingConfig(num_epochs=2, triplet_margin=0.3)
     
     # Mock adapter for testing
-    class MockAdapter:
+    class MockAdapter(BaseModelAdapter):
         def __init__(self):
-            self.device = 'cpu'
+            super().__init__("mock_model", embedding_dim=128, device='cpu')
             self.model = torch.nn.Linear(128, 128)  # Simple mock model
+            self.is_loaded = True
         
-        def get_model_info(self):
-            return {"name": "mock", "parameters": 100}
+        def load_model(self, model_path=None, **kwargs):
+            self.is_loaded = True
+        
+        def extract_embedding(self, image):
+            return np.random.rand(self.embedding_dim)
+        
+        def preprocess_image(self, image):
+            return torch.tensor(image).flatten()
         
         def validate_embedding_quality(self, embedding):
             return 0.8
-    
+
     mock_adapter = MockAdapter()
     trainer = ModelTrainer(mock_adapter, config)
     
@@ -150,24 +163,28 @@ def test_validation_pipeline():
     print("🧪 Testing ValidationPipeline...")
     
     from training.validation_pipeline import ValidationPipeline, ValidationResult
+    from training.model_adapters import BaseModelAdapter
     from models.data_models import IRImage
     
     # Mock model adapter
-    class MockModelAdapter:
+    class MockModelAdapter(BaseModelAdapter):
         def __init__(self):
-            self.device = 'cpu'
-            self.is_loaded = True
+            super().__init__("mock_validation_model", embedding_dim=128, device='cpu')
             self.model = torch.nn.Linear(128, 128)  # Add mock model
+            self.is_loaded = True
         
-        def extract_embedding(self, image_data):
+        def load_model(self, model_path=None, **kwargs):
+            self.is_loaded = True
+        
+        def preprocess_image(self, image):
+            return torch.tensor(image).flatten()
+        
+        def extract_embedding(self, image):
             # Return consistent embedding for same class
-            return np.random.rand(128)
+            return np.random.rand(self.embedding_dim)
         
         def validate_embedding_quality(self, embedding):
             return 0.85
-        
-        def get_model_info(self):
-            return {"name": "mock_model", "version": "1.0"}
     
     mock_adapter = MockModelAdapter()
     
@@ -227,6 +244,7 @@ def test_integration():
     from training.trainer import ModelTrainer, TrainingMetrics
     from training.validation_pipeline import ValidationPipeline
     from training.model_config import TrainingConfig
+    from training.model_adapters import BaseModelAdapter
     
     # Test that all components work together
     config = TrainingConfig(
@@ -237,24 +255,27 @@ def test_integration():
     )
     
     # Mock adapter
-    class IntegratedMockAdapter:
+    class IntegratedMockAdapter(BaseModelAdapter):
         def __init__(self):
-            self.device = 'cpu'
-            self.is_loaded = True
+            super().__init__("integrated_mock", embedding_dim=128, device='cpu')
             self.model = torch.nn.Sequential(
                 torch.nn.Linear(224*224, 128),
                 torch.nn.ReLU(),
                 torch.nn.Linear(128, 128)
             )
+            self.is_loaded = True
         
-        def get_model_info(self):
-            return {"name": "integrated_mock", "parameters": 1000}
+        def load_model(self, model_path=None, **kwargs):
+            self.is_loaded = True
+        
+        def preprocess_image(self, image):
+            return torch.tensor(image).flatten()
         
         def validate_embedding_quality(self, embedding):
             return 0.8
         
-        def extract_embedding(self, image_data):
-            return np.random.rand(128)
+        def extract_embedding(self, image):
+            return np.random.rand(self.embedding_dim)
     
     mock_adapter = IntegratedMockAdapter()
     

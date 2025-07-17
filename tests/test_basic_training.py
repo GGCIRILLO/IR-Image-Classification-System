@@ -5,7 +5,14 @@ Basic test to verify training pipeline implementation works.
 
 import sys
 import os
-sys.path.append(os.path.join(os.path.dirname(__file__), 'src'))
+
+# Add the project root directory to sys.path
+project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, project_root)
+
+# Add the src directory to sys.path for absolute imports
+src_path = os.path.join(project_root, 'src')
+sys.path.insert(0, src_path)
 
 try:
     # Test basic imports
