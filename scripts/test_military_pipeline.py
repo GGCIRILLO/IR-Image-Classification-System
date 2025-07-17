@@ -21,7 +21,7 @@ sys.path.insert(0, project_root)
 from src.data.augmentation import DataAugmentationEngine, AugmentationConfig
 
 
-def load_dataset_images(data_dir: str = "data/raw") -> Dict[str, List[np.ndarray]]:
+def load_dataset_images(data_dir: str = "data/raw2.0") -> Dict[str, List[np.ndarray]]:
     """
     Load all images from the dataset organized by class.
     
@@ -36,15 +36,36 @@ def load_dataset_images(data_dir: str = "data/raw") -> Dict[str, List[np.ndarray
     
     print(f"Loading dataset from: {data_path.absolute()}")
     
+    if not data_path.exists():
+        print(f"Warning: Dataset directory {data_path} does not exist!")
+        print("Falling back to original raw dataset...")
+        data_path = Path("data/raw")
+        if not data_path.exists():
+            print(f"Error: Neither {data_dir} nor data/raw exists!")
+            return {}
+    
     for class_dir in data_path.iterdir():
         if class_dir.is_dir():
             class_name = class_dir.name
             print(f"\nLoading class: {class_name}")
             
             images = []
-            image_files = list(class_dir.glob("*.bmp"))
             
-            print(f"Found {len(image_files)} BMP files")
+            # Look for WebP files first (optimized dataset), then BMP files (original dataset)
+            webp_files = list(class_dir.glob("*.webp"))
+            bmp_files = list(class_dir.glob("*.bmp"))
+            
+            if webp_files:
+                image_files = webp_files
+                file_format = "WebP"
+                print(f"Found {len(image_files)} WebP files (optimized dataset)")
+            elif bmp_files:
+                image_files = bmp_files
+                file_format = "BMP"
+                print(f"Found {len(image_files)} BMP files (original dataset)")
+            else:
+                print(f"No supported image files found in {class_dir}")
+                continue
             
             for img_file in image_files:
                 try:
@@ -58,8 +79,18 @@ def load_dataset_images(data_dir: str = "data/raw") -> Dict[str, List[np.ndarray
                     # Convert to float32 and normalize to [0, 1]
                     img = img.astype(np.float32) / 255.0
                     
-                    # Resize from 4096x4096 to 224x224 for processing
-                    img_resized = cv2.resize(img, (224, 224), interpolation=cv2.INTER_AREA)
+                    # Handle different input sizes
+                    current_height, current_width = img.shape
+                    
+                    if file_format == "WebP":
+                        # WebP images are already 256x256, resize to 224x224 for processing
+                        if current_height != 224 or current_width != 224:
+                            img_resized = cv2.resize(img, (224, 224), interpolation=cv2.INTER_AREA)
+                        else:
+                            img_resized = img
+                    else:
+                        # BMP images are large (4096x4096), resize to 224x224
+                        img_resized = cv2.resize(img, (224, 224), interpolation=cv2.INTER_AREA)
                     
                     images.append(img_resized)
                     
@@ -67,7 +98,7 @@ def load_dataset_images(data_dir: str = "data/raw") -> Dict[str, List[np.ndarray
                     print(f"Error loading {img_file}: {e}")
             
             dataset[class_name] = images
-            print(f"Successfully loaded {len(images)} images for {class_name}")
+            print(f"Successfully loaded {len(images)} images for {class_name} ({file_format} format)")
     
     return dataset
 
@@ -209,17 +240,8 @@ def save_sample_augmentations(results: Dict, output_dir: str = "data/processed")
         
         print(f"\nSaving samples for {class_name}:")
         
-        # Save first 5 original images
-        for i in range(min(5, original_count)):
-            img = augmented_images[i]  # First images are originals
-            img_uint8 = (img * 255).astype(np.uint8)
-            filename = class_dir / f"original_{i+1:02d}.png"
-            cv2.imwrite(str(filename), img_uint8)
-        
-        print(f"  Saved {min(5, original_count)} original images")
-        
-        # Save 10 augmented samples
-        augmented_samples = augmented_images[original_count:original_count+10]
+        # Save all augmented samples
+        augmented_samples = augmented_images[original_count:]
         for i, img in enumerate(augmented_samples):
             img_uint8 = (img * 255).astype(np.uint8)
             filename = class_dir / f"augmented_{i+1:02d}.png"
@@ -270,7 +292,7 @@ def main():
         if not dataset:
             print("No images found in dataset!")
             return
-        
+
         # Analyze original images
         print(f"\n{'='*60}")
         print("ORIGINAL DATASET ANALYSIS")
@@ -292,6 +314,7 @@ def main():
         print("PIPELINE TEST COMPLETED SUCCESSFULLY!")
         print(f"{'='*60}")
         print("\nCheck 'data/processed/' for sample augmented images.")
+        print("\nTo process all classes, modify the main() function to remove the 3-class limit.")
         
     except Exception as e:
         print(f"Error during pipeline test: {e}")
