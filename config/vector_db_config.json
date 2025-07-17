@@ -1,0 +1,41 @@
+{
+  "database": {
+    "type": "chromadb",
+    "path": "./data/vector_db",
+    "collection_name": "ir_embeddings",
+    "embedding_dimension": 512,
+    "distance_metric": "cosine"
+  },
+  "index": {
+    "type": "hnsw",
+    "hnsw_m": 16,
+    "hnsw_ef_construction": 200,
+    "hnsw_ef_search": 100,
+    "enable_exact_search": true,
+    "cache_size": 1000
+  },
+  "search": {
+    "default_k": 5,
+    "confidence_threshold": 0.7,
+    "max_search_time_ms": 2000.0,
+    "enable_reranking": true,
+    "cache_queries": true
+  },
+  "security": {
+    "disable_telemetry": true,
+    "local_only": true,
+    "encryption_enabled": false
+  },
+  "performance": {
+    "batch_size": 100,
+    "parallel_workers": 4,
+    "memory_limit_gb": 8
+  },
+  "metadata": {
+    "version": "1.0.0",
+    "deployment_type": "military",
+    "description": "IR Image Classification Vector Database Configuration",
+    "optimization_target": "accuracy_over_speed",
+    "notes": "Optimized for military IR image classification with 95% accuracy requirement"
+  }
+}

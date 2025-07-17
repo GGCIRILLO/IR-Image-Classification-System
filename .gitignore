@@ -138,6 +138,7 @@ mlruns/
 chroma_db/
 *.db
 *.sqlite
+chroma_db_final/
 
 # IDE
 .vscode/
@@ -156,3 +157,4 @@ Thumbs.db
 # Kiro
 .kiro/
 
+tasks/
