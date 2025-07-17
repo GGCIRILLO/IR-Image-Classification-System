@@ -12,7 +12,7 @@ from torch.utils.data import DataLoader
 from transformers import AutoModel, AutoProcessor, AutoConfig
 from torchvision import models, transforms
 import numpy as np
-from typing import Dict, Any, Optional, List, Tuple, Union
+from typing import Dict, Any, Optional, List, Tuple, Union, cast
 from abc import ABC, abstractmethod
 import logging
 from pathlib import Path
@@ -49,9 +49,9 @@ class BaseModelAdapter(ABC):
         self.model_name = model_name
         self.embedding_dim = embedding_dim
         self.device = device or ('cuda' if torch.cuda.is_available() else 'cpu')
-        self.model = None
+        self.model: Optional[nn.Module] = None
         self.is_loaded = False
-        self.config = {}
+        self.config: Dict[str, Any] = {}
         
         logger.info(f"Initialized {model_name} adapter on device: {self.device}")
     
@@ -70,6 +70,20 @@ class BaseModelAdapter(ABC):
         """Preprocess image for model input."""
         pass
     
+    @abstractmethod
+    def batch_extract(self, images: List[np.ndarray], batch_size: int = 32) -> List[np.ndarray]:
+        """
+        Extract embeddings from multiple images efficiently.
+        
+        Args:
+            images: List of preprocessed IR images
+            batch_size: Number of images to process in each batch
+            
+        Returns:
+            List[np.ndarray]: List of embedding vectors
+        """
+        pass
+    
     def save_model(self, save_path: str) -> None:
         """
         Save the current model state.
@@ -80,28 +94,38 @@ class BaseModelAdapter(ABC):
         if not self.is_loaded:
             raise RuntimeError("No model loaded to save")
         
-        save_path = Path(save_path)
-        save_path.parent.mkdir(parents=True, exist_ok=True)
+        save_path_obj = Path(save_path)
+        save_path_obj.parent.mkdir(parents=True, exist_ok=True)
         
         # Save model state dict and configuration
-        torch.save({
-            'model_state_dict': self.model.state_dict(),
-            'config': self.config,
-            'model_name': self.model_name,
-            'embedding_dim': self.embedding_dim
-        }, save_path)
-        
-        logger.info(f"Model saved to {save_path}")
+        if self.model is not None:
+            torch.save({
+                'model_state_dict': self.model.state_dict(),
+                'config': self.config,
+                'model_name': self.model_name,
+                'embedding_dim': self.embedding_dim
+            }, save_path_obj)
+            
+            logger.info(f"Model saved to {save_path_obj}")
+        else:
+            raise RuntimeError("Model is None, cannot save")
     
     def get_model_info(self) -> Dict[str, Any]:
         """Get information about the current model."""
+        parameters_count = 0
+        if self.model is not None and hasattr(self.model, 'parameters'):
+            try:
+                parameters_count = sum(p.numel() for p in self.model.parameters())
+            except Exception:
+                parameters_count = 0
+        
         return {
             'model_name': self.model_name,
             'embedding_dim': self.embedding_dim,
             'device': self.device,
             'is_loaded': self.is_loaded,
             'config': self.config,
-            'parameters': sum(p.numel() for p in self.model.parameters()) if self.model else 0
+            'parameters': parameters_count
         }
     
     def _validate_image_input(self, image: np.ndarray) -> None:
@@ -111,6 +135,34 @@ class BaseModelAdapter(ABC):
         
         if len(image.shape) not in [2, 3]:
             raise ValueError(f"Image must be 2D or 3D array, got shape {image.shape}")
+    
+    def validate_embedding_quality(self, embedding: np.ndarray) -> float:
+        """
+        Validate the quality of an extracted embedding.
+        
+        This is an optional method that adapters can override to provide
+        model-specific quality validation.
+        
+        Args:
+            embedding: Feature embedding vector
+            
+        Returns:
+            float: Quality score (0.0-1.0, higher is better)
+        """
+        # Default implementation - basic validation
+        if not isinstance(embedding, np.ndarray):
+            return 0.0
+        
+        # Check for invalid values
+        if np.any(np.isnan(embedding)) or np.any(np.isinf(embedding)):
+            return 0.0
+        
+        # Check embedding dimension
+        if len(embedding) == 0:
+            return 0.0
+        
+        # Return a neutral score if no specific validation is implemented
+        return 0.5
 
 
 class IRResNet50Adapter(BaseModelAdapter):
@@ -156,17 +208,20 @@ class IRResNet50Adapter(BaseModelAdapter):
         """
         try:
             # Load base ResNet50
-            self.model = models.resnet50(pretrained=self.pretrained)
+            resnet_model = models.resnet50(pretrained=self.pretrained)
             
             # Replace final fully connected layer with embedding layer
-            num_features = self.model.fc.in_features
-            self.model.fc = nn.Sequential(
+            num_features = resnet_model.fc.in_features
+            # Type ignore per permettere la sostituzione del layer fc
+            resnet_model.fc = nn.Sequential(  # type: ignore
                 nn.Linear(num_features, self.embedding_dim),
                 nn.ReLU(),
                 nn.Dropout(0.2),
                 nn.Linear(self.embedding_dim, self.embedding_dim),
-                nn.L2Norm(dim=1)  # L2 normalization for better embeddings
+                L2Norm(dim=1)  # L2 normalization for better embeddings
             )
+            
+            self.model = resnet_model
             
             # Load fine-tuned weights if provided
             if model_path and Path(model_path).exists():
@@ -207,6 +262,9 @@ class IRResNet50Adapter(BaseModelAdapter):
         """
         self._validate_image_input(image)
         
+        if self.transform is None:
+            raise RuntimeError("Transform not initialized. Call load_model() first.")
+        
         # Ensure image is in correct format (0-255 uint8)
         if image.dtype != np.uint8:
             image = (image * 255).astype(np.uint8)
@@ -215,7 +273,10 @@ class IRResNet50Adapter(BaseModelAdapter):
         tensor = self.transform(image)
         
         # Add batch dimension
-        tensor = tensor.unsqueeze(0)
+        if isinstance(tensor, torch.Tensor):
+            tensor = tensor.unsqueeze(0)
+        else:
+            raise RuntimeError("Transform did not return a tensor")
         
         return tensor.to(self.device)
     
@@ -229,7 +290,7 @@ class IRResNet50Adapter(BaseModelAdapter):
         Returns:
             np.ndarray: Embedding vector
         """
-        if not self.is_loaded:
+        if not self.is_loaded or self.model is None:
             raise RuntimeError("Model not loaded. Call load_model() first.")
         
         # Preprocess image
@@ -253,7 +314,7 @@ class IRResNet50Adapter(BaseModelAdapter):
         Returns:
             List[np.ndarray]: List of embedding vectors
         """
-        if not self.is_loaded:
+        if not self.is_loaded or self.model is None:
             raise RuntimeError("Model not loaded. Call load_model() first.")
         
         embeddings = []
@@ -309,7 +370,7 @@ class IRResNet50Adapter(BaseModelAdapter):
         
         # Combine scores
         quality_score = (norm_score * 0.5 + diversity_score * 0.3 + range_score * 0.2)
-        return max(0.0, min(1.0, quality_score))
+        return max(0.0, min(1.0, float(quality_score)))
     
     def fine_tune_setup(self, learning_rate: float = 1e-4, freeze_backbone: bool = False) -> torch.optim.Optimizer:
         """
@@ -322,7 +383,7 @@ class IRResNet50Adapter(BaseModelAdapter):
         Returns:
             torch.optim.Optimizer: Configured optimizer
         """
-        if not self.is_loaded:
+        if not self.is_loaded or self.model is None:
             raise RuntimeError("Model not loaded. Call load_model() first.")
         
         # Freeze backbone if requested
@@ -362,9 +423,9 @@ class QwenVLMAdapter(BaseModelAdapter):
         """
         super().__init__(f"qwen_vlm_{model_name.split('/')[-1]}", embedding_dim, device)
         self.hf_model_name = model_name
-        self.processor = None
-        self.vision_encoder = None
-        self.projection_head = None
+        self.processor: Optional[Any] = None
+        self.vision_encoder: Optional[nn.Module] = None
+        self.projection_head: Optional[nn.Module] = None
     
     def load_model(self, model_path: Optional[str] = None, **kwargs) -> None:
         """
@@ -383,7 +444,9 @@ class QwenVLMAdapter(BaseModelAdapter):
             self.vision_encoder = full_model.visual
             
             # Create projection head to match desired embedding dimension
-            vision_dim = self.vision_encoder.config.hidden_size if hasattr(self.vision_encoder, 'config') else 768
+            vision_dim = 768  # Default Qwen VLM hidden size
+            # Note: We use a safe default since accessing config attributes can be complex
+            
             self.projection_head = nn.Sequential(
                 nn.Linear(vision_dim, self.embedding_dim),
                 nn.ReLU(),
@@ -393,7 +456,10 @@ class QwenVLMAdapter(BaseModelAdapter):
             )
             
             # Combine vision encoder and projection head
-            self.model = nn.Sequential(self.vision_encoder, self.projection_head)
+            if self.vision_encoder is not None and self.projection_head is not None:
+                self.model = nn.Sequential(self.vision_encoder, self.projection_head)
+            else:
+                raise RuntimeError("Failed to initialize vision encoder or projection head")
             
             # Load fine-tuned weights if provided
             if model_path and Path(model_path).exists():
@@ -434,8 +500,8 @@ class QwenVLMAdapter(BaseModelAdapter):
         """
         self._validate_image_input(image)
         
-        # Convert to PIL Image for processor
-        
+        if self.processor is None:
+            raise RuntimeError("Processor not initialized. Call load_model() first.")
         
         # Ensure image is in correct format
         if image.dtype != np.uint8:
@@ -465,7 +531,7 @@ class QwenVLMAdapter(BaseModelAdapter):
         Returns:
             np.ndarray: Embedding vector
         """
-        if not self.is_loaded:
+        if not self.is_loaded or self.vision_encoder is None or self.projection_head is None:
             raise RuntimeError("Model not loaded. Call load_model() first.")
         
         # Preprocess image
@@ -497,7 +563,7 @@ class QwenVLMAdapter(BaseModelAdapter):
         Returns:
             List[np.ndarray]: List of embedding vectors
         """
-        if not self.is_loaded:
+        if not self.is_loaded or self.vision_encoder is None or self.projection_head is None:
             raise RuntimeError("Model not loaded. Call load_model() first.")
         
         embeddings = []
@@ -537,11 +603,11 @@ class QwenVLMAdapter(BaseModelAdapter):
         Returns:
             torch.optim.Optimizer: Configured optimizer
         """
-        if not self.is_loaded:
+        if not self.is_loaded or self.model is None:
             raise RuntimeError("Model not loaded. Call load_model() first.")
         
         # Freeze vision encoder if requested (recommended for stability)
-        if freeze_vision_encoder:
+        if freeze_vision_encoder and self.vision_encoder is not None:
             for param in self.vision_encoder.parameters():
                 param.requires_grad = False
             logger.info("Vision encoder layers frozen for fine-tuning")

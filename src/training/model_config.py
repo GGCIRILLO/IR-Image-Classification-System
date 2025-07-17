@@ -74,8 +74,8 @@ class ResNet50Config(ModelConfig):
     num_classes: Optional[int] = None  # For classification head if needed
     
     # ResNet50-specific augmentation settings
-    normalize_mean: List[float] = None
-    normalize_std: List[float] = None
+    normalize_mean: Optional[List[float]] = None
+    normalize_std: Optional[List[float]] = None
     
     def __post_init__(self):
         """Initialize ResNet50-specific defaults."""
