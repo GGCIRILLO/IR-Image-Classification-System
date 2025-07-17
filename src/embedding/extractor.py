@@ -210,7 +210,7 @@ class EmbeddingExtractor(BaseEmbeddingExtractor):
         Load the fine-tuned model for embedding extraction.
         
         Args:
-            model_path: Path to the trained model file (optional)
+            model_path: Path to the trained model file (optional, None for default pretrained)
         """
         try:
             # Use provided path or fallback to instance path
@@ -225,13 +225,18 @@ class EmbeddingExtractor(BaseEmbeddingExtractor):
                 self.model_name, **adapter_kwargs
             )
             
-            # Load model weights
+            # Load model weights (None means use default pretrained weights)
             self.model_adapter.load_model(path_to_use)
+            if path_to_use is not None:
+                logger.info(f"Loaded fine-tuned model from: {path_to_use}")
+            else:
+                logger.info("Using default pretrained model (no fine-tuning)")
             
             # Update model info
             self.model_info = self.model_adapter.get_model_info()
             self.model_info['loaded'] = True
             self.model_info['load_time'] = datetime.now().isoformat()
+            self.model_info['model_path'] = path_to_use or "pretrained_default"
             
             logger.info(f"Model loaded successfully: {self.model_info}")
             

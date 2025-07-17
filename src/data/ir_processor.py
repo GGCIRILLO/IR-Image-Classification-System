@@ -33,7 +33,8 @@ class IRImageProcessor(IImageProcessor):
             target_size: Target dimensions for processed images (height, width)
             preserve_aspect_ratio: Whether to maintain aspect ratio during resize
         """
-        super().__init__(target_size)
+        super().__init__()  # Call ABC's __init__ without parameters
+        self.target_size = target_size
         self.preserve_aspect_ratio = preserve_aspect_ratio
         self.logger = logging.getLogger(__name__)
         
