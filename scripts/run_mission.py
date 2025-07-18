@@ -40,6 +40,12 @@ from src.query import (
     ConfidenceStrategy
 )
 from src.models.data_models import SimilarityResult, QueryResult
+from src.models.object_classes import (
+    ObjectClass, 
+    ObjectCategory, 
+    OBJECT_REGISTRY,
+    get_object_classes
+)
 
 
 class MissionRunner:
@@ -391,7 +397,7 @@ Examples:
             return self._format_table(result, args)
     
     def _format_table(self, result: QueryResult, args: argparse.Namespace) -> str:
-        """Format results as a table."""
+        """Format results as a table with enhanced object classification info."""
         lines = []
         lines.append("\n" + "="*80)
         lines.append("IR IMAGE CLASSIFICATION RESULTS")
@@ -400,17 +406,41 @@ Examples:
         lines.append(f"Processing Time: {result.processing_time:.3f}s")
         lines.append(f"Results Found: {len(result.results)}")
         lines.append(f"Model Version: {result.model_version}")
+        
+        # Add object class statistics
+        if result.results:
+            categories = {}
+            military_count = 0
+            critical_count = 0
+            
+            for res in result.results:
+                category = res.get_object_category()
+                if category:
+                    categories[category.value] = categories.get(category.value, 0) + 1
+                if res.is_military_asset():
+                    military_count += 1
+                if res.is_critical_asset():
+                    critical_count += 1
+            
+            lines.append(f"Military Assets: {military_count} | Critical Assets: {critical_count}")
+            if categories:
+                cat_summary = " | ".join([f"{cat}: {count}" for cat, count in categories.items()])
+                lines.append(f"Categories: {cat_summary}")
+        
         lines.append("")
         
         if result.results:
-            lines.append(f"{'Rank':<4} {'Object Class':<25} {'Similarity':<10} {'Confidence':<10} {'Level':<12}")
-            lines.append("-" * 70)
+            lines.append(f"{'Rank':<4} {'Object Class':<25} {'Category':<15} {'Similarity':<10} {'Confidence':<10} {'Threat':<8}")
+            lines.append("-" * 85)
             
             for i, res in enumerate(result.results, 1):
-                confidence_level = res.metadata.get('confidence_level', 'Unknown')
+                category = res.get_object_category()
+                category_str = category.value.replace('_', ' ').title() if category else 'Unknown'
+                threat_level = res.get_threat_level()
+                
                 lines.append(
-                    f"{i:<4} {res.object_class:<25} {res.similarity_score:<10.3f} "
-                    f"{res.confidence:<10.3f} {confidence_level:<12}"
+                    f"{i:<4} {res.object_class:<25} {category_str:<15} {res.similarity_score:<10.3f} "
+                    f"{res.confidence:<10.3f} {threat_level:<8}"
                 )
         else:
             lines.append("No results found matching the specified criteria.")

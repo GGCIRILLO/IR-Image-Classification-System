@@ -354,7 +354,11 @@ class SimilaritySearcher:
 
             # Extract metadata safely
             image_id = str(metadata.get("image_id", result_id))
+            
+            # Extract object class from image_id if not in metadata
             object_class = str(metadata.get("object_class", "unknown"))
+            if object_class == "unknown":
+                object_class = self._extract_object_class_from_id(image_id)
 
             # Build result
             similarity_results.append(SimilarityResult(
@@ -373,6 +377,46 @@ class SimilaritySearcher:
             ))
 
         return similarity_results
+    
+    def _extract_object_class_from_id(self, image_id: str) -> str:
+        """
+        Extract object class name from image_id.
+        
+        Args:
+            image_id: Image ID containing object class information
+            
+        Returns:
+            str: Extracted object class name
+        """
+        try:
+            # Handle embedding IDs like 'emb_Taurus LP_augmented_18'
+            if image_id.startswith('emb_'):
+                # Remove 'emb_' prefix
+                clean_id = image_id[4:]
+            else:
+                clean_id = image_id
+            
+            # Split by underscore and remove augmentation info
+            parts = clean_id.split('_')
+            
+            # Find the last part that looks like augmentation info (e.g., 'augmented', 'original', numbers)
+            object_parts = []
+            for part in parts:
+                # Stop when we hit augmentation indicators
+                if part.lower() in ['augmented', 'original'] or part.isdigit():
+                    break
+                object_parts.append(part)
+            
+            if object_parts:
+                # Join the parts back together
+                object_class = ' '.join(object_parts)
+                return object_class
+            else:
+                return "unknown"
+                
+        except Exception as e:
+            print(f"Warning: Failed to extract object class from ID '{image_id}': {e}")
+            return "unknown"
     
     def _calculate_confidence(self, similarity_score: float, rank: int, total_results: int) -> float:
         """

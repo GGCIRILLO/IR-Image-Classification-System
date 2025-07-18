@@ -13,6 +13,9 @@ import numpy as np
 from PIL import Image
 import io
 
+# Import object classification system
+from .object_classes import ObjectClass, ObjectCategory, OBJECT_REGISTRY
+
 
 @dataclass
 class IRImage:
@@ -275,6 +278,98 @@ class SimilarityResult:
             raise ValueError(f"Confidence must be between 0.0 and 1.0, got {self.confidence}")
         
         return True
+    
+    def get_object_class_info(self) -> Optional[ObjectClass]:
+        """
+        Get detailed object class information from the registry.
+        
+        Returns:
+            ObjectClass: Object class details if found, None otherwise
+        """
+        # Try to get by standardized name first
+        obj_class = OBJECT_REGISTRY.get_class_by_name(self.object_class)
+        if obj_class:
+            return obj_class
+        
+        # Try to get by folder name
+        obj_class = OBJECT_REGISTRY.get_class_by_folder(self.object_class)
+        if obj_class:
+            return obj_class
+        
+        return None
+    
+    def get_object_category(self) -> Optional[ObjectCategory]:
+        """
+        Get the high-level category for this object class.
+        
+        Returns:
+            ObjectCategory: Category if object class is recognized, None otherwise
+        """
+        obj_class = self.get_object_class_info()
+        return obj_class.category if obj_class else None
+    
+    def is_military_asset(self) -> bool:
+        """
+        Check if this result represents a military asset.
+        
+        Returns:
+            bool: True if the object is a military asset
+        """
+        category = self.get_object_category()
+        if not category:
+            return False
+        
+        military_categories = {
+            ObjectCategory.MILITARY_VEHICLE,
+            ObjectCategory.AIR_DEFENSE,
+            ObjectCategory.MISSILE_SYSTEM
+        }
+        return category in military_categories
+    
+    def is_critical_asset(self) -> bool:
+        """
+        Check if this result represents a critical/high-value asset.
+        
+        Returns:
+            bool: True if the object is considered critical
+        """
+        obj_class = self.get_object_class_info()
+        if not obj_class:
+            return False
+        
+        # Define critical asset keywords
+        critical_keywords = [
+            'tank', 'missile', 'radar', 'launcher', 'defense', 'aircraft',
+            'artillery', 'scud', 'patriot', 'thaad', 'tomahawk'
+        ]
+        
+        class_name_lower = obj_class.name.lower()
+        return any(keyword in class_name_lower for keyword in critical_keywords)
+    
+    def get_threat_level(self) -> str:
+        """
+        Assess threat level based on object type and confidence.
+        
+        Returns:
+            str: Threat level ('CRITICAL', 'HIGH', 'MEDIUM', 'LOW', 'UNKNOWN')
+        """
+        if not self.get_object_class_info():
+            return 'UNKNOWN'
+        
+        # Critical assets with high confidence
+        if self.is_critical_asset() and self.confidence >= 0.8:
+            return 'CRITICAL'
+        
+        # Military assets with high confidence
+        if self.is_military_asset() and self.confidence >= 0.7:
+            return 'HIGH'
+        
+        # Any military asset or critical with medium confidence
+        if (self.is_military_asset() or self.is_critical_asset()) and self.confidence >= 0.5:
+            return 'MEDIUM'
+        
+        # Low confidence or civilian assets
+        return 'LOW'
 
 
 @dataclass

@@ -476,6 +476,19 @@ class QueryProcessor:
         
         logger.debug(f"Ranking and filtering {len(results)} similarity results")
         
+        # Update ranker configuration with options if provided
+        if 'confidence_threshold' in options:
+            from .ranker import RankingConfig
+            updated_config = RankingConfig(
+                strategy=self.result_ranker.config.strategy,
+                min_confidence=options['confidence_threshold'],
+                min_similarity=options.get('similarity_threshold', self.result_ranker.config.min_similarity),
+                max_results=options.get('max_results', self.result_ranker.config.max_results),
+                enable_diversity_filtering=self.result_ranker.config.enable_diversity_filtering,
+                add_ranking_metadata=self.result_ranker.config.add_ranking_metadata
+            )
+            self.result_ranker.update_config(updated_config)
+        
         # Create temporary Embedding object for confidence calculation if vector provided
         query_embedding = None
         if query_embedding_vector is not None:
