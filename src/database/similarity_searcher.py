@@ -153,27 +153,20 @@ class SimilaritySearcher:
                 raise ValueError(f"Unsupported search mode: {mode}")
             
             search_time_ms = (time.time() - start_time) * 1000
-            
-            # Apply confidence filtering
-            filtered_results = self._filter_by_confidence(results)
-            
-            # Re-rank results if enabled
-            if self.config.enable_reranking:
-                filtered_results = self._rerank_results(query_embedding, filtered_results)
-            
+     
             # Create search metrics
             metrics = SearchMetrics(
                 search_time_ms=search_time_ms,
                 total_candidates_examined=total_candidates,
-                results_returned=len(filtered_results),
+                results_returned=len(results),
                 cache_hit=False,
-                confidence_scores=[r.confidence for r in filtered_results],
+                confidence_scores=[r.confidence for r in results],
                 search_mode_used=mode
             )
             
             # Cache results if enabled
             if self.config.cache_queries:
-                self.query_cache[cache_key] = (filtered_results, metrics)
+                self.query_cache[cache_key] = (results, metrics)
                 # Limit cache size
                 if len(self.query_cache) > 1000:
                     oldest_key = next(iter(self.query_cache))
@@ -181,9 +174,9 @@ class SimilaritySearcher:
             
             # Store metrics for analysis
             self.search_metrics.append(metrics)
-            
-            return filtered_results, metrics
-            
+
+            return results, metrics
+
         except Exception as e:
             search_time_ms = (time.time() - start_time) * 1000
             print(f"Search failed: {str(e)}")
@@ -257,6 +250,8 @@ class SimilaritySearcher:
         # ChromaDB uses HNSW by default for approximate search
         where_clause = self._build_where_clause(filters) if filters else None
         
+        print(f"Performing approximate search with k={k}, filters={filters}")
+        
         # Check collection is available
         if not self.collection:
             raise RuntimeError("Collection not initialized")
@@ -268,9 +263,14 @@ class SimilaritySearcher:
             include=['metadatas', 'distances'],
             where=where_clause
         )
-        
+
+        print(f"   📊 Approximate search results: k={len(results.keys())}, v={len(results.values())} found")
+        print("   📊 Approximate search results:", results)
+
         # Convert to SimilarityResult objects
         similarity_results = self._convert_chroma_results(results)
+        
+        print(f"   📊 Approximate search results converted: {len(similarity_results)} items")
         
         # For approximate search, estimate candidates examined based on HNSW parameters
         # This is an approximation since ChromaDB doesn't expose this information
@@ -309,120 +309,99 @@ class SimilaritySearcher:
         
         return exact_results, total_examined
     
-    def _convert_chroma_results(self, chroma_results: Any) -> List[SimilarityResult]:
+    def _convert_chroma_results(self, chroma_results: chromadb.QueryResult) -> List[SimilarityResult]:
         """
         Convert ChromaDB results to SimilarityResult objects.
-        
+
         Args:
             chroma_results: Raw results from ChromaDB query
-            
+
         Returns:
             List[SimilarityResult]: Converted similarity results
         """
         similarity_results = []
-        
-        if hasattr(chroma_results, 'ids') and chroma_results.ids and len(chroma_results.ids[0]) > 0:
-            ids = chroma_results.ids[0]
-            distances = chroma_results.distances[0] if chroma_results.distances else []
-            metadatas = chroma_results.metadatas[0] if chroma_results.metadatas else []
-            
-            for i, (result_id, distance, metadata) in enumerate(zip(ids, distances, metadatas)):
-                # Convert distance to similarity score
-                if self.config.distance_metric == "cosine":
-                    # For cosine distance: similarity = 1 - distance
-                    similarity_score = max(0.0, 1.0 - distance)
-                elif self.config.distance_metric == "euclidean":
-                    # For euclidean: convert to similarity (0-1 range)
-                    similarity_score = 1.0 / (1.0 + distance)
-                else:
-                    # Default handling
-                    similarity_score = max(0.0, 1.0 - distance)
-                
-                # Calculate confidence score
-                confidence = self._calculate_confidence(similarity_score, i, len(ids))
-                
-                # Extract metadata
-                object_class = metadata.get('object_class', 'unknown')
-                image_id = metadata.get('image_id', result_id)
-                
-                # Create SimilarityResult
-                similarity_result = SimilarityResult(
-                    image_id=image_id,
-                    similarity_score=similarity_score,
-                    confidence=confidence,
-                    object_class=object_class,
-                    metadata={
-                        'embedding_id': result_id,
-                        'model_version': metadata.get('model_version', 'unknown'),
-                        'extraction_timestamp': metadata.get('extraction_timestamp'),
-                        'rank': i + 1,
-                        'raw_distance': distance,
-                        'search_method': 'chroma_db'
-                    }
-                )
-                
-                similarity_results.append(similarity_result)
-        
+
+        ids = chroma_results.get("ids", [[]])[0]
+        print(f"📊 ids: {ids}")
+        distances = chroma_results.get("distances", [[]])
+        if distances is None or len(distances) == 0:
+            distances = []
+        else:
+            distances = distances[0]
+        metadatas = chroma_results.get("metadatas", [[]])
+        if metadatas is None or len(metadatas) == 0:
+            metadatas = []
+        else:
+            metadatas = metadatas[0]
+
+        if not ids:
+            print("⚠️ No results found in ChromaDB response.")
+            return []
+
+        print(f"📊 Converting {len(ids)} ChromaDB results to SimilarityResult objects")
+
+        for rank, (result_id, distance, metadata) in enumerate(zip(ids, distances, metadatas)):
+            # Compute similarity score
+            if self.config.distance_metric == "cosine":
+                similarity_score = max(0.0, 1.0 - distance)
+            elif self.config.distance_metric == "euclidean":
+                similarity_score = 1.0 / (1.0 + distance)
+            else:
+                similarity_score = max(0.0, 1.0 - distance)  # default fallback
+
+            # Compute confidence
+            confidence = self._calculate_confidence(similarity_score, rank, len(ids))
+
+            # Extract metadata safely
+            image_id = str(metadata.get("image_id", result_id))
+            object_class = str(metadata.get("object_class", "unknown"))
+
+            # Build result
+            similarity_results.append(SimilarityResult(
+                image_id=image_id,
+                similarity_score=similarity_score,
+                confidence=confidence,
+                object_class=object_class,
+                metadata={
+                    "embedding_id": result_id,
+                    "model_version": metadata.get("model_version", "unknown"),
+                    "extraction_timestamp": metadata.get("extraction_timestamp"),
+                    "rank": rank + 1,
+                    "raw_distance": distance,
+                    "search_method": "chroma_db"
+                }
+            ))
+
         return similarity_results
     
     def _calculate_confidence(self, similarity_score: float, rank: int, total_results: int) -> float:
         """
         Calculate confidence score based on similarity and rank.
-        
+
         Args:
             similarity_score: Similarity score (0-1)
             rank: Rank of the result (0-based)
             total_results: Total number of results
-            
+
         Returns:
             float: Confidence score (0-1)
         """
-        # Base confidence from similarity score
+        # Base confidence directly from similarity
         base_confidence = similarity_score
-        
-        # Rank penalty (higher rank = lower confidence)
-        rank_penalty = 0.1 * rank / max(1, total_results - 1)
-        
-        # Apply rank penalty
+
+        # Penalize by rank position
+        if total_results > 1:
+            rank_penalty = 0.1 * (rank / (total_results - 1))
+        else:
+            rank_penalty = 0.0
+
         confidence = max(0.0, base_confidence - rank_penalty)
-        
-        # Additional boost for very high similarity scores
+
+        # Slight bonus for very high similarity
         if similarity_score > 0.9:
             confidence = min(1.0, confidence + 0.1)
-        
+
         return confidence
-    
-    def _filter_by_confidence(self, results: List[SimilarityResult]) -> List[SimilarityResult]:
-        """
-        Filter results by minimum confidence threshold.
-        
-        Args:
-            results: List of similarity results
-            
-        Returns:
-            List[SimilarityResult]: Filtered results
-        """
-        return [r for r in results if r.confidence >= self.config.confidence_threshold]
-    
-    def _rerank_results(self, query_embedding: np.ndarray, 
-                       results: List[SimilarityResult]) -> List[SimilarityResult]:
-        """
-        Re-rank results using additional scoring factors.
-        
-        Args:
-            query_embedding: Original query embedding
-            results: Initial similarity results
-            
-        Returns:
-            List[SimilarityResult]: Re-ranked results
-        """
-        # For now, just sort by confidence score
-        # In a more sophisticated implementation, we could:
-        # - Apply machine learning re-ranking models
-        # - Consider temporal factors
-        # - Apply business logic specific to military applications
-        
-        return sorted(results, key=lambda r: r.confidence, reverse=True)
     
     def _build_where_clause(self, filters: Dict[str, Any]) -> Dict[str, Any]:
         """
@@ -470,6 +449,8 @@ class SimilaritySearcher:
         
         if not np.isfinite(query_embedding).all():
             raise ValueError("Query embedding contains non-finite values")
+        
+        print(f"Query embedding validated: shape={query_embedding.shape}, dtype={query_embedding.dtype}")
         
         # Check if embedding is normalized (for cosine similarity)
         if self.config.distance_metric == "cosine":

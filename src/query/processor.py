@@ -234,11 +234,13 @@ class QueryProcessor:
             # Step 3: Perform similarity search
             search_start = time.time()
             similarity_results = self._perform_similarity_search(query_embedding, options)
+            print(f"   📊 Similarity search completed by processor: {len(similarity_results)} results found")
             search_time = time.time() - search_start
             
             # Step 4: Rank and filter results
             final_results = self._rank_and_filter_results(similarity_results, options, query_embedding_vector=query_embedding)
-            
+
+            print(f"   📊 Final results after ranking and filtering in Processor: {len(final_results)} items found")
             # Calculate total processing time
             total_time = time.time() - start_time
             
@@ -348,8 +350,21 @@ class QueryProcessor:
                     else:
                         logger.warning("Image may not meet IR format requirements - proceeding anyway")
             
-                # Apply IR-specific preprocessing
-                processed_image = self.image_processor.preprocess_ir_image(image_array)
+                # Apply IR-specific preprocessing with fallback
+                try:
+                    processed_image = self.image_processor.preprocess_ir_image(image_array)
+                except Exception as e:
+                    logger.warning(f"IR preprocessing failed: {e}. Using simplified preprocessing")
+                    # Fallback to simple preprocessing compatible with population method
+                    from PIL import Image as PILImage
+                    if len(image_array.shape) == 3:
+                        pil_img = PILImage.fromarray(image_array.astype(np.uint8))
+                        pil_img = pil_img.resize((224, 224))
+                        processed_image = np.array(pil_img)
+                    else:
+                        pil_img = PILImage.fromarray((image_array * 255).astype(np.uint8))
+                        pil_img = pil_img.resize((224, 224))
+                        processed_image = np.array(pil_img, dtype=np.float32) / 255.0
             else:
                 # Basic preprocessing if image processor not available
                 processed_image = image_array
@@ -426,6 +441,7 @@ class QueryProcessor:
                     query_embedding=query_embedding,
                     k=k
                 )
+                print(f"   📊 Similarity search completed by searcher: {search_result}")
                 # Handle tuple return (results, metrics)
                 if isinstance(search_result, tuple):
                     results, metrics = search_result
@@ -434,7 +450,7 @@ class QueryProcessor:
             else:
                 raise QueryProcessingError("Similarity searcher not initialized")
             
-            logger.debug(f"Similarity search returned {len(results)} results")
+            print(f"Similarity search returned {len(results)} results")
             return results
             
         except Exception as e:

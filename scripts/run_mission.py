@@ -367,7 +367,9 @@ Examples:
                 'strict_validation': strict_validation
             }
         )
-        
+
+        print(f"   📊 Query results: {result}")
+
         total_time = time.time() - start_time
         
         if not args.quiet:

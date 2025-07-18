@@ -75,31 +75,31 @@
     - Create validation pipeline with 95% accuracy target
     - _Requirements: 3.3, 3.4, 7.3_
 
-- [ ] 6. Implement embedding extraction service
+- [x] 6. Implement embedding extraction service
 
-  - [ ] 6.1 Create embedding extractor implementation
+  - [x] 6.1 Create embedding extractor implementation
 
     - Implement EmbeddingExtractor class with batch processing
     - Add model inference optimization for IR images
     - Create embedding validation and quality assessment
     - _Requirements: 1.1, 1.2, 3.2, 5.1_
 
-  - [ ] 6.2 Optimize embedding extraction performance
+  - [x] 6.2 Optimize embedding extraction performance
     - Implement GPU acceleration with CPU fallback
     - Add batch processing for multiple images
     - Create embedding caching mechanism for efficiency
     - _Requirements: 5.1, 5.3_
 
-- [-] 7. Implement vector database integration
+- [x] 7. Implement vector database integration
 
-  - [ ] 7.1 Set up local vector database (Chroma)
+  - [x] 7.1 Set up local vector database (Chroma)
 
     - Install and configure Chroma for local deployment
     - Implement VectorStore class with CRUD operations
     - Create database initialization and migration scripts
     - _Requirements: 4.1, 4.2, 4.3_
 
-  - [ ] 7.2 Implement indexing and similarity search
+  - [x] 7.2 Implement indexing and similarity search
     - Create IndexManager for HNSW index optimization
     - Implement SimilaritySearcher with cosine similarity
     - Add support for exact and approximate search modes
