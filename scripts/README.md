@@ -22,7 +22,7 @@ python scripts/fix_similarity_confidence.py --database data/chroma_db_final --ap
 
 ```bash
 python scripts/quick_improvements.py \
-    --database data/chroma_db_final \
+    --database data/vector_db \
     --model checkpoints/your_model.pth \
     --test-image examples/test_image.png
 ```

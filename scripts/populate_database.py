@@ -70,16 +70,19 @@ class DatabasePopulator:
             for img_file in class_dir.iterdir():
                 if img_file.suffix.lower() in ['.png', '.jpg', '.jpeg']:
                     class_images.append((str(img_file), class_name))
-                    if len(class_images) >= max_per_class:
+                    # Only break if we're limiting per class and have reached the limit
+                    if max_per_class > 0 and len(class_images) >= max_per_class:
                         break
             
             image_files.extend(class_images)
             logger.info(f"📁 Classe '{class_name}': {len(class_images)} immagini")
             
-            if len(image_files) >= max_total:
+            # Only break if we're limiting total and have reached the limit
+            if max_total > 0 and len(image_files) >= max_total:
                 break
         
-        return image_files[:max_total]
+        # Only limit if max_total is positive
+        return image_files if max_total <= 0 else image_files[:max_total]
     
     def populate_database(self, processed_dir: str, max_per_class: int = 5, 
                          max_total: int = 50, dry_run: bool = False):
@@ -219,14 +222,20 @@ def main():
         "--max-per-class",
         type=int,
         default=5,
-        help="Massimo numero di immagini per classe (default: 5)"
+        help="Massimo numero di immagini per classe (default: 5, 0 per tutte)"
     )
     
     parser.add_argument(
         "--max-total",
         type=int,
         default=50,
-        help="Massimo numero totale di immagini (default: 50)"
+        help="Massimo numero totale di immagini (default: 50, 0 per tutte)"
+    )
+    
+    parser.add_argument(
+        "--all-images",
+        action="store_true",
+        help="Processa tutte le immagini (equivalente a --max-per-class 0 --max-total 0)"
     )
     
     parser.add_argument(
@@ -253,10 +262,14 @@ def main():
         if args.verify_only:
             populator.verify_database()
         else:
+            # If all-images flag is set, use 0 for both limits to process all images
+            max_per_class = 0 if args.all_images else args.max_per_class
+            max_total = 0 if args.all_images else args.max_total
+            
             populator.populate_database(
                 processed_dir=args.processed_dir,
-                max_per_class=args.max_per_class,
-                max_total=args.max_total,
+                max_per_class=max_per_class,
+                max_total=max_total,
                 dry_run=args.dry_run
             )
         
