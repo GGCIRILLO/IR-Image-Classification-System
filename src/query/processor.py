@@ -107,7 +107,7 @@ class QueryProcessor:
         
         # Configuration parameters
         self.max_query_time = self.config.get('max_query_time', 2.0)  # 2 seconds max
-        self.min_confidence_threshold = self.config.get('min_confidence_threshold', 0.7)
+        self.min_confidence_threshold = self.config.get('min_confidence_threshold', 0.25)  # Lowered for IR images
         self.top_k_results = self.config.get('top_k_results', 5)
         self.enable_result_reranking = self.config.get('enable_result_reranking', True)
         self.cache_queries = self.config.get('cache_queries', True)

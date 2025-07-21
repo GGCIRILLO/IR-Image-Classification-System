@@ -274,6 +274,12 @@ class EmbeddingExtractor(BaseEmbeddingExtractor):
             # Extract embedding using model adapter
             embedding = self.model_adapter.extract_embedding(image)
             
+            # L2 normalize embedding for better cosine similarity (IR image enhancement)
+            norm = np.linalg.norm(embedding)
+            if norm > 0:
+                embedding = embedding / norm
+                logger.debug(f"Embedding normalized (original norm: {norm:.3f})")
+            
             # Validate embedding quality
             quality_score = self.validate_embedding_quality(embedding)
             if quality_score < self.config.quality_threshold:

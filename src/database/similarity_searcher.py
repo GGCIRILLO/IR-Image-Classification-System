@@ -30,7 +30,7 @@ class SearchConfig:
     mode: SearchMode = SearchMode.APPROXIMATE
     distance_metric: str = "cosine"  # cosine, euclidean, inner_product
     k: int = 5  # Number of results to return
-    confidence_threshold: float = 0.7  # Minimum confidence for results
+    confidence_threshold: float = 0.25  # Minimum confidence for results (lowered for IR images)
     max_search_time_ms: float = 2000.0  # Maximum search time in milliseconds
     enable_reranking: bool = True  # Enable result re-ranking
     cache_queries: bool = True  # Cache query results
@@ -341,13 +341,26 @@ class SimilaritySearcher:
         print(f"📊 Converting {len(ids)} ChromaDB results to SimilarityResult objects")
 
         for rank, (result_id, distance, metadata) in enumerate(zip(ids, distances, metadatas)):
-            # Compute similarity score
+            # Enhanced similarity score computation for IR images
             if self.config.distance_metric == "cosine":
-                similarity_score = max(0.0, 1.0 - distance)
+                # Better similarity calculation for IR images with proper scaling
+                if distance < 0.3:
+                    # Very close matches
+                    similarity_score = 0.95 - (distance * 0.5)
+                elif distance < 0.6:
+                    # Good matches
+                    similarity_score = 0.85 - (distance - 0.3) * 1.0
+                elif distance < 0.9:
+                    # Moderate matches - use linear scaling
+                    similarity_score = 0.55 - (distance - 0.6) * 0.8
+                else:
+                    # Distant matches - still provide some variation
+                    similarity_score = max(0.1, 0.25 - (distance - 0.9) * 0.5)
             elif self.config.distance_metric == "euclidean":
                 similarity_score = 1.0 / (1.0 + distance)
             else:
-                similarity_score = max(0.0, 1.0 - distance)  # default fallback
+                # Default fallback with better scaling
+                similarity_score = max(0.1, 1.0 - distance)
 
             # Compute confidence
             confidence = self._calculate_confidence(similarity_score, rank, len(ids))
@@ -421,6 +434,7 @@ class SimilaritySearcher:
     def _calculate_confidence(self, similarity_score: float, rank: int, total_results: int) -> float:
         """
         Calculate confidence score based on similarity and rank.
+        Enhanced for IR image classification with better scaling.
 
         Args:
             similarity_score: Similarity score (0-1)
@@ -430,20 +444,29 @@ class SimilaritySearcher:
         Returns:
             float: Confidence score (0-1)
         """
-        # Base confidence directly from similarity
-        base_confidence = similarity_score
+        # Enhanced base confidence calculation for IR images
+        if similarity_score > 0.7:
+            base_confidence = 0.9 + (similarity_score - 0.7) * 0.33  # Scale 0.7-1.0 to 0.9-1.0
+        elif similarity_score > 0.4:
+            base_confidence = 0.6 + (similarity_score - 0.4) * 1.0   # Scale 0.4-0.7 to 0.6-0.9
+        elif similarity_score > 0.2:
+            base_confidence = 0.3 + (similarity_score - 0.2) * 1.5   # Scale 0.2-0.4 to 0.3-0.6
+        else:
+            base_confidence = similarity_score * 1.5                 # Scale 0.0-0.2 to 0.0-0.3
 
-        # Penalize by rank position
+        # Reduced rank penalty for IR images (was 0.1, now 0.03)
         if total_results > 1:
-            rank_penalty = 0.1 * (rank / (total_results - 1))
+            rank_penalty = 0.03 * (rank / (total_results - 1))
         else:
             rank_penalty = 0.0
 
-        confidence = max(0.0, base_confidence - rank_penalty)
+        confidence = max(0.0, min(1.0, base_confidence - rank_penalty))
 
-        # Slight bonus for very high similarity
-        if similarity_score > 0.9:
+        # Bonus for top results with reasonable similarity
+        if rank == 0 and similarity_score > 0.3:
             confidence = min(1.0, confidence + 0.1)
+        elif similarity_score > 0.8:  # Lowered threshold from 0.9
+            confidence = min(1.0, confidence + 0.05)
 
         return confidence
     
