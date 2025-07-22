@@ -2,7 +2,7 @@
 torch>=2.0.0
 torchvision>=0.15.0
 transformers>=4.30.0
-numpy>=1.24.0
+numpy>=1.24.0,<2.0.0
 pillow>=9.5.0
 opencv-python>=4.7.0
 
@@ -11,6 +11,7 @@ chromadb>=0.4.0
 
 # Web Interface
 streamlit>=1.25.0
+plotly>=5.0.0
 
 # Data Processing
 pandas>=2.0.0
@@ -32,6 +33,7 @@ tqdm>=4.65.0
 pyyaml>=6.0
 python-dotenv>=1.0.0
 click>=8.1.0
+watchdog>=3.0.0
 
 # Optional GPU acceleration
 # Uncomment if CUDA is available

@@ -23,18 +23,21 @@ The system processes infrared imagery through fine-tuned neural networks (ResNet
 ### Setup
 
 1. Clone the repository:
+
 ```bash
 git clone <repository-url>
 cd ir-image-classification
 ```
 
 2. Create virtual environment:
+
 ```bash
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 ```
 
 3. Install dependencies:
+
 ```bash
 pip install -r requirements.txt
 # Or using pip with pyproject.toml
@@ -42,11 +45,13 @@ pip install -e .
 ```
 
 4. Install development dependencies:
+
 ```bash
 pip install -e ".[dev]"
 ```
 
 5. Set up pre-commit hooks:
+
 ```bash
 pre-commit install
 ```
@@ -82,8 +87,19 @@ python scripts/train_model.py --config config/training_config.yaml
 ### Running the Web Interface
 
 ```bash
-streamlit run src/ui/app.py
+# Install Streamlit dependencies
+pip install -r requirements_streamlit.txt
+
+# Run the Streamlit app
+streamlit run app.py
 ```
+
+The web interface allows you to:
+
+- Upload your own IR images or select from examples
+- Configure classification parameters
+- View results with confidence scores and object identification
+- Save results to JSON files
 
 ### Command Line Query
 
