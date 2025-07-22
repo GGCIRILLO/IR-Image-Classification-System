@@ -1,0 +1,57 @@
+{
+  "mission_id": "mission_20250722_132808",
+  "timestamp": "2025-07-22T13:28:09.248525",
+  "processing_time": 0.42243504524230957,
+  "model_version": "resnet50_ir_contrastive_best_epoch_11",
+  "query_image": "examples/camp.png",
+  "configuration": {
+    "strategy": "hybrid_score",
+    "confidence_strategy": "ensemble",
+    "confidence_threshold": 0.7,
+    "similarity_threshold": 0.5,
+    "max_results": 5
+  },
+  "results": [
+    {
+      "rank": 1,
+      "image_id": "Camp_camp (5)_orig",
+      "object_class": "Camp camp (5) orig",
+      "similarity_score": 0.949998927116394,
+      "confidence": 0.770363803831676,
+      "confidence_level": "medium"
+    },
+    {
+      "rank": 2,
+      "image_id": "Camp_camp (9)_aug_4",
+      "object_class": "Camp camp (9) aug",
+      "similarity_score": 0.9499964535236358,
+      "confidence": 0.7163623291775242,
+      "confidence_level": "medium"
+    },
+    {
+      "rank": 3,
+      "image_id": "Camp_camp (1)_aug_1",
+      "object_class": "Camp camp (1) aug",
+      "similarity_score": 0.9499953210353851,
+      "confidence": 0.7163619598042362,
+      "confidence_level": "medium"
+    },
+    {
+      "rank": 4,
+      "image_id": "Camp_camp (4)_aug_2",
+      "object_class": "Camp camp (4) aug",
+      "similarity_score": 0.9499951422214508,
+      "confidence": 0.716361901482009,
+      "confidence_level": "medium"
+    },
+    {
+      "rank": 5,
+      "image_id": "Camp_camp (1)_orig",
+      "object_class": "Camp camp (1) orig",
+      "similarity_score": 0.9499949932098388,
+      "confidence": 0.716361852880126,
+      "confidence_level": "medium"
+    }
+  ],
+  "classification": "UNCLASSIFIED"
+}

@@ -1,0 +1,57 @@
+{
+  "mission_id": "mission_20250722_130429",
+  "timestamp": "2025-07-22T13:04:30.035809",
+  "processing_time": 0.13637995719909668,
+  "model_version": "resnet50_ir_contrastive_best_epoch_11",
+  "query_image": "examples/missile_1.png",
+  "configuration": {
+    "strategy": "hybrid_score",
+    "confidence_strategy": "ensemble",
+    "confidence_threshold": 0.7,
+    "similarity_threshold": 0.5,
+    "max_results": 5
+  },
+  "results": [
+    {
+      "rank": 1,
+      "image_id": "BGM-109 Tomahawk Cruise_BGM-109_Tomahawk_Cruise (7)_orig",
+      "object_class": "BGM-109 Tomahawk Cruise BGM-109 Tomahawk Cruise (7) orig",
+      "similarity_score": 0.9500000596046447,
+      "confidence": 0.7703646157647316,
+      "confidence_level": "medium"
+    },
+    {
+      "rank": 2,
+      "image_id": "BGM-109 Tomahawk Cruise_BGM-109_Tomahawk_Cruise (2)_orig",
+      "object_class": "BGM-109 Tomahawk Cruise BGM-109 Tomahawk Cruise (2) orig",
+      "similarity_score": 0.9499952316284179,
+      "confidence": 0.7163617375248412,
+      "confidence_level": "medium"
+    },
+    {
+      "rank": 3,
+      "image_id": "BGM-109 Tomahawk Cruise_BGM-109_Tomahawk_Cruise (8)_aug_0",
+      "object_class": "BGM-109 Tomahawk Cruise BGM-109 Tomahawk Cruise (8) aug",
+      "similarity_score": 0.9499950230121612,
+      "confidence": 0.7163616694822611,
+      "confidence_level": "medium"
+    },
+    {
+      "rank": 4,
+      "image_id": "BGM-109 Tomahawk Cruise_BGM-109_Tomahawk_Cruise (11)_aug_6",
+      "object_class": "BGM-109 Tomahawk Cruise BGM-109 Tomahawk Cruise (11) aug",
+      "similarity_score": 0.9499946057796478,
+      "confidence": 0.7163615333969571,
+      "confidence_level": "medium"
+    },
+    {
+      "rank": 5,
+      "image_id": "BGM-109 Tomahawk Cruise_BGM-109_Tomahawk_Cruise (11)_aug_0",
+      "object_class": "BGM-109 Tomahawk Cruise BGM-109 Tomahawk Cruise (11) aug",
+      "similarity_score": 0.9499943375587463,
+      "confidence": 0.7163614459134459,
+      "confidence_level": "medium"
+    }
+  ],
+  "classification": "UNCLASSIFIED"
+}

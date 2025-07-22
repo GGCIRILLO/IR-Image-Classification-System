@@ -1,0 +1,57 @@
+{
+  "mission_id": "mission_20250722_133021",
+  "timestamp": "2025-07-22T13:30:22.666275",
+  "processing_time": 0.3963298797607422,
+  "model_version": "resnet50_ir_contrastive_best_epoch_11",
+  "query_image": "examples/scud_tel.png",
+  "configuration": {
+    "strategy": "hybrid_score",
+    "confidence_strategy": "ensemble",
+    "confidence_threshold": 0.7,
+    "similarity_threshold": 0.5,
+    "max_results": 5
+  },
+  "results": [
+    {
+      "rank": 1,
+      "image_id": "Scud Tel_scud tel (15)_orig",
+      "object_class": "Scud Tel scud tel (15) orig",
+      "similarity_score": 0.9499996721744537,
+      "confidence": 0.7703640002517366,
+      "confidence_level": "medium"
+    },
+    {
+      "rank": 2,
+      "image_id": "Fuel Truck_fuel truck (14)_orig",
+      "object_class": "Fuel Truck fuel truck (14) orig",
+      "similarity_score": 0.9499969005584716,
+      "confidence": 0.7163623479306014,
+      "confidence_level": "medium"
+    },
+    {
+      "rank": 3,
+      "image_id": "Fuel Truck_fuel truck (25)_orig",
+      "object_class": "Fuel Truck fuel truck (25) orig",
+      "similarity_score": 0.9499961256980896,
+      "confidence": 0.7163620952021478,
+      "confidence_level": "medium"
+    },
+    {
+      "rank": 4,
+      "image_id": "M35-A Truck_m35a truck (14)_orig",
+      "object_class": "M35-A Truck m35a truck (14) orig",
+      "similarity_score": 0.9499959468841552,
+      "confidence": 0.7163620368801031,
+      "confidence_level": "medium"
+    },
+    {
+      "rank": 5,
+      "image_id": "BTR-80 APC_btr80 apc (5)_orig",
+      "object_class": "BTR-80 APC btr80 apc (5) orig",
+      "similarity_score": 0.949995470046997,
+      "confidence": 0.716361881354478,
+      "confidence_level": "medium"
+    }
+  ],
+  "classification": "UNCLASSIFIED"
+}

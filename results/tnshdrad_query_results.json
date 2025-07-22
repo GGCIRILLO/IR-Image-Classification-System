@@ -1,0 +1,57 @@
+{
+  "mission_id": "mission_20250722_131433",
+  "timestamp": "2025-07-22T13:14:34.559259",
+  "processing_time": 0.3742232322692871,
+  "model_version": "resnet50_ir_contrastive_best_epoch_11",
+  "query_image": "examples/tnshdrad.png",
+  "configuration": {
+    "strategy": "hybrid_score",
+    "confidence_strategy": "ensemble",
+    "confidence_threshold": 0.7,
+    "similarity_threshold": 0.5,
+    "max_results": 5
+  },
+  "results": [
+    {
+      "rank": 1,
+      "image_id": "Tnshdrad_tnshdrad (1)_orig",
+      "object_class": "Tnshdrad tnshdrad (1) orig",
+      "similarity_score": 0.9499999701976776,
+      "confidence": 0.7703637569545075,
+      "confidence_level": "medium"
+    },
+    {
+      "rank": 2,
+      "image_id": "Patriot Missile Truck_patriot missile truck (15)_aug_3",
+      "object_class": "Patriot Missile Truck patriot missile truck (15) aug",
+      "similarity_score": 0.9499982714653015,
+      "confidence": 0.7163627442432072,
+      "confidence_level": "medium"
+    },
+    {
+      "rank": 3,
+      "image_id": "Patriot Missile Truck_patriot missile truck (18)_aug_0",
+      "object_class": "Patriot Missile Truck patriot missile truck (18) aug",
+      "similarity_score": 0.9499975860118866,
+      "confidence": 0.7163625206768354,
+      "confidence_level": "medium"
+    },
+    {
+      "rank": 4,
+      "image_id": "Patriot Radar_patriot radar (36)_orig",
+      "object_class": "Patriot Radar patriot radar (36) orig",
+      "similarity_score": 0.9499974071979522,
+      "confidence": 0.716362462355088,
+      "confidence_level": "medium"
+    },
+    {
+      "rank": 5,
+      "image_id": "Patriot Missile Truck_patriot missile truck (36)_aug_1",
+      "object_class": "Patriot Missile Truck patriot missile truck (36) aug",
+      "similarity_score": 0.9499966323375701,
+      "confidence": 0.7163622096271087,
+      "confidence_level": "medium"
+    }
+  ],
+  "classification": "UNCLASSIFIED"
+}

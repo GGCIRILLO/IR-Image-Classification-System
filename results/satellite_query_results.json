@@ -1,0 +1,57 @@
+{
+  "mission_id": "mission_20250722_131619",
+  "timestamp": "2025-07-22T13:16:20.939325",
+  "processing_time": 0.3426699638366699,
+  "model_version": "resnet50_ir_contrastive_best_epoch_11",
+  "query_image": "examples/satellite.png",
+  "configuration": {
+    "strategy": "hybrid_score",
+    "confidence_strategy": "ensemble",
+    "confidence_threshold": 0.7,
+    "similarity_threshold": 0.5,
+    "max_results": 5
+  },
+  "results": [
+    {
+      "rank": 1,
+      "image_id": "Satellite Ground Station_satellite ground station (12)_orig",
+      "object_class": "Satellite Ground Station satellite ground station (12) orig",
+      "similarity_score": 0.9499997317790985,
+      "confidence": 0.7703636313365422,
+      "confidence_level": "medium"
+    },
+    {
+      "rank": 2,
+      "image_id": "Satellite Ground Station_satellite ground station (12)_aug_0",
+      "object_class": "Satellite Ground Station satellite ground station (12) aug",
+      "similarity_score": 0.9499983608722686,
+      "confidence": 0.7163628140605846,
+      "confidence_level": "medium"
+    },
+    {
+      "rank": 3,
+      "image_id": "Satellite Ground Station_satellite ground station (28)_aug_0",
+      "object_class": "Satellite Ground Station satellite ground station (28) aug",
+      "similarity_score": 0.949994546175003,
+      "confidence": 0.7163615698587577,
+      "confidence_level": "medium"
+    },
+    {
+      "rank": 4,
+      "image_id": "Satellite Ground Station_satellite ground station (12)_aug_1",
+      "object_class": "Satellite Ground Station satellite ground station (12) aug",
+      "similarity_score": 0.9499944865703582,
+      "confidence": 0.7163615504179767,
+      "confidence_level": "medium"
+    },
+    {
+      "rank": 5,
+      "image_id": "Satellite Ground Station_satellite ground station (26)_orig",
+      "object_class": "Satellite Ground Station satellite ground station (26) orig",
+      "similarity_score": 0.9499931156635284,
+      "confidence": 0.7163611032789369,
+      "confidence_level": "medium"
+    }
+  ],
+  "classification": "UNCLASSIFIED"
+}

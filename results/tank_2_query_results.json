@@ -1,0 +1,57 @@
+{
+  "mission_id": "mission_20250722_132237",
+  "timestamp": "2025-07-22T13:22:38.320775",
+  "processing_time": 0.1413712501525879,
+  "model_version": "resnet50_ir_contrastive_best_epoch_11",
+  "query_image": "examples/tank_2.png",
+  "configuration": {
+    "strategy": "hybrid_score",
+    "confidence_strategy": "ensemble",
+    "confidence_threshold": 0.7,
+    "similarity_threshold": 0.5,
+    "max_results": 5
+  },
+  "results": [
+    {
+      "rank": 1,
+      "image_id": "T80 Tank_t80 tank (2)_orig",
+      "object_class": "T80 Tank t80 tank (2) orig",
+      "similarity_score": 0.9499994337558746,
+      "confidence": 0.7703637056545248,
+      "confidence_level": "medium"
+    },
+    {
+      "rank": 2,
+      "image_id": "T54 Tank_t54 tank (11)_orig",
+      "object_class": "T54 Tank t54 tank (11) orig",
+      "similarity_score": 0.9499976158142089,
+      "confidence": 0.7163626218743953,
+      "confidence_level": "medium"
+    },
+    {
+      "rank": 3,
+      "image_id": "M-109A3 Self Propelled Gun_m109a3 self propelled gun (1)_orig",
+      "object_class": "M-109A3 Self Propelled Gun m109a3 self propelled gun (1) orig",
+      "similarity_score": 0.9499974370002746,
+      "confidence": 0.7163625635526366,
+      "confidence_level": "medium"
+    },
+    {
+      "rank": 4,
+      "image_id": "T72 Tank_t72 tank (22)_orig",
+      "object_class": "T72 Tank t72 tank (22) orig",
+      "similarity_score": 0.9499963343143463,
+      "confidence": 0.7163622039010122,
+      "confidence_level": "medium"
+    },
+    {
+      "rank": 5,
+      "image_id": "T64 Tank_t64 tank (2)_orig",
+      "object_class": "T64 Tank t64 tank (2) orig",
+      "similarity_score": 0.9499960958957672,
+      "confidence": 0.7163621261383226,
+      "confidence_level": "medium"
+    }
+  ],
+  "classification": "UNCLASSIFIED"
+}

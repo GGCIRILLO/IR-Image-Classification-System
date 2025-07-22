@@ -1,0 +1,57 @@
+{
+  "mission_id": "mission_20250722_131900",
+  "timestamp": "2025-07-22T13:19:01.503640",
+  "processing_time": 0.44413208961486816,
+  "model_version": "resnet50_ir_contrastive_best_epoch_11",
+  "query_image": "examples/sa6.png",
+  "configuration": {
+    "strategy": "hybrid_score",
+    "confidence_strategy": "ensemble",
+    "confidence_threshold": 0.7,
+    "similarity_threshold": 0.5,
+    "max_results": 5
+  },
+  "results": [
+    {
+      "rank": 1,
+      "image_id": "SA-6 Air Defense System_sa6 air defense system (1)_orig",
+      "object_class": "SA-6 Air Defense System sa6 air defense system (1) orig",
+      "similarity_score": 0.9499996125698089,
+      "confidence": 0.7703639587889476,
+      "confidence_level": "medium"
+    },
+    {
+      "rank": 2,
+      "image_id": "SA-6 Air Defense System_sa6 air defense system (14)_aug_5",
+      "object_class": "SA-6 Air Defense System sa6 air defense system (14) aug",
+      "similarity_score": 0.9499969601631164,
+      "confidence": 0.7163623775353598,
+      "confidence_level": "medium"
+    },
+    {
+      "rank": 3,
+      "image_id": "T72 Tank_t72 tank (22)_orig",
+      "object_class": "T72 Tank t72 tank (22) orig",
+      "similarity_score": 0.9499964237213134,
+      "confidence": 0.7163622025696074,
+      "confidence_level": "medium"
+    },
+    {
+      "rank": 4,
+      "image_id": "SA-6 Air Defense System_sa6 air defense system (15)_aug_2",
+      "object_class": "SA-6 Air Defense System sa6 air defense system (15) aug",
+      "similarity_score": 0.9499961853027343,
+      "confidence": 0.716362124806949,
+      "confidence_level": "medium"
+    },
+    {
+      "rank": 5,
+      "image_id": "T64 Tank_t64 tank (2)_orig",
+      "object_class": "T64 Tank t64 tank (2) orig",
+      "similarity_score": 0.9499960064888,
+      "confidence": 0.716362066484914,
+      "confidence_level": "medium"
+    }
+  ],
+  "classification": "UNCLASSIFIED"
+}

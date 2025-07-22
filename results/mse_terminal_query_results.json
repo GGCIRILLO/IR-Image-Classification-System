@@ -1,0 +1,57 @@
+{
+  "mission_id": "mission_20250722_131051",
+  "timestamp": "2025-07-22T13:10:52.068195",
+  "processing_time": 0.4313969612121582,
+  "model_version": "resnet50_ir_contrastive_best_epoch_11",
+  "query_image": "examples/mse_terminal.png",
+  "configuration": {
+    "strategy": "hybrid_score",
+    "confidence_strategy": "ensemble",
+    "confidence_threshold": 0.7,
+    "similarity_threshold": 0.5,
+    "max_results": 5
+  },
+  "results": [
+    {
+      "rank": 1,
+      "image_id": "MSE Terminal_mse terminal (5)_orig",
+      "object_class": "MSE Terminal mse terminal (5) orig",
+      "similarity_score": 0.9499999403953552,
+      "confidence": 0.7703641144145945,
+      "confidence_level": "medium"
+    },
+    {
+      "rank": 2,
+      "image_id": "MSE Terminal_mse terminal (4)_aug_5",
+      "object_class": "MSE Terminal mse terminal (4) aug",
+      "similarity_score": 0.9499969005584716,
+      "confidence": 0.7163623021920097,
+      "confidence_level": "medium"
+    },
+    {
+      "rank": 3,
+      "image_id": "Semi Tractor_semi tractor (17)_aug_4",
+      "object_class": "Semi Tractor semi tractor (17) aug",
+      "similarity_score": 0.9499969005584716,
+      "confidence": 0.7163623021920097,
+      "confidence_level": "medium"
+    },
+    {
+      "rank": 4,
+      "image_id": "T54 Tank_t54 tank (22)_aug_2",
+      "object_class": "T54 Tank t54 tank (22) aug",
+      "similarity_score": 0.9499966919422149,
+      "confidence": 0.7163622341498089,
+      "confidence_level": "medium"
+    },
+    {
+      "rank": 5,
+      "image_id": "T54 Tank_t54 tank (26)_orig",
+      "object_class": "T54 Tank t54 tank (26) orig",
+      "similarity_score": 0.9499957382678985,
+      "confidence": 0.7163619230991374,
+      "confidence_level": "medium"
+    }
+  ],
+  "classification": "UNCLASSIFIED"
+}

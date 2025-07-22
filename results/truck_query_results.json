@@ -1,0 +1,57 @@
+{
+  "mission_id": "mission_20250722_131244",
+  "timestamp": "2025-07-22T13:12:45.750604",
+  "processing_time": 0.5217249393463135,
+  "model_version": "resnet50_ir_contrastive_best_epoch_11",
+  "query_image": "examples/truck.png",
+  "configuration": {
+    "strategy": "hybrid_score",
+    "confidence_strategy": "ensemble",
+    "confidence_threshold": 0.7,
+    "similarity_threshold": 0.5,
+    "max_results": 5
+  },
+  "results": [
+    {
+      "rank": 1,
+      "image_id": "M35-A Truck_m35a truck (1)_orig",
+      "object_class": "M35-A Truck m35a truck (1) orig",
+      "similarity_score": 0.95,
+      "confidence": 0.77036418806387,
+      "confidence_level": "medium"
+    },
+    {
+      "rank": 2,
+      "image_id": "SA-8 Air Defense System_sa8 air defense system (5)_aug_5",
+      "object_class": "SA-8 Air Defense System sa8 air defense system (5) aug",
+      "similarity_score": 0.9499967217445373,
+      "confidence": 0.7163622337060004,
+      "confidence_level": "medium"
+    },
+    {
+      "rank": 3,
+      "image_id": "THAAD Launcher_thaad launcher (11)_orig",
+      "object_class": "THAAD Launcher thaad launcher (11) orig",
+      "similarity_score": 0.9499961853027343,
+      "confidence": 0.7163620587401441,
+      "confidence_level": "medium"
+    },
+    {
+      "rank": 4,
+      "image_id": "BRDM AVR_brdm avr (1)_aug_6",
+      "object_class": "BRDM AVR brdm avr (1) aug",
+      "similarity_score": 0.9499959170818328,
+      "confidence": 0.7163619712570972,
+      "confidence_level": "medium"
+    },
+    {
+      "rank": 5,
+      "image_id": "SA-10 Air Defense System_sa10 air defense system (1)_orig",
+      "object_class": "SA-10 Air Defense System sa10 air defense system (1) orig",
+      "similarity_score": 0.9499958276748657,
+      "confidence": 0.7163619420960639,
+      "confidence_level": "medium"
+    }
+  ],
+  "classification": "UNCLASSIFIED"
+}

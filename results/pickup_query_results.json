@@ -1,0 +1,57 @@
+{
+  "mission_id": "mission_20250722_132349",
+  "timestamp": "2025-07-22T13:23:50.838850",
+  "processing_time": 0.5293440818786621,
+  "model_version": "resnet50_ir_contrastive_best_epoch_11",
+  "query_image": "examples/pickup.png",
+  "configuration": {
+    "strategy": "hybrid_score",
+    "confidence_strategy": "ensemble",
+    "confidence_threshold": 0.7,
+    "similarity_threshold": 0.5,
+    "max_results": 5
+  },
+  "results": [
+    {
+      "rank": 1,
+      "image_id": "PickUp_pickup (5)_orig",
+      "object_class": "PickUp pickup (5) orig",
+      "similarity_score": 0.9499999105930328,
+      "confidence": 0.7703638281445169,
+      "confidence_level": "medium"
+    },
+    {
+      "rank": 2,
+      "image_id": "SA-8 Air Defense System_sa8 air defense system (4)_orig",
+      "object_class": "SA-8 Air Defense System sa8 air defense system (4) orig",
+      "similarity_score": 0.9499979138374328,
+      "confidence": 0.7163626377640868,
+      "confidence_level": "medium"
+    },
+    {
+      "rank": 3,
+      "image_id": "PickUp_pickup (3)_aug_4",
+      "object_class": "PickUp pickup (3) aug",
+      "similarity_score": 0.9499959468841552,
+      "confidence": 0.7163619962236168,
+      "confidence_level": "medium"
+    },
+    {
+      "rank": 4,
+      "image_id": "M2 Bradley Apc Tank_m2 bradley apc tank (4)_aug_4",
+      "object_class": "M2 Bradley Apc Tank m2 bradley apc tank (4) aug",
+      "similarity_score": 0.9499938905239105,
+      "confidence": 0.7163613255176563,
+      "confidence_level": "medium"
+    },
+    {
+      "rank": 5,
+      "image_id": "SA-8 Air Defense System_sa8 air defense system (4)_aug_4",
+      "object_class": "SA-8 Air Defense System sa8 air defense system (4) aug",
+      "similarity_score": 0.9499929964542388,
+      "confidence": 0.7163610339049152,
+      "confidence_level": "medium"
+    }
+  ],
+  "classification": "UNCLASSIFIED"
+}
