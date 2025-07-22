@@ -543,6 +543,7 @@ Examples:
             'timestamp': result.timestamp.isoformat(),
             'processing_time': result.processing_time,
             'model_version': result.model_version,
+            'query_image': args.image,
             'configuration': {
                 'strategy': args.strategy,
                 'confidence_strategy': args.confidence_strategy,

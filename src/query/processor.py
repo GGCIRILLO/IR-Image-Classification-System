@@ -5,7 +5,7 @@ This module provides the QueryProcessor class that handles end-to-end query
 processing from image input to similarity search results. Includes query
 validation, preprocessing, embedding extraction, and result ranking.
 """
-
+import os
 import hashlib
 import logging
 import time
@@ -572,6 +572,23 @@ class QueryProcessor:
         """Get current model version information."""
         if self.embedding_extractor and hasattr(self.embedding_extractor, 'get_model_info'):
             model_info = self.embedding_extractor.get_model_info()
+            
+            # Try to construct a meaningful version string from available info
+            model_name = model_info.get('model_name', 'unknown')
+            model_path = model_info.get('model_path', '')
+            
+            # If we have a custom model path, extract version info from it
+            if model_path and model_path != "pretrained_default":
+                # Extract filename from path
+                filename = os.path.basename(model_path)
+                # Remove extension
+                version_info = os.path.splitext(filename)[0]
+                return f"{model_name}_{version_info}"
+            
+            # Fallback to just model name if available
+            if model_name != 'unknown':
+                return model_name
+            
             return model_info.get('version', 'unknown')
         return 'unknown'
     

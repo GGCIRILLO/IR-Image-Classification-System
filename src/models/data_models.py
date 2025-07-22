@@ -296,7 +296,68 @@ class SimilarityResult:
         if obj_class:
             return obj_class
         
+        # Try fuzzy matching - extract the main object type from the class name
+        # Handle cases like "Jeep jeep (20) orig" -> "Jeep"
+        cleaned_class = self._extract_main_object_type(self.object_class)
+        if cleaned_class != self.object_class:
+            # Try again with cleaned name
+            obj_class = OBJECT_REGISTRY.get_class_by_folder(cleaned_class)
+            if obj_class:
+                return obj_class
+        
+        # Try partial matching against all folder names
+        for folder_name in OBJECT_REGISTRY.get_folder_names():
+            if folder_name.lower() in self.object_class.lower() or self.object_class.lower() in folder_name.lower():
+                return OBJECT_REGISTRY.get_class_by_folder(folder_name)
+        
         return None
+    
+    def _extract_main_object_type(self, object_class: str) -> str:
+        """
+        Extract the main object type from a complex object class name.
+        
+        Examples:
+            "Jeep jeep (20) orig" -> "Jeep"
+            "M-981 Mobile Air Defense m981 mobile air defense (30) orig" -> "M-981 Mobile Air Defense"
+            "BMP-2 APC Tank bmp2 apc tank (11) orig" -> "BMP-2 APC Tank"
+        
+        Args:
+            object_class: Original object class string
+            
+        Returns:
+            str: Cleaned object class name
+        """
+        # Remove common suffixes
+        cleaned = object_class
+        
+        # Remove " orig" and " aug" suffixes
+        for suffix in [" orig", " aug"]:
+            if cleaned.endswith(suffix):
+                cleaned = cleaned[:-len(suffix)]
+        
+        # Remove parenthetical numbers like " (20)"
+        import re
+        cleaned = re.sub(r'\s*\(\d+\)', '', cleaned)
+        
+        # Split by spaces and look for the pattern where the first part is repeated
+        words = cleaned.split()
+        if len(words) > 1:
+            # Find where the repetition starts
+            first_part = []
+            seen_words = set()
+            
+            for word in words:
+                word_lower = word.lower()
+                # If we've seen this word before (case-insensitive), we've hit the repetition
+                if word_lower in seen_words:
+                    break
+                seen_words.add(word_lower)
+                first_part.append(word)
+            
+            if first_part:
+                return ' '.join(first_part)
+        
+        return cleaned
     
     def get_object_category(self) -> Optional[ObjectCategory]:
         """
