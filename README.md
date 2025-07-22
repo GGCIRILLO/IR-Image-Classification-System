@@ -4,10 +4,10 @@ A high-precision, locally-deployed solution for military object identification u
 
 ## Features
 
-- **High Precision**: 95%+ accuracy on IR object classification
+- **High Precision**: 95% accuracy on IR object classification
 - **Fast Query**: Sub-2 second response times for similarity searches
 - **Local Deployment**: Uses local vector database for storage
-- **Scalable**: Handles datasets from 3k to 18k+ images through augmentation
+- **Scalable**: Handles datasets from 2k to 8k+ images through augmentation
 
 ## Architecture
 
@@ -87,9 +87,6 @@ python scripts/train_model.py --config config/training_config.yaml
 ### Running the Web Interface
 
 ```bash
-# Install Streamlit dependencies
-pip install -r requirements_streamlit.txt
-
 # Run the Streamlit app
 streamlit run app.py
 ```
@@ -136,17 +133,10 @@ flake8 src/ tests/
 mypy src/
 ```
 
-## Configuration
+## Documentation
 
-The system uses configuration files in the `config/` directory:
-
-- `settings.py`: Main configuration settings
-- Environment variables can override settings using `.env` file
+The directory `docs/` contains documentation for the IR Image Classification System.
 
 ## License
 
 MIT License
-
-## Contributing
-
-[Add contribution guidelines if applicable]

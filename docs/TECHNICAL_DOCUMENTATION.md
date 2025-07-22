@@ -95,8 +95,8 @@ The system is built on a multi-layered architecture:
 ├── data/                   # Data storage
 │   ├── processed/          # Processed IR images
 │   └── vector_db/          # Vector database storage
-├── examples/               # Example usage scripts
-├── results/                # Output results and reports
+├── examples/               # Example query images
+├── results/                # Output results
 ├── scripts/                # Utility and operational scripts
 ├── src/                    # Core source code
 │   ├── data/               # Data processing modules
@@ -371,29 +371,6 @@ The mission execution workflow (`scripts/run_mission.py`) provides a command-lin
    - Reports performance metrics
    - Identifies potential issues
 
-### Performance Improvement
-
-The system includes several scripts for improving performance without retraining models.
-
-#### Quick Improvements (`scripts/quick_improvements.py`)
-
-Provides immediate performance improvements through:
-
-- Enhanced embedding extraction with IR-specific normalization
-- Improved similarity score calculation for thermal images
-- Reduced confidence thresholds for better recall
-- Optimized search parameters
-
-#### Enhanced Fine-tuning (`scripts/enhanced_fine_tuning.py`)
-
-Offers comprehensive fine-tuning with:
-
-- Contrastive learning with hard negative mining
-- Advanced loss functions (Triplet + Center Loss)
-- IR-specific data augmentation
-- Confidence calibration
-- Automatic hyperparameter optimization
-
 ## Configuration
 
 The system uses a centralized configuration system (`config/settings.py`) with settings for:
@@ -473,28 +450,6 @@ The system includes a comprehensive set of scripts for various operations:
    - One-cycle learning rate scheduling
    - Advanced augmentation for IR images
 
-### Testing Scripts
-
-1. **test_query_processor.py**
-
-   - Tests query processor functionality
-   - Validates preprocessing and embedding extraction
-   - Checks similarity search accuracy
-   - Verifies result ranking
-
-2. **test_ranking_confidence.py**
-
-   - Tests ranking and confidence calculation
-   - Validates different ranking strategies
-   - Checks confidence calibration
-   - Verifies threshold application
-
-3. **test_military_pipeline.py**
-   - Tests military-specific features
-   - Validates threat assessment
-   - Checks classification levels
-   - Verifies military reporting formats
-
 ### Command Examples
 
 Below are detailed examples of how to use the main scripts with various command-line options:
@@ -504,13 +459,13 @@ Below are detailed examples of how to use the main scripts with various command-
 1. **Basic Object Identification**:
 
    ```bash
-   python scripts/run_mission.py --image examples/tank.png --database data/chroma_db_final
+   python scripts/run_mission.py --image examples/tank.png --database data/vector_db
    ```
 
 2. **Military Intelligence Operation**:
 
    ```bash
-   python scripts/run_mission.py --image surveillance_image.png --database data/chroma_db_final \
+   python scripts/run_mission.py --image surveillance_image.png --database data/vector_db \
      --preset military --strategy military_priority \
      --confidence-strategy military_calibrated --format military \
      --operator "Analyst_Alpha" --classification SECRET \
@@ -520,7 +475,7 @@ Below are detailed examples of how to use the main scripts with various command-
 3. **Development Testing with Debug Output**:
 
    ```bash
-   python scripts/run_mission.py --image test_image.png --database data/chroma_db_final \
+   python scripts/run_mission.py --image test_image.png --database data/vector_db \
      --preset development --debug --output test_results.json \
      --save-metadata
    ```
@@ -528,7 +483,7 @@ Below are detailed examples of how to use the main scripts with various command-
 4. **High-Precision Analysis**:
 
    ```bash
-   python scripts/run_mission.py --image critical_target.png --database data/chroma_db_final \
+   python scripts/run_mission.py --image critical_target.png --database data/vector_db \
      --confidence-threshold 0.9 --similarity-threshold 0.8 \
      --validation-mode strict --max-results 3 \
      --format detailed
@@ -536,7 +491,7 @@ Below are detailed examples of how to use the main scripts with various command-
 
 5. **Using Custom Model**:
    ```bash
-   python scripts/run_mission.py --image query.png --database data/chroma_db_final \
+   python scripts/run_mission.py --image query.png --database data/vector_db \
      --model checkpoints/fine_tuned_resnet50.pth \
      --collection custom_embeddings
    ```
@@ -546,7 +501,7 @@ Below are detailed examples of how to use the main scripts with various command-
 1. **Basic Database Population**:
 
    ```bash
-   python scripts/populate_database.py --database-path data/chroma_db_final \
+   python scripts/populate_database.py --database-path data/vector_db \
      --processed-dir data/processed
    ```
 
@@ -567,13 +522,13 @@ Below are detailed examples of how to use the main scripts with various command-
 4. **Verify Existing Database**:
 
    ```bash
-   python scripts/populate_database.py --database-path data/chroma_db_final \
+   python scripts/populate_database.py --database-path data/vector_db \
      --verify-only
    ```
 
 5. **Dry Run (No Database Changes)**:
    ```bash
-   python scripts/populate_database.py --database-path data/chroma_db_final \
+   python scripts/populate_database.py --database-path data/vector_db \
      --processed-dir data/processed --dry-run
    ```
 
@@ -582,14 +537,14 @@ Below are detailed examples of how to use the main scripts with various command-
 1. **Quick Improvements**:
 
    ```bash
-   python scripts/quick_improvements.py --database data/chroma_db_final \
+   python scripts/quick_improvements.py --database data/vector_db \
      --test-image examples/test_image.png
    ```
 
 2. **Apply All Similarity and Confidence Fixes**:
 
    ```bash
-   python scripts/fix_similarity_confidence.py --database data/chroma_db_final \
+   python scripts/fix_similarity_confidence.py --database data/vector_db \
      --apply-all --test-image examples/test_image.png
    ```
 
@@ -597,7 +552,7 @@ Below are detailed examples of how to use the main scripts with various command-
 
    ```bash
    python scripts/enhanced_fine_tuning.py --train-data data/processed \
-     --database data/chroma_db_final --model-type resnet50 \
+     --database data/vector_db --model-type resnet50 \
      --epochs 50 --batch-size 16
    ```
 
@@ -682,13 +637,13 @@ This section provides solutions to common issues encountered when working with t
 
      ```bash
      # Verify database exists
-     ls -la data/chroma_db_final
+     ls -la data/vector_db
 
      # Check database integrity
-     python scripts/populate_database.py --database-path data/chroma_db_final --verify-only
+     python scripts/populate_database.py --database-path data/vector_db --verify-only
 
      # Recreate database if needed
-     python scripts/populate_database.py --database-path data/chroma_db_final --processed-dir data/processed --all-images
+     python scripts/populate_database.py --database-path data/vector_db --processed-dir data/processed --all-images
      ```
 
 2. **Collection Not Found**
@@ -698,10 +653,10 @@ This section provides solutions to common issues encountered when working with t
 
      ```bash
      # Check available collections
-     python -c "import chromadb; client = chromadb.PersistentClient('data/chroma_db_final'); print(client.list_collections())"
+     python -c "import chromadb; client = chromadb.PersistentClient('data/vector_db'); print(client.list_collections())"
 
      # Use correct collection name in commands
-     python scripts/run_mission.py --image query.png --database data/chroma_db_final --collection correct_collection_name
+     python scripts/run_mission.py --image query.png --database data/vector_db --collection correct_collection_name
      ```
 
 ### Image Processing Issues
@@ -716,14 +671,14 @@ This section provides solutions to common issues encountered when working with t
      convert input_image.tiff output_image.png
 
      # Then run the mission
-     python scripts/run_mission.py --image output_image.png --database data/chroma_db_final
+     python scripts/run_mission.py --image output_image.png --database data/vector_db
      ```
 
 2. **IR Format Validation Failures**
    - **Symptom**: "Image does not meet IR format requirements" error
    - **Solution**: Use relaxed validation mode:
      ```bash
-     python scripts/run_mission.py --image query.png --database data/chroma_db_final --validation-mode relaxed
+     python scripts/run_mission.py --image query.png --database data/vector_db --validation-mode relaxed
      ```
 
 ### Performance Issues
@@ -735,10 +690,10 @@ This section provides solutions to common issues encountered when working with t
 
      ```bash
      # Enable GPU and optimize search
-     python scripts/run_mission.py --image query.png --database data/chroma_db_final --max-query-time 5.0
+     python scripts/run_mission.py --image query.png --database data/vector_db --max-query-time 5.0
 
      # Apply quick improvements
-     python scripts/quick_improvements.py --database data/chroma_db_final
+     python scripts/quick_improvements.py --database data/vector_db
      ```
 
 2. **Out of Memory Errors**
@@ -746,7 +701,7 @@ This section provides solutions to common issues encountered when working with t
    - **Solution**: Reduce batch size or disable GPU:
      ```bash
      # Disable GPU
-     python scripts/run_mission.py --image query.png --database data/chroma_db_final --disable-gpu
+     python scripts/run_mission.py --image query.png --database data/vector_db --disable-gpu
      ```
 
 ### Model Issues
@@ -761,7 +716,7 @@ This section provides solutions to common issues encountered when working with t
      ls -la checkpoints/your_model.pth
 
      # Run without specifying model (uses default)
-     python scripts/run_mission.py --image query.png --database data/chroma_db_final
+     python scripts/run_mission.py --image query.png --database data/vector_db
      ```
 
 2. **Low Confidence Results**
@@ -771,10 +726,10 @@ This section provides solutions to common issues encountered when working with t
 
      ```bash
      # Lower confidence threshold
-     python scripts/run_mission.py --image query.png --database data/chroma_db_final --confidence-threshold 0.3
+     python scripts/run_mission.py --image query.png --database data/vector_db --confidence-threshold 0.3
 
      # Apply confidence fixes
-     python scripts/fix_similarity_confidence.py --database data/chroma_db_final --apply-all
+     python scripts/fix_similarity_confidence.py --database data/vector_db --apply-all
      ```
 
 ## Advanced Usage
@@ -788,18 +743,25 @@ To integrate a custom-trained model with the system:
 1. **Train or fine-tune your model** using the provided scripts:
 
    ```bash
-   python scripts/enhanced_fine_tuning.py --train-data data/processed --epochs 100 --model-type resnet50
+   python scripts/enhanced_fine_tuning.py --train-data data/processed --epochs 100 --model-type resnet50 --batch-size 16
    ```
 
 2. **Save the model** to the checkpoints directory:
 
    ```bash
-   # Model will be saved automatically to checkpoints/fine_tuned_resnet50.pth
+   # Model will be saved automatically to checkpoints/fine_tuning
    ```
 
-3. **Use the custom model** in queries:
+3. **Use the custom model** for populating the database:
+
    ```bash
-   python scripts/run_mission.py --image query.png --database data/chroma_db_final --model checkpoints/fine_tuned_resnet50.pth
+   python scripts/populate_database.py --database-path data/vector_db \
+     --processed-dir data/processed --model-path path/to/your_model.pth
+   ```
+
+4. **Use the custom model** in queries:
+   ```bash
+   python scripts/run_mission.py --image query.png --database data/vector_db --model path/to/your_model.pth
    ```
 
 ### Database Management
@@ -829,112 +791,9 @@ For advanced database management:
 
    ```bash
    # Backup
-   cp -r data/chroma_db_final data/chroma_db_backup
+   cp -r data/vector_db data/chroma_db_backup
 
    # Restore
-   rm -rf data/chroma_db_final
-   cp -r data/chroma_db_backup data/chroma_db_final
-   ```
-
-### Batch Processing
-
-For processing multiple images in batch:
-
-1. **Create a batch file** with image paths:
-
-   ```bash
-   # Create batch file
-   echo "examples/image1.png" > batch_images.txt
-   echo "examples/image2.png" >> batch_images.txt
-   echo "examples/image3.png" >> batch_images.txt
-   ```
-
-2. **Process batch** using a loop:
-   ```bash
-   # Process all images in batch
-   cat batch_images.txt | while read img; do
-     python scripts/run_mission.py --image "$img" --database data/chroma_db_final --output "results/$(basename "$img").json"
-   done
-   ```
-
-### Performance Tuning
-
-For advanced performance tuning:
-
-1. **Profile the system**:
-
-   ```bash
-   # Run with profiling enabled
-   python -m cProfile -o profile.out scripts/run_mission.py --image query.png --database data/chroma_db_final
-
-   # Analyze profile
-   python -c "import pstats; p = pstats.Stats('profile.out'); p.sort_stats('cumulative').print_stats(30)"
-   ```
-
-2. **Optimize for specific hardware**:
-
-   ```bash
-   # For high-memory systems
-   python scripts/run_mission.py --image query.png --database data/chroma_db_final --max-results 20
-
-   # For GPU-accelerated systems
-   CUDA_VISIBLE_DEVICES=0 python scripts/run_mission.py --image query.png --database data/chroma_db_final
-   ```
-
-3. **Create optimized configuration**:
-
-   ```bash
-   # Edit configuration
-   nano config/optimized_settings.py
-
-   # Use custom configuration
-   python scripts/run_mission.py --image query.png --database data/chroma_db_final --config config/optimized_settings.py
-   ```
-
-### Integration with External Systems
-
-The IR Image Classification System can be integrated with external systems:
-
-1. **REST API Integration** (requires additional implementation):
-
-   ```python
-   # Example Flask API (conceptual)
-   from flask import Flask, request, jsonify
-   import subprocess
-   import json
-
-   app = Flask(__name__)
-
-   @app.route('/classify', methods=['POST'])
-   def classify_image():
-       # Save uploaded image
-       image_path = 'temp/uploaded_image.png'
-       request.files['image'].save(image_path)
-
-       # Run classification
-       result = subprocess.check_output([
-           'python', 'scripts/run_mission.py',
-           '--image', image_path,
-           '--database', 'data/chroma_db_final',
-           '--format', 'json'
-       ])
-
-       # Return results
-       return jsonify(json.loads(result))
-
-   if __name__ == '__main__':
-       app.run(host='0.0.0.0', port=5000)
-   ```
-
-2. **Scheduled Batch Processing**:
-
-   ```bash
-   # Create cron job for nightly processing
-   echo "0 2 * * * cd /path/to/project && python scripts/batch_process.py >> logs/batch.log 2>&1" | crontab -
-   ```
-
-3. **Integration with surveillance systems**:
-   ```bash
-   # Monitor directory for new images and process them
-   python scripts/monitor_directory.py --watch-dir /surveillance/incoming --database data/chroma_db_final
+   rm -rf data/vector_db
+   cp -r data/chroma_db_backup data/vector_db
    ```

@@ -43,11 +43,11 @@ Populates the vector database with embeddings extracted from processed IR images
 
 ```bash
 # Basic database population
-python scripts/populate_database.py --database-path data/chroma_db_final \
+python scripts/populate_database.py --database-path data/vector_db \
   --processed-dir data/processed
 
 # Limited sampling for testing
-python scripts/populate_database.py --database-path data/chroma_db_test \
+python scripts/populate_database.py --database-path data/vector_db_test \
   --processed-dir data/processed --max-per-class 3 --max-total 30
 ```
 
@@ -136,64 +136,18 @@ python scripts/train_improved_model.py --data-dir data/processed \
   --model-type resnet50 --epochs 100
 ```
 
-## Testing Scripts
+## Augmentation Scripts
 
-### `test_query_processor.py`
+### `augmentation.py`
 
-Tests the query processor functionality.
+Initializes a set of image augmentation transformations to enhance dataset variability during training.
+The augmentations applied include:
 
-**Usage:**
+- RandomRotation: Rotates the image by a random angle within ±25 degrees.
+- RandomAffine: Applies random affine transformations with up to 10% translation and scaling between 0.9 and 1.1.
+- RandomPerspective: Randomly distorts the perspective of the image with a distortion scale of 0.3 and a 50% chance of application.
+- RandomApply (GaussianBlur): Applies Gaussian blur with a kernel size of 3 to the image with a 50% probability.
+- RandomApply (RandomErasing): Randomly erases a rectangular region of the image with a 50% probability, where the erased area covers 2% to 20% of the image and has an aspect ratio between 0.3 and 3.3, filled with zeros.
+- RandomAdjustSharpness: Randomly adjusts the sharpness of the image by a factor of 2 with a 30% probability.
 
-```bash
-python scripts/test_query_processor.py
-```
-
-### `test_ranking_confidence.py`
-
-Tests ranking and confidence calculation components.
-
-**Usage:**
-
-```bash
-python scripts/test_ranking_confidence.py
-```
-
-### `test_military_pipeline.py`
-
-Tests military-specific features and workflows.
-
-**Usage:**
-
-```bash
-python scripts/test_military_pipeline.py
-```
-
-### `test_different_queries.py`
-
-Tests system performance with various query types.
-
-**Usage:**
-
-```bash
-python scripts/test_different_queries.py
-```
-
-### `test_improvements.py`
-
-Tests the effectiveness of performance improvements.
-
-**Usage:**
-
-```bash
-python scripts/test_improvements.py
-```
-
-### `diagnose_score_consistency.py`
-
-Diagnoses issues with similarity and confidence score consistency.
-
-**Usage:**
-
-```bash
-python scripts/diagnose_score_consistency.py --database data/chroma_db_final
-```
+These augmentations are composed sequentially to increase the diversity of training samples and improve model generalization.

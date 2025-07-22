@@ -14,7 +14,6 @@ ir-image-classification/
 ├── .vscode/               # VS Code configuration
 ├── Makefile               # Build automation
 ├── README.md              # Project overview
-├── TECHNICAL_DOCUMENTATION.md # Detailed technical documentation
 ├── cache/                 # Caching directory
 │   └── embeddings/        # Cached embedding vectors
 ├── checkpoints/           # Model checkpoints
@@ -28,27 +27,19 @@ ir-image-classification/
 │   ├── processed/         # Processed IR images
 │   ├── processed.zip      # Compressed dataset
 │   └── vector_db/         # Vector database storage
-├── examples/              # Example usage scripts
-│   ├── query_processor_examples.py # Query processor examples
-│   └── ranking_confidence_examples.py # Ranking and confidence examples
+├── docs/                  # Documentation files
+├── examples/              # Example query images
 ├── pyproject.toml         # Python project configuration
 ├── pytest.ini             # Pytest configuration
-├── query.png              # Sample query image
 ├── requirements.txt       # Python dependencies
 ├── scripts/               # Utility scripts
-│   ├── diagnose_score_consistency.py # Diagnostic script
+│   ├── augmentation.py    # Data augmentation script
 │   ├── enhanced_fine_tuning.py # Fine-tuning script
-│   ├── fix_score_consistency.py # Score fixing script
 │   ├── fix_similarity_confidence.py # Similarity fixing script
 │   ├── init_database.py   # Database initialization
 │   ├── populate_database.py # Database population
 │   ├── quick_improvements.py # Quick improvement script
 │   ├── run_mission.py     # Mission execution script
-│   ├── test_different_queries.py # Query testing script
-│   ├── test_improvements.py # Improvement testing script
-│   ├── test_military_pipeline.py # Military pipeline testing
-│   ├── test_query_processor.py # Query processor testing
-│   ├── test_ranking_confidence.py # Ranking confidence testing
 │   └── train_improved_model.py # Model training script
 ├── src/                   # Core source code
 │   ├── data/              # Data processing modules
@@ -56,17 +47,8 @@ ir-image-classification/
 │   ├── embedding/         # Embedding extraction
 │   ├── models/            # Data models and interfaces
 │   ├── query/             # Query processing
-│   ├── training/          # Model training utilities
-│   └── ui/                # User interface components
-├── tasks/                 # Task definitions
-│   ├── configs/           # Task configurations
-│   ├── definitions/       # Task definitions
-│   └── logs/              # Task execution logs
+│   └── training/          # Model training utilities
 └── tests/                 # Test suite
-    ├── integration/       # Integration tests
-    ├── performance/       # Performance tests
-    ├── test_data/         # Test data
-    └── unit/              # Unit tests
 ```
 
 ## Key Components
@@ -164,10 +146,3 @@ ir-image-classification/
    - Batch processing
    - Embedding caching
    - Approximate search for large datasets
-
-## Documentation
-
-- **README.md**: Project overview and getting started
-- **TECHNICAL_DOCUMENTATION.md**: Comprehensive technical documentation
-- **Directory READMEs**: Detailed information about each component
-- **Code Documentation**: Docstrings and comments throughout the codebase
