@@ -1,0 +1,56 @@
+{
+  "mission_id": "mission_20250722_112715",
+  "timestamp": "2025-07-22T11:27:16.340181",
+  "processing_time": 0.3362889289855957,
+  "model_version": "unknown",
+  "configuration": {
+    "strategy": "hybrid_score",
+    "confidence_strategy": "ensemble",
+    "confidence_threshold": 0.7,
+    "similarity_threshold": 0.5,
+    "max_results": 5
+  },
+  "results": [
+    {
+      "rank": 1,
+      "image_id": "T54 Tank_t54 tank (22)_orig",
+      "object_class": "T54 Tank t54 tank (22) orig",
+      "similarity_score": 0.9499996721744537,
+      "confidence": 0.770363372614827,
+      "confidence_level": "medium"
+    },
+    {
+      "rank": 2,
+      "image_id": "T54 Tank_t54 tank (31)_orig",
+      "object_class": "T54 Tank t54 tank (31) orig",
+      "similarity_score": 0.9499992251396179,
+      "confidence": 0.7163631061119908,
+      "confidence_level": "medium"
+    },
+    {
+      "rank": 3,
+      "image_id": "T62 Tank_t62 tank (13)_orig",
+      "object_class": "T62 Tank t62 tank (13) orig",
+      "similarity_score": 0.9499977350234985,
+      "confidence": 0.716362620098965,
+      "confidence_level": "medium"
+    },
+    {
+      "rank": 4,
+      "image_id": "M-109A3 Self Propelled Gun_m109a3 self propelled gun (12)_orig",
+      "object_class": "M-109A3 Self Propelled Gun m109a3 self propelled gun (12) orig",
+      "similarity_score": 0.9499970495700836,
+      "confidence": 0.7163623965321512,
+      "confidence_level": "medium"
+    },
+    {
+      "rank": 5,
+      "image_id": "M-1A1 Abrams Tank_m1a1 abrams tank (20)_aug_3",
+      "object_class": "M-1A1 Abrams Tank m1a1 abrams tank (20) aug",
+      "similarity_score": 0.949996930360794,
+      "confidence": 0.7163623576509133,
+      "confidence_level": "medium"
+    }
+  ],
+  "classification": "UNCLASSIFIED"
+}

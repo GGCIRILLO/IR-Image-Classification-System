@@ -1,52 +1,89 @@
-# Scripts Directory - IR Image Classification System
+# Scripts Directory
 
-This directory contains comprehensive scripts for improving your IR image classification system's accuracy, similarity, and confidence scores, plus command-line utilities for operations.
+This directory contains operational and performance improvement scripts for the IR Image Classification System.
 
-## 🚀 Quick Start - Immediate Improvements
+## Operational Scripts
 
-For **immediate results** without retraining, start here:
+### `run_mission.py`
 
-```bash
-# Apply quick improvements to boost similarity and confidence scores
-python scripts/quick_improvements.py --database data/chroma_db_final --test-image path/to/test/image.png
+The main command-line interface for executing IR image classification missions end-to-end.
 
-# Fix similarity and confidence issues with advanced techniques
-python scripts/fix_similarity_confidence.py --database data/chroma_db_final --apply-all --test-image path/to/test/image.png
-```
+**Features:**
 
-## 📋 Performance Improvement Scripts
+- Multiple configuration presets (military, development, production, testing)
+- Flexible ranking strategies (similarity_only, confidence_weighted, hybrid_score, military_priority)
+- Advanced confidence scoring (similarity_based, statistical, ensemble, military_calibrated)
+- Multiple output formats (table, json, detailed, military report)
+- Performance monitoring and validation
 
-### 1. **quick_improvements.py** - Immediate Performance Boost ⚡
-
-**Best for: Getting quick wins without retraining**
+**Usage:**
 
 ```bash
-python scripts/quick_improvements.py \
-    --database data/vector_db \
-    --model checkpoints/your_model.pth \
-    --test-image examples/test_image.png
+# Basic query
+python scripts/run_mission.py --image query.png --database data/chroma_db_final
+
+# Military deployment
+python scripts/run_mission.py --image target.png --database data/chroma_db_final \
+  --preset military --strategy military_priority \
+  --confidence-strategy military_calibrated --format military
 ```
 
-**What it does:**
+### `populate_database.py`
 
-- Enhances embedding extraction with IR-specific normalization
-- Improves similarity score calculation for thermal images
-- Reduces confidence thresholds for better recall
-- Optimizes search parameters
-- **Results in minutes, not hours!**
+Populates the vector database with embeddings extracted from processed IR images.
 
-### 2. **enhanced_fine_tuning.py** - Comprehensive Fine-tuning 🔥
+**Features:**
 
-**Best for: Maximum accuracy improvements with modern techniques**
+- Configurable sampling strategies (max per class, max total)
+- Embedding extraction with quality validation
+- Database integrity verification
+- Performance monitoring
+
+**Usage:**
 
 ```bash
-python scripts/enhanced_fine_tuning.py \
-    --train-data data/processed \
-    --database data/chroma_db_final \
-    --model-type resnet50 \
-    --epochs 50 \
-    --batch-size 16
+# Basic database population
+python scripts/populate_database.py --database-path data/chroma_db_final \
+  --processed-dir data/processed
+
+# Limited sampling for testing
+python scripts/populate_database.py --database-path data/chroma_db_test \
+  --processed-dir data/processed --max-per-class 3 --max-total 30
 ```
+
+### `init_database.py`
+
+Initializes a new vector database with the required structure and settings.
+
+**Usage:**
+
+```bash
+python scripts/init_database.py --database-path data/new_vector_db
+```
+
+## Performance Improvement Scripts
+
+### `quick_improvements.py`
+
+Provides immediate performance improvements without retraining models.
+
+**Features:**
+
+- Enhanced embedding extraction with IR-specific normalization
+- Improved similarity score calculation for thermal images
+- Reduced confidence thresholds for better recall
+- Optimized search parameters
+
+**Usage:**
+
+```bash
+python scripts/quick_improvements.py --database data/vector_db \
+  --test-image examples/test_image.png
+```
+
+### `enhanced_fine_tuning.py`
+
+Offers comprehensive fine-tuning with advanced techniques.
 
 **Features:**
 
@@ -56,322 +93,107 @@ python scripts/enhanced_fine_tuning.py \
 - Confidence calibration
 - Automatic hyperparameter optimization
 
-### 3. **train_improved_model.py** - Advanced Training Pipeline 🎯
-
-**Best for: Training from scratch with 95% accuracy target**
+**Usage:**
 
 ```bash
-python scripts/train_improved_model.py \
-    --data-dir data/processed \
-    --model-type resnet50 \
-    --epochs 100 \
-    --learning-rate 1e-4
+python scripts/enhanced_fine_tuning.py --train-data data/processed \
+  --database data/chroma_db_final --model-type resnet50 --epochs 50
 ```
 
-**Advanced features:**
+### `fix_similarity_confidence.py`
 
-- Weighted sampling for imbalanced classes
-- One-cycle learning rate scheduling
-- Advanced augmentation for IR images
-- Automatic early stopping at 95% accuracy
-- Comprehensive evaluation metrics
+Provides targeted fixes for similarity and confidence issues.
 
-### 4. **fix_similarity_confidence.py** - Targeted Fixes 🔧
-
-**Best for: Specific similarity and confidence issues**
-
-```bash
-python scripts/fix_similarity_confidence.py \
-    --database data/chroma_db_final \
-    --apply-all \
-    --test-image examples/test_image.png
-```
-
-**Targeted improvements:**
+**Features:**
 
 - IR-specific similarity boosting
 - Confidence score recalibration
 - Distance metric optimization
 - Threshold adjustments
 
-## 🎯 Recommended Workflow for Performance Improvement
-
-### For Immediate Results (< 30 minutes):
-
-1. **Start with quick improvements:**
-
-   ```bash
-   python scripts/quick_improvements.py --database data/chroma_db_final --test-image your_test_image.png
-   ```
-
-2. **Apply targeted fixes:**
-   ```bash
-   python scripts/fix_similarity_confidence.py --database data/chroma_db_final --apply-all
-   ```
-
-### For Maximum Performance (2-4 hours):
-
-1. **Run enhanced fine-tuning:**
-
-   ```bash
-   python scripts/enhanced_fine_tuning.py --train-data data/processed --database data/chroma_db_final --epochs 50
-   ```
-
-2. **If you need 95% accuracy, use advanced training:**
-   ```bash
-   python scripts/train_improved_model.py --data-dir data/processed --epochs 100
-   ```
-
-## 📊 Expected Improvements
-
-### Quick Improvements (immediate):
-
-- **Similarity scores:** +0.2 to +0.4 improvement
-- **Confidence scores:** +0.3 to +0.5 improvement
-- **Recall:** +15% to +25% more relevant results
-
-### Fine-tuning (after training):
-
-- **Overall accuracy:** +10% to +20% improvement
-- **Similarity scores:** +0.4 to +0.6 improvement
-- **Confidence scores:** +0.5 to +0.7 improvement
-
-### Advanced Training (full pipeline):
-
-- **Target accuracy:** 95%+ on validation set
-- **Robust performance:** Consistent across different IR image types
-- **Production ready:** Optimized for deployment
-
-## 🛠️ Configuration Options
-
-### Model Types:
-
-- `resnet50`: Fast, reliable, good for most IR images
-- `qwen_vlm`: Advanced vision-language model, better for complex scenes
-
-### Key Parameters:
-
-- `--epochs`: Training duration (50-100 recommended)
-- `--batch-size`: Memory vs speed tradeoff (16-32 recommended)
-- `--learning-rate`: Start with 1e-4, adjust based on results
-- `--embedding-dim`: 512 for ResNet50, 768 for Qwen VLM
-
----
-
-## 🎮 Operational Scripts
-
-## Available Scripts
-
-### `run_mission.py` - Mission Runner
-
-A comprehensive command-line interface for executing IR image classification missions end-to-end.
-
-#### Features
-
-- **Multiple Configuration Presets**: Military, development, production, and testing configurations
-- **Flexible Ranking Strategies**: similarity_only, confidence_weighted, hybrid_score, military_priority
-- **Advanced Confidence Scoring**: similarity_based, statistical, ensemble, military_calibrated
-- **Multiple Output Formats**: table, json, detailed, military report
-- **Performance Monitoring**: Built-in validation and performance metrics
-- **Military-Grade Operations**: Classification levels, operator tracking, mission IDs
-
-#### Basic Usage
+**Usage:**
 
 ```bash
-# Simple query
-python scripts/run_mission.py --image query.png --database data/chroma_db_final
-
-# Military deployment
-python scripts/run_mission.py --image target.png --database data/chroma_db_final \
-  --preset military --strategy military_priority \
-  --confidence-strategy military_calibrated --format military
-
-# Development testing
-python scripts/run_mission.py --image test.png --database data/chroma_db_final \
-  --preset development --debug --output results.json
-
-# High-precision reconnaissance
-python scripts/run_mission.py --image recon.png --database data/chroma_db_final \
-  --confidence-threshold 0.9 --similarity-threshold 0.8 \
-  --validation-mode strict --max-results 10
+python scripts/fix_similarity_confidence.py --database data/chroma_db_final \
+  --apply-all --test-image examples/test_image.png
 ```
 
-#### Command-Line Options
+### `train_improved_model.py`
 
-**Required Arguments:**
+Advanced training pipeline for high-accuracy models.
 
-- `--image, -i`: Path to query image file (PNG, JPEG, TIFF, BMP)
-- `--database, -d`: Path to vector database directory
+**Features:**
 
-**Model Configuration:**
+- Weighted sampling for imbalanced classes
+- One-cycle learning rate scheduling
+- Advanced augmentation for IR images
+- Automatic early stopping at 95% accuracy
 
-- `--model, -m`: Path to fine-tuned model weights (.pth file)
-- `--collection`: Vector database collection name (default: ir_embeddings)
-
-**Configuration Presets:**
-
-- `--preset, -p`: Use predefined configuration (military, development, production, testing)
-
-**Ranking & Confidence:**
-
-- `--strategy`: Ranking strategy (similarity_only, confidence_weighted, hybrid_score, military_priority)
-- `--confidence-strategy`: Confidence calculation (similarity_based, statistical, ensemble, military_calibrated)
-
-**Thresholds:**
-
-- `--confidence-threshold`: Minimum confidence (0.0-1.0, default: 0.7)
-- `--similarity-threshold`: Minimum similarity (0.0-1.0, default: 0.5)
-- `--max-results`: Maximum results to return (default: 5)
-
-**Processing Options:**
-
-- `--max-query-time`: Maximum processing time in seconds (default: 2.0)
-- `--validation-mode`: Image validation (strict, relaxed, disabled)
-- `--disable-gpu`: Use CPU only
-- `--disable-cache`: Disable result caching
-- `--enable-diversity`: Enable diversity filtering
-
-**Output Options:**
-
-- `--output, -o`: Output file path (JSON format)
-- `--format`: Output format (table, json, detailed, military)
-- `--quiet, -q`: Suppress detailed output
-- `--debug`: Enable debug output
-- `--save-metadata`: Include detailed metadata
-
-**Mission Parameters:**
-
-- `--mission-id`: Custom mission identifier
-- `--operator`: Operator/analyst name
-- `--classification`: Mission classification level (UNCLASSIFIED, RESTRICTED, CONFIDENTIAL, SECRET, TOP_SECRET)
-
-#### Output Formats
-
-**Table Format (default):**
-Simple tabular output with rank, object class, similarity, and confidence.
-
-**JSON Format:**
-Machine-readable JSON with full result metadata.
-
-**Detailed Format:**
-Comprehensive output with all available information and metadata.
-
-**Military Format:**
-Official military intelligence report style with threat assessment.
-
-#### Examples
-
-**1. Basic Object Identification:**
+**Usage:**
 
 ```bash
-python scripts/run_mission.py \
-  --image sample_tank.png \
-  --database data/chroma_db_final
+python scripts/train_improved_model.py --data-dir data/processed \
+  --model-type resnet50 --epochs 100
 ```
 
-**2. Military Intelligence Operation:**
+## Testing Scripts
+
+### `test_query_processor.py`
+
+Tests the query processor functionality.
+
+**Usage:**
 
 ```bash
-python scripts/run_mission.py \
-  --image surveillance_image.png \
-  --database data/chroma_db_final \
-  --preset military \
-  --strategy military_priority \
-  --confidence-strategy military_calibrated \
-  --format military \
-  --operator "Analyst_Alpha" \
-  --classification SECRET \
-  --mission-id "OP_EAGLE_EYE_001"
+python scripts/test_query_processor.py
 ```
 
-**3. Development Testing:**
+### `test_ranking_confidence.py`
+
+Tests ranking and confidence calculation components.
+
+**Usage:**
 
 ```bash
-python scripts/run_mission.py \
-  --image test_image.png \
-  --database data/chroma_db_final \
-  --preset development \
-  --debug \
-  --output test_results.json \
-  --save-metadata
+python scripts/test_ranking_confidence.py
 ```
 
-**4. High-Precision Analysis:**
+### `test_military_pipeline.py`
+
+Tests military-specific features and workflows.
+
+**Usage:**
 
 ```bash
-python scripts/run_mission.py \
-  --image critical_target.png \
-  --database data/chroma_db_final \
-  --confidence-threshold 0.9 \
-  --similarity-threshold 0.8 \
-  --validation-mode strict \
-  --max-results 3 \
-  --format detailed
+python scripts/test_military_pipeline.py
 ```
 
-#### Performance Monitoring
+### `test_different_queries.py`
 
-The script includes built-in performance validation that checks:
+Tests system performance with various query types.
 
-- Query processing time requirements
-- System response times
-- Resource utilization
-- Model accuracy metrics
-
-Use `--debug` to see detailed performance statistics.
-
-#### Error Handling
-
-The script provides comprehensive error handling and validation:
-
-- Input file validation (format, existence)
-- Parameter range validation
-- Database connectivity checks
-- Model loading verification
-- Performance requirement validation
-
-#### Testing
-
-Run the test suite to verify functionality:
+**Usage:**
 
 ```bash
-python tests/test_run_mission_script.py
+python scripts/test_different_queries.py
 ```
 
-This will test help output, input validation, and basic functionality with sample data.
+### `test_improvements.py`
 
-## Integration with Other Components
+Tests the effectiveness of performance improvements.
 
-The `run_mission.py` script integrates with:
+**Usage:**
 
-- **QueryProcessor**: Core processing engine
-- **ResultRanker**: Advanced ranking algorithms
-- **ConfidenceCalculator**: Confidence scoring strategies
-- **Vector Database**: Chroma DB for similarity search
-- **Deep Learning Models**: PyTorch-based IR classification models
+```bash
+python scripts/test_improvements.py
+```
 
-## Security Considerations
+### `diagnose_score_consistency.py`
 
-- **Classification Levels**: Built-in support for military classification standards
-- **Operator Tracking**: Audit trail with operator identification
-- **Mission IDs**: Unique identification for operational tracking
-- **Secure Output**: Configurable output security based on classification level
+Diagnoses issues with similarity and confidence score consistency.
 
-## Requirements
+**Usage:**
 
-- Python 3.8+
-- All project dependencies (see requirements.txt)
-- Initialized vector database
-- Optional: Fine-tuned model weights
-
-## Troubleshooting
-
-**Common Issues:**
-
-1. **Database not found**: Ensure the database path exists and is properly initialized
-2. **Model loading errors**: Check model file path and compatibility
-3. **Performance issues**: Consider using GPU acceleration and caching
-4. **Memory errors**: Reduce batch size or max results for large queries
-
-**Debug Mode:**
-Use `--debug` flag for detailed error information and performance metrics.
+```bash
+python scripts/diagnose_score_consistency.py --database data/chroma_db_final
+```
