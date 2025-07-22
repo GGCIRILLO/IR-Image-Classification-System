@@ -17,6 +17,8 @@ python scripts/run_mission.py --database data/vector_db  --format json --disable
 ### Jeep 1
 
 ![Jeep 1](../examples/jeep_1.png)
+
+
 The results have been obtained with the following comand:
 
 ```bash
