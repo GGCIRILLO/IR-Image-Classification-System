@@ -12,6 +12,8 @@ from typing import List, Optional
 import json
 from datetime import datetime
 import numpy as np
+from PIL import Image
+
 
 # Add src to path
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
@@ -31,15 +33,16 @@ logger = logging.getLogger(__name__)
 class DatabasePopulator:
     """Popola il database con embedding dalle immagini processate."""
     
-    def __init__(self, database_path: str, model_type: str = "resnet50"):
+    def __init__(self, database_path: str, model_type: str = "resnet50", model_path: str = None):
         """Inizializza il popolatore del database."""
         self.database_path = database_path
         self.model_type = model_type
+        self.model_path = model_path
         
         # Initialize components
         self.embedding_extractor = EmbeddingExtractor(
             model_type=model_type,
-            model_path=None  # Use pretrained
+            model_path=model_path  # Use custom model if provided
         )
         
         self.vector_store = ChromaVectorStore(
@@ -49,6 +52,8 @@ class DatabasePopulator:
         self.ir_processor = IRImageProcessor()
         
         logger.info(f"✅ Inizializzato popolatore database: {database_path}")
+        if model_path:
+            logger.info(f"✅ Utilizzo modello fine-tuned: {model_path}")
     
     def get_sample_images(self, processed_dir: str, max_per_class: int = 5, 
                          max_total: int = 50) -> List[tuple]:
@@ -105,7 +110,7 @@ class DatabasePopulator:
         
         # Initialize components
         logger.info("🤖 Inizializzazione estrattore embedding...")
-        self.embedding_extractor.load_model()
+        self.embedding_extractor.load_model(self.model_path)
         
         logger.info("🗄️ Inizializzazione database...")
         config = {
@@ -122,16 +127,20 @@ class DatabasePopulator:
                 logger.info(f"[{i}/{len(image_files)}] Processando {Path(img_path).name} ({class_name})")
                 
                 # Load and process image (simplified for processed images)
-                try:
-                    from PIL import Image
-                    
+                try:                    
                     # Load image
-                    pil_image = Image.open(img_path).convert('RGB')
+                    pil_image = Image.open(img_path).convert('L')  # Convert to grayscale
                     logger.info(f"   📸 Caricato {Path(img_path).name}: {pil_image.size}")
                     
-                    # Resize to 224x224 and convert to numpy array
-                    resized_image = pil_image.resize((224, 224))
-                    processed_image = np.array(resized_image)
+                    # Convert to numpy array and normalize to 0-1 range
+                    image_array = np.array(pil_image, dtype=np.float32) / 255.0
+                    
+                    # Use the same IR processor as in query processing
+                    from src.data.ir_processor import IRImageProcessor
+                    ir_processor = IRImageProcessor(target_size=(224, 224))
+                    
+                    # Apply the same preprocessing pipeline
+                    processed_image = ir_processor.preprocess_ir_image(image_array)
                     
                 except Exception as load_error:
                     raise ValueError(f"Impossibile caricare l'immagine: {load_error}")
@@ -202,7 +211,7 @@ def main():
     
     parser.add_argument(
         "--database-path",
-        default="data/chroma_db_final",
+        default="data/vector_db",
         help="Path al database vector (default: data/chroma_db_final)"
     )
     
@@ -216,6 +225,11 @@ def main():
         "--model",
         default="resnet50",
         help="Modello per embedding (default: resnet50)"
+    )
+    
+    parser.add_argument(
+        "--model-path",
+        help="Path al modello fine-tuned (opzionale)"
     )
     
     parser.add_argument(
@@ -256,7 +270,8 @@ def main():
         # Initialize populator
         populator = DatabasePopulator(
             database_path=args.database_path,
-            model_type=args.model
+            model_type=args.model,
+            model_path=args.model_path
         )
         
         if args.verify_only:

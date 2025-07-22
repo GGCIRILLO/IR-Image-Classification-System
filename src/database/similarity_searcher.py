@@ -264,13 +264,10 @@ class SimilaritySearcher:
             where=where_clause
         )
 
-        print(f"   📊 Approximate search results: k={len(results.keys())}, v={len(results.values())} found")
-        print("   📊 Approximate search results:", results)
 
         # Convert to SimilarityResult objects
         similarity_results = self._convert_chroma_results(results)
         
-        print(f"   📊 Approximate search results converted: {len(similarity_results)} items")
         
         # For approximate search, estimate candidates examined based on HNSW parameters
         # This is an approximation since ChromaDB doesn't expose this information
@@ -322,7 +319,6 @@ class SimilaritySearcher:
         similarity_results = []
 
         ids = chroma_results.get("ids", [[]])[0]
-        print(f"📊 ids: {ids}")
         distances = chroma_results.get("distances", [[]])
         if distances is None or len(distances) == 0:
             distances = []
@@ -337,8 +333,6 @@ class SimilaritySearcher:
         if not ids:
             print("⚠️ No results found in ChromaDB response.")
             return []
-
-        print(f"📊 Converting {len(ids)} ChromaDB results to SimilarityResult objects")
 
         for rank, (result_id, distance, metadata) in enumerate(zip(ids, distances, metadatas)):
             # Enhanced similarity score computation for IR images

@@ -18,6 +18,8 @@ import logging
 from pathlib import Path
 import json
 from PIL import Image
+from torchvision.models import ResNet50_Weights
+
 
 
 from src.models.interfaces import IEmbeddingExtractor, BaseEmbeddingExtractor
@@ -207,8 +209,11 @@ class IRResNet50Adapter(BaseModelAdapter):
             **kwargs: Additional configuration parameters
         """
         try:
-            # Load base ResNet50
-            resnet_model = models.resnet50(pretrained=self.pretrained)
+            # Load base ResNet50 with proper weights parameter
+            if self.pretrained:
+                resnet_model = models.resnet50(weights=ResNet50_Weights.IMAGENET1K_V1)
+            else:
+                resnet_model = models.resnet50(weights=None)
             
             # Replace final fully connected layer with embedding layer
             num_features = resnet_model.fc.in_features

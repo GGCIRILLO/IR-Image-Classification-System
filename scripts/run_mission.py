@@ -7,7 +7,7 @@ classification pipeline end-to-end. It allows specification of all key
 parameters including model selection, query configuration, and output options.
 
 Usage:
-    python scripts/run_mission.py --image path/to/query.png --database data/chroma_db_final
+    python scripts/run_mission.py --image path/to/query.png --database data/vector_db
     python scripts/run_mission.py --image query.png --model models/ir_model.pth --strategy military_priority
     python scripts/run_mission.py --help
 
@@ -68,19 +68,19 @@ class MissionRunner:
             epilog="""
 Examples:
   # Basic query
-  python scripts/run_mission.py --image query.png --database data/chroma_db_final
+  python scripts/run_mission.py --image query.png --database data/vector_db
   
   # Military deployment with custom model
-  python scripts/run_mission.py --image target.png --database data/chroma_db_final \\
+  python scripts/run_mission.py --image target.png --database data/vector_db \\
     --model models/military_v2.pth --strategy military_priority \\
     --confidence-strategy military_calibrated --max-results 10
   
   # Development testing with debug output
-  python scripts/run_mission.py --image test.png --database data/chroma_db_final \\
+  python scripts/run_mission.py --image test.png --database data/vector_db \\
     --preset development --debug --output results.json
   
   # High-precision reconnaissance
-  python scripts/run_mission.py --image recon.png --database data/chroma_db_final \\
+  python scripts/run_mission.py --image recon.png --database data/vector_db \\
     --confidence-threshold 0.9 --similarity-threshold 0.8 \\
     --validation-mode strict --disable-cache
             """)
@@ -374,7 +374,6 @@ Examples:
             }
         )
 
-        print(f"   📊 Query results: {result}")
 
         total_time = time.time() - start_time
         

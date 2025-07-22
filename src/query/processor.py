@@ -234,13 +234,11 @@ class QueryProcessor:
             # Step 3: Perform similarity search
             search_start = time.time()
             similarity_results = self._perform_similarity_search(query_embedding, options)
-            print(f"   📊 Similarity search completed by processor: {len(similarity_results)} results found")
             search_time = time.time() - search_start
             
             # Step 4: Rank and filter results
             final_results = self._rank_and_filter_results(similarity_results, options, query_embedding_vector=query_embedding)
 
-            print(f"   📊 Final results after ranking and filtering in Processor: {len(final_results)} items found")
             # Calculate total processing time
             total_time = time.time() - start_time
             
@@ -441,7 +439,6 @@ class QueryProcessor:
                     query_embedding=query_embedding,
                     k=k
                 )
-                print(f"   📊 Similarity search completed by searcher: {search_result}")
                 # Handle tuple return (results, metrics)
                 if isinstance(search_result, tuple):
                     results, metrics = search_result
