@@ -1,148 +1,164 @@
-# IR Image Classification System - Project Structure
+# Project Structure Documentation
 
-This document provides a comprehensive overview of the project structure for the IR Image Classification System.
+This document provides an overview of the IR Image Classification project structure, explaining the purpose and organization of each directory.
 
-## Directory Structure
+## Root Directory
 
-```bash
-ir-image-classification/
-├── .git/                  # Git repository data
-├── .gitignore             # Git ignore patterns
-├── .pre-commit-config.yaml # Pre-commit hook configuration
-├── .pytest_cache/         # Pytest cache data
-├── .venv/                 # Python virtual environment
-├── .vscode/               # VS Code configuration
-├── Makefile               # Build automation
-├── README.md              # Project overview
-├── cache/                 # Caching directory
-│   └── embeddings/        # Cached embedding vectors
-├── checkpoints/           # Model checkpoints
-│   ├── fine_tuning/       # Fine-tuned model weights
-│   └── logs/              # Training logs
-├── config/                # Configuration files
-│   ├── settings.py        # Main configuration settings
-│   ├── test_config.json   # Test configuration
-│   └── vector_db_config.json # Vector database configuration
-├── data/                  # Data storage
-│   ├── processed/         # Processed IR images
-│   ├── processed.zip      # Compressed dataset
-│   └── vector_db/         # Vector database storage
-├── docs/                  # Documentation files
-├── examples/              # Example query images
-├── pyproject.toml         # Python project configuration
-├── pytest.ini             # Pytest configuration
-├── requirements.txt       # Python dependencies
-├── scripts/               # Utility scripts
-│   ├── augmentation.py    # Data augmentation script
-│   ├── enhanced_fine_tuning.py # Fine-tuning script
-│   ├── fix_similarity_confidence.py # Similarity fixing script
-│   ├── init_database.py   # Database initialization
-│   ├── populate_database.py # Database population
-│   ├── quick_improvements.py # Quick improvement script
-│   ├── run_mission.py     # Mission execution script
-│   └── train_improved_model.py # Model training script
-├── src/                   # Core source code
-│   ├── data/              # Data processing modules
-│   ├── database/          # Vector database interface
-│   ├── embedding/         # Embedding extraction
-│   ├── models/            # Data models and interfaces
-│   ├── query/             # Query processing
-│   └── training/          # Model training utilities
-└── tests/                 # Test suite
-```
+The root directory contains the main application files, configuration files, and directories for various components of the system.
 
-## Key Components
+- `app.py`: The main Streamlit application for interacting with the IR image classification system
+- `.env.example`: Example environment variables configuration
+- `Makefile`: Contains commands for building, testing, and running the project
+- `pyproject.toml`: Python project configuration
+- `pytest.ini`: Configuration for pytest
+- `README.md`: Main project documentation
+- `requirements.txt`: Python dependencies
 
-### Core Components
+## Source Code Structure
 
-1. **Query Processing (`src/query/processor.py`)**
+The `src` directory contains the core implementation of the IR image classification system, organized into several modules:
 
-   - Central component orchestrating the query workflow
-   - Handles image validation, preprocessing, embedding extraction, and result ranking
-   - Implements performance tracking and caching
+### `data` Module
 
-2. **Embedding Extraction (`src/embedding/extractor.py`)**
+Contains functionality for processing IR images, including loading, validation, preprocessing, and enhancement.
 
-   - Extracts feature embeddings from IR images
-   - Supports multiple model architectures
-   - Implements caching and batch processing
-   - Validates embedding quality
+[Detailed Documentation](data_module.md)
 
-3. **Similarity Search (`src/database/similarity_searcher.py`)**
+### `database` Module
 
-   - Performs efficient vector similarity searches
-   - Implements exact, approximate, and hybrid search modes
-   - Enhances similarity calculation for IR images
-   - Integrates with ChromaDB
+Provides functionality for storing, indexing, and searching vector embeddings of IR images using ChromaDB.
 
-4. **Object Classification (`src/models/object_classes.py`)**
+[Detailed Documentation](database_module.md)
 
-   - Defines comprehensive object classification registry
-   - Organizes objects into categories (military vehicles, air defense, etc.)
-   - Provides military intelligence features
-   - Implements lookup capabilities
+### `embedding` Module
 
-5. **Data Models (`src/models/data_models.py`)**
-   - Defines core data structures (IRImage, Embedding, SimilarityResult, QueryResult)
-   - Implements validation and utility methods
-   - Provides military-specific assessment methods
+Responsible for extracting feature embeddings from IR images using various deep learning models.
 
-### Operational Scripts
+[Detailed Documentation](embedding_module.md)
 
-1. **Mission Runner (`scripts/run_mission.py`)**
+### `fine_tuning` Module
 
-   - Command-line interface for executing classification missions
-   - Supports multiple configuration presets and output formats
-   - Implements comprehensive parameter handling
-   - Provides detailed result reporting
+Provides tools for optimizing pre-trained models to improve their performance on IR image classification tasks.
 
-2. **Database Population (`scripts/populate_database.py`)**
-   - Populates vector database with embeddings
-   - Implements sampling strategies and verification
-   - Monitors performance and database integrity
+[Detailed Documentation](fine_tuning_module.md)
 
-### Performance Improvement Scripts
+### `models` Module
 
-1. **Quick Improvements (`scripts/quick_improvements.py`)**
+Defines core data structures, interfaces, and object classification taxonomy used throughout the system.
 
-   - Immediate performance improvements without retraining
-   - Enhances embedding extraction and similarity calculation
-   - Optimizes search parameters
+[Detailed Documentation](models_module.md)
 
-2. **Enhanced Fine-tuning (`scripts/enhanced_fine_tuning.py`)**
-   - Comprehensive model fine-tuning
-   - Implements contrastive learning and advanced loss functions
-   - Provides IR-specific optimizations
+### `query` Module
 
-## Key Features
+Implements functionality for processing IR image queries, ranking results, and calculating confidence scores.
 
-1. **High Precision Classification**
+[Detailed Documentation](query_module.md)
 
-   - 95%+ accuracy on IR object classification
-   - Specialized for military object identification
-   - Comprehensive object class registry with 80+ classes
+### `training` Module
 
-2. **Fast Query Processing**
+Provides tools for training, fine-tuning, and validating deep learning models for IR image classification.
 
-   - Sub-2 second response times
-   - Efficient vector similarity search
-   - Multi-level caching system
+[Detailed Documentation](training_module.md)
 
-3. **Local Deployment**
+## Supporting Directories
 
-   - Uses local vector database (ChromaDB)
-   - No external API dependencies
-   - Secure operation for sensitive data
+### `cache`
 
-4. **Military-Specific Features**
+Stores cached data to improve performance, including:
 
-   - Threat level assessment
-   - Military asset identification
-   - Classification levels for reports
-   - Military-optimized ranking strategies
+- Embedding cache for avoiding redundant embedding extraction
+- Search result cache for frequently performed queries
+- Model optimization cache
 
-5. **Performance Optimization**
-   - GPU acceleration
-   - Batch processing
-   - Embedding caching
-   - Approximate search for large datasets
+[Detailed Documentation](../cache/README.md)
+
+### `checkpoints`
+
+Stores model checkpoints and training logs:
+
+- Fine-tuning checkpoints
+- Training progress logs
+- Best model snapshots
+
+[Detailed Documentation](../checkpoints/README.md)
+
+### `config`
+
+Contains configuration files for various components of the system:
+
+- Database configuration
+- Model configuration
+- Training configuration
+- Query processing configuration
+- Test configuration
+
+### `data`
+
+Stores data files used by the system:
+
+- Processed IR images
+- Vector database files
+- Test and validation datasets
+
+### `docs`
+
+Contains detailed documentation for the project:
+
+- Module documentation
+- Technical specifications
+- User guides
+- API documentation
+
+### `examples`
+
+Contains example code and notebooks demonstrating the use of the system.
+
+### `results`
+
+Stores results from system runs:
+
+- Query results
+- Evaluation metrics
+- Performance benchmarks
+- Validation reports
+
+### `scripts`
+
+Contains utility scripts for various tasks:
+
+- Database population
+- Model fine-tuning
+- System testing
+- Batch processing
+
+[Detailed Documentation](scripts.md)
+
+### `tests`
+
+Contains unit tests and integration tests for the system.
+
+## Development and Build Directories
+
+- `.git`: Git version control directory
+- `.venv`: Python virtual environment
+- `.pytest_cache`: Pytest cache directory
+- `.vscode`: VS Code configuration
+
+## Application Interface
+
+The Streamlit application (`app.py`) provides a user-friendly web interface for interacting with the IR image classification system.
+
+[Detailed Documentation](streamlit_app.md)
+
+## Workflow
+
+The typical workflow for using this system involves:
+
+1. **Data Preparation**: Processing IR images using the `data` module
+2. **Embedding Extraction**: Extracting embeddings using the `embedding` module
+3. **Database Population**: Storing embeddings using the `database` module
+4. **Model Fine-Tuning**: Optimizing models using the `fine_tuning` module
+5. **Query Processing**: Processing queries using the `query` module
+6. **Result Analysis**: Analyzing results through the Streamlit application
+
+Each of these steps is supported by the corresponding module in the `src` directory and can be performed through the Streamlit application or using the utility scripts in the `scripts` directory.

@@ -1,78 +1,119 @@
-# IR Image Classification Streamlit App
+# Streamlit App Documentation
+
+The Streamlit application provides a user-friendly web interface for interacting with the IR image classification system. It allows users to upload IR images, perform similarity searches, visualize results, and explore the database of classified objects.
 
 ## Overview
 
-The Streamlit app provides a user-friendly web interface for the IR Image Classification System. It allows users to upload their own images or select from examples, configure classification parameters, and view results in an interactive format.
+The Streamlit app (`app.py` in the root directory) serves as the main user interface for the IR image classification system. It provides a range of features for both operational use and system development/debugging.
 
 ## Features
 
-- **Image Selection**: Upload custom images or choose from examples
-- **Parameter Configuration**: Configure all mission parameters through an intuitive UI
-- **Results Visualization**: View classification results with confidence scores and object identification
-- **Export Options**: Save results to JSON files for further analysis
+### Image Upload and Query
 
-## Running the App
+- Upload IR images from local files
+- Capture images from camera (if available)
+- URL-based image loading
+- Batch processing of multiple images
+- Support for different image formats
 
-1. Install the required dependencies:
+### Similarity Search
 
-   ```bash
-   pip install -r requirements_streamlit.txt
-   ```
+- Perform similarity searches on uploaded images
+- Adjust search parameters (k, confidence threshold, search mode)
+- Apply filters by object category, class, or attributes
+- View and compare multiple search results
 
-2. Run the Streamlit app:
+### Result Visualization
 
-   ```bash
-   streamlit run app.py
-   ```
+- Display similarity results with confidence scores
+- Highlight matching regions in images
+- Side-by-side comparison of query and result images
+- Heatmap visualization of feature importance
+- Confidence level indicators
 
-3. Open your web browser and navigate to the URL displayed in the terminal (typically http://localhost:8501)
+### Database Exploration
 
-## Usage Guide
+- Browse the database of classified objects
+- Filter and search by object class, category, or attributes
+- View statistics and distribution of object classes
+- Explore embeddings in a reduced-dimension space (t-SNE/UMAP)
 
-### Basic Configuration
+### System Monitoring
 
-The app provides three configuration tabs:
+- View system performance metrics
+- Monitor query processing times
+- Track cache hit rates
+- View embedding extraction statistics
+- Database health and status indicators
 
-1. **Basic**: Essential parameters for classification
+### Development Tools
 
-   - Database path
-   - Model path (optional)
-   - Configuration preset
-   - Confidence and similarity thresholds
-   - Maximum results
+- Model performance evaluation
+- Confidence calibration tools
+- A/B testing of different configurations
+- Error analysis and debugging views
+- Batch validation of results
 
-2. **Advanced**: Fine-tuning parameters
+## Implementation
 
-   - Ranking and confidence strategies
-   - Validation mode
-   - Processing options (GPU, caching, etc.)
-   - Debug mode
+The Streamlit app is implemented using the following components:
 
-3. **Output**: Result formatting and saving options
-   - Output format (table, detailed, military, JSON)
-   - File saving options
-   - Mission parameters
-   - Metadata inclusion
+### Main Application Structure
 
-### Running a Classification
+- Session state management for maintaining application state
+- Sidebar for navigation and configuration options
+- Tabs for organizing different functionality
+- Responsive layout for different screen sizes
 
-1. Select an image source (upload or examples)
-2. Configure parameters as needed
-3. Click "Run Classification"
-4. View results in the main panel
+### Key Components
 
-### Interpreting Results
+- Image upload and preprocessing component
+- Query configuration and execution component
+- Results display and visualization component
+- Database exploration component
+- System monitoring dashboard
+- Settings and configuration management
 
-The results display includes:
+### Integration with Backend
 
-- Mission information (ID, processing time, model version)
-- Table of identified objects with confidence scores
-- Bar chart visualization of confidence scores
-- Detailed metadata (optional)
+- Direct integration with the QueryProcessor
+- Access to the vector database for exploration
+- Visualization of embeddings and similarity metrics
+- Performance monitoring and statistics
 
-## Troubleshooting
+## Usage
 
-- If the app fails to start, ensure all dependencies are installed
-- If classification fails, check the error message for details
-- For GPU acceleration issues, verify CUDA is properly installed
-- For database errors, ensure the vector database path is correct
+To run the Streamlit app:
+
+```bash
+streamlit run app.py
+```
+
+The app will be available at `http://localhost:8501` by default.
+
+## Configuration
+
+The app can be configured through:
+
+1. Command-line arguments when starting the app
+2. Configuration files loaded at startup
+3. UI settings within the app itself
+
+Key configuration options include:
+
+- Database path and collection name
+- Model selection and parameters
+- UI customization options
+- Performance and caching settings
+- Development mode toggles
+
+## Development and Extension
+
+The Streamlit app is designed to be extensible. New features can be added by:
+
+1. Creating new functions for specific functionality
+2. Adding new pages or tabs to the interface
+3. Extending the sidebar with additional options
+4. Creating new visualization components
+
+The app follows a modular design pattern, making it easy to add or modify functionality without affecting the core application structure.
