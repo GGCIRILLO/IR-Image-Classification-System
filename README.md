@@ -1,6 +1,10 @@
 # IR Image Classification System
 
-A high-precision, locally-deployed solution for military object identification using deep learning embeddings on infrared imagery.
+From CNN Embeddings to Vector Search: A Deep Learning Pipeline for Thermal Object Recognition.
+
+The IR Image Classification System is a high-precision, locally-deployed solution for military object identification using deep learning embeddings. The system processes infrared imagery through fine-tuned neural networks, stores embeddings in a local vector database, and performs fast similarity searches to identify objects with military-grade accuracy and security.
+
+This projects was developed as part of a research project during the internship at NATO Modelling & Simulation Centre of Excellence.
 
 ## Features
 
