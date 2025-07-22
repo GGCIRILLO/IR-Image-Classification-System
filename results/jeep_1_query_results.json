@@ -1,0 +1,57 @@
+{
+  "mission_id": "mission_20250722_125510",
+  "timestamp": "2025-07-22T12:55:11.370923",
+  "processing_time": 0.22546792030334473,
+  "model_version": "resnet50_ir_contrastive_best_epoch_11",
+  "query_image": "examples/jeep_1.png",
+  "configuration": {
+    "strategy": "hybrid_score",
+    "confidence_strategy": "ensemble",
+    "confidence_threshold": 0.7,
+    "similarity_threshold": 0.5,
+    "max_results": 5
+  },
+  "results": [
+    {
+      "rank": 1,
+      "image_id": "Jeep_jeep (20)_orig",
+      "object_class": "Jeep jeep (20) orig",
+      "similarity_score": 0.9499997913837432,
+      "confidence": 0.7703643004362326,
+      "confidence_level": "medium"
+    },
+    {
+      "rank": 2,
+      "image_id": "Humvee_humvee (11)_orig",
+      "object_class": "Humvee humvee (11) orig",
+      "similarity_score": 0.9499959766864776,
+      "confidence": 0.7163620262722,
+      "confidence_level": "medium"
+    },
+    {
+      "rank": 3,
+      "image_id": "Jeep_jeep (39)_orig",
+      "object_class": "Jeep jeep (39) orig",
+      "similarity_score": 0.949995470046997,
+      "confidence": 0.7163618610262426,
+      "confidence_level": "medium"
+    },
+    {
+      "rank": 4,
+      "image_id": "M-981 Mobile Air Defense_m981 mobile air defense (30)_orig",
+      "object_class": "M-981 Mobile Air Defense m981 mobile air defense (30) orig",
+      "similarity_score": 0.9499938309192657,
+      "confidence": 0.7163613264050296,
+      "confidence_level": "medium"
+    },
+    {
+      "rank": 5,
+      "image_id": "AAV Tank_aav tank (13)_orig",
+      "object_class": "AAV Tank aav tank (13) orig",
+      "similarity_score": 0.9499938011169433,
+      "confidence": 0.7163613166846166,
+      "confidence_level": "medium"
+    }
+  ],
+  "classification": "UNCLASSIFIED"
+}
