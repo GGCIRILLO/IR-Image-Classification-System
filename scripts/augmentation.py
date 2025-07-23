@@ -1,4 +1,4 @@
-"""Script per data augmentation di immagini con crop automatico e ridimensionamento."""
+"""Script for image data augmentation with automatic cropping and resizing."""
 
 import os
 import cv2
@@ -9,14 +9,15 @@ from torchvision.transforms.functional import to_pil_image
 import torch
 from PIL import Image
 
-# === PARAMETRI ===
+# === PARAMETERS ===
 INPUT_ROOT = './Chunk2'
-OUTPUT_ROOT = './immagini_augmentate'
+OUTPUT_ROOT = './augmented_images'
 AUGMENTATIONS_PER_IMAGE = 7
 CROP_PADDING = 10
 
 # === DATA AUGMENTATION ===
 class CustomAugment:
+    """Custom image augmentation class that applies various transformations."""
     def __init__(self):
         self.augment = transforms.Compose([
             transforms.RandomRotation(degrees=25),
@@ -32,20 +33,30 @@ class CustomAugment:
 
 augmenter = CustomAugment()
 
-# === FUNZIONI ===
+# === FUNCTIONS ===
 def auto_crop_and_resize(image_path, target_size=256, scale=1):
-    # Prova prima con cv2
+    """Automatically crop and resize an image to focus on the main object.
+    
+    Args:
+        image_path (str): Path to the image file
+        target_size (int, optional): Target size for the output image. Defaults to 256.
+        scale (float, optional): Scale factor for padding around the object. Defaults to 1.
+        
+    Returns:
+        PIL.Image: Cropped and resized image
+    """
+    # Try first with cv2
     img = cv2.imread(image_path, cv2.IMREAD_GRAYSCALE)
     
-    # Se cv2 fallisce, usa PIL e converti sempre in numpy array
+    # If cv2 fails, use PIL and always convert to numpy array
     if img is None:
         try:
             pil_fallback = Image.open(image_path).convert("L")
             img = np.array(pil_fallback)
         except Exception as e:
-            raise ValueError(f"Errore nel leggere {image_path}: {e}") from e
+            raise ValueError(f"Error reading {image_path}: {e}") from e
     
-    # Assicurati che img sia sempre un numpy array
+    # Make sure img is always a numpy array
     if not isinstance(img, np.ndarray):
         img = np.array(img)
 
@@ -53,18 +64,18 @@ def auto_crop_and_resize(image_path, target_size=256, scale=1):
     coords = cv2.findNonZero(thresh)
 
     if coords is None:
-        raise ValueError("Nessun oggetto bianco trovato nell'immagine")
+        raise ValueError("No white object found in the image")
 
     x, y, w, h = cv2.boundingRect(coords)
 
-    # Box proporzionale centrato sull'oggetto
+    # Proportional box centered on the object
     center_x = x + w // 2
     center_y = y + h // 2
     
-    # Usa la dimensione dell'oggetto effettivo, non il max
+    # Use the effective dimension of the object
     obj_size = max(w, h)
-    # Aggiungi padding controllato intorno all'oggetto
-    padding = int(obj_size * scale)  # scale ora controlla il padding
+    # Add controlled padding around the object
+    padding = int(obj_size * scale)  # scale now controls the padding
     half_size = (obj_size + padding) // 2
     
     x1 = max(center_x - half_size, 0)
@@ -72,11 +83,11 @@ def auto_crop_and_resize(image_path, target_size=256, scale=1):
     x2 = min(center_x + half_size, img.shape[1])
     y2 = min(center_y + half_size, img.shape[0])
     
-    # Assicurati che il crop sia quadrato
+    # Make sure the crop is square
     crop_w = x2 - x1
     crop_h = y2 - y1
     if crop_w != crop_h:
-        # Prendi la dimensione minore per mantenere tutto nell'immagine
+        # Take the smaller dimension to keep everything in the image
         min_size = min(crop_w, crop_h)
         x2 = x1 + min_size
         y2 = y1 + min_size
@@ -87,11 +98,11 @@ def auto_crop_and_resize(image_path, target_size=256, scale=1):
     return pil_img
 
 def process_folder(folder_path, output_path):
-    """_summary_
+    """Process a folder of images for augmentation.
 
     Args:
-        folder_path (_type_): _description_
-        output_path (_type_): _description_
+        folder_path (str): Path to the folder containing images to process
+        output_path (str): Path where augmented images will be saved
     """
     os.makedirs(output_path, exist_ok=True)
     for filename in os.listdir(folder_path):
@@ -102,35 +113,41 @@ def process_folder(folder_path, output_path):
         base_name = os.path.splitext(filename)[0]
 
         try:
-            # Usa scale più piccolo per oggetto più piccolo al centro
+            # Use smaller scale for smaller object in the center
             cropped_resized_img = auto_crop_and_resize(image_path, scale=0.5)
 
-            # Salva immagine originale (già PIL Image dalla funzione)
+            # Save original image (already a PIL Image from the function)
             cropped_resized_img.save(os.path.join(output_path, f"{base_name}_orig.png"))
 
-            # Genera immagini augmentate
+            # Generate augmented images
             for i in range(AUGMENTATIONS_PER_IMAGE):
                 try:
-                    # Applica augmentation
+                    # Apply augmentation
                     augmented = augmenter(cropped_resized_img)
                     
-                    # Gestisci conversione tensor/PIL
+                    # Handle tensor/PIL conversion
                     if isinstance(augmented, torch.Tensor):
                         augmented_pil = to_pil_image(augmented)
                     else:
                         augmented_pil = augmented
                     
-                    # Salva immagine augmentata
+                    # Save augmented image
                     augmented_pil.save(os.path.join(output_path, f"{base_name}_aug_{i}.png"))
                     
                 except Exception as aug_error:
-                    print(f"Errore nell'augmentation {i} per {image_path}: {aug_error}")
+                    print(f"Error in augmentation {i} for {image_path}: {aug_error}")
                     continue
 
         except Exception as e:
-            print(f"Errore su {image_path}: {e}")
+            print(f"Error on {image_path}: {e}")
 
 def process_all_folders(input_root, output_root):
+    """Process all folders recursively from input root to output root.
+    
+    Args:
+        input_root (str): Root directory containing folders with images
+        output_root (str): Root directory where processed images will be saved
+    """
     # Check input root exists
     if not os.path.exists(input_root):
         print(f"Input root {input_root} does not exist.")
