@@ -20,14 +20,12 @@ import json
 import time
 from pathlib import Path
 from datetime import datetime
-from typing import Dict, Any, Optional, List
+from typing import Dict, Any, Optional
 
 # Add project root to path
 project_root = Path(__file__).parent.parent
 sys.path.insert(0, str(project_root))
 
-import numpy as np
-from PIL import Image
 
 from src.query import (
     QueryProcessor,
@@ -36,16 +34,8 @@ from src.query import (
     DevelopmentQueryConfig,
     ValidationMode,
     CachePolicy,
-    RankingStrategy,
-    ConfidenceStrategy
 )
-from src.models.data_models import SimilarityResult, QueryResult
-from src.models.object_classes import (
-    ObjectClass, 
-    ObjectCategory, 
-    OBJECT_REGISTRY,
-    get_object_classes
-)
+from src.models.data_models import  QueryResult
 
 
 class MissionRunner:
