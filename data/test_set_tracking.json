@@ -1,0 +1,2926 @@
+{
+  "generated_date": "2025-09-04T10:32:42.996676",
+  "status": {
+    "test_set_exists": true,
+    "metadata_exists": true,
+    "test_images": 415,
+    "training_images": 8158,
+    "classes": 83,
+    "validation_passed": true,
+    "overlapping_files": [],
+    "split_date": "2025-09-04T10:18:28.363016",
+    "actual_test_images": 415,
+    "actual_training_images": 8158
+  },
+  "image_tracking": {
+    "challenger tank (20)_aug_4.png": {
+      "class": "Challenger Tank",
+      "original_location": "data/processed/Challenger Tank/challenger tank (20)_aug_4.png",
+      "current_location": "data/test_set/Challenger Tank/challenger tank (20)_aug_4.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "challenger tank (11)_aug_2.png": {
+      "class": "Challenger Tank",
+      "original_location": "data/processed/Challenger Tank/challenger tank (11)_aug_2.png",
+      "current_location": "data/test_set/Challenger Tank/challenger tank (11)_aug_2.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "challenger tank (13)_orig.png": {
+      "class": "Challenger Tank",
+      "original_location": "data/processed/Challenger Tank/challenger tank (13)_orig.png",
+      "current_location": "data/test_set/Challenger Tank/challenger tank (13)_orig.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "challenger tank (16)_aug_6.png": {
+      "class": "Challenger Tank",
+      "original_location": "data/processed/Challenger Tank/challenger tank (16)_aug_6.png",
+      "current_location": "data/test_set/Challenger Tank/challenger tank (16)_aug_6.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "challenger tank (16)_aug_3.png": {
+      "class": "Challenger Tank",
+      "original_location": "data/processed/Challenger Tank/challenger tank (16)_aug_3.png",
+      "current_location": "data/test_set/Challenger Tank/challenger tank (16)_aug_3.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "fuel truck (10)_orig.png": {
+      "class": "Fuel Truck",
+      "original_location": "data/processed/Fuel Truck/fuel truck (10)_orig.png",
+      "current_location": "data/test_set/Fuel Truck/fuel truck (10)_orig.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "fuel truck (15)_aug_2.png": {
+      "class": "Fuel Truck",
+      "original_location": "data/processed/Fuel Truck/fuel truck (15)_aug_2.png",
+      "current_location": "data/test_set/Fuel Truck/fuel truck (15)_aug_2.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "fuel truck (25)_aug_3.png": {
+      "class": "Fuel Truck",
+      "original_location": "data/processed/Fuel Truck/fuel truck (25)_aug_3.png",
+      "current_location": "data/test_set/Fuel Truck/fuel truck (25)_aug_3.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "fuel truck (25)_aug_1.png": {
+      "class": "Fuel Truck",
+      "original_location": "data/processed/Fuel Truck/fuel truck (25)_aug_1.png",
+      "current_location": "data/test_set/Fuel Truck/fuel truck (25)_aug_1.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "fuel truck (14)_aug_4.png": {
+      "class": "Fuel Truck",
+      "original_location": "data/processed/Fuel Truck/fuel truck (14)_aug_4.png",
+      "current_location": "data/test_set/Fuel Truck/fuel truck (14)_aug_4.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "tsc 100 comm terminal (19)_aug_4.png": {
+      "class": "TSC 100 Comm Terminal",
+      "original_location": "data/processed/TSC 100 Comm Terminal/tsc 100 comm terminal (19)_aug_4.png",
+      "current_location": "data/test_set/TSC 100 Comm Terminal/tsc 100 comm terminal (19)_aug_4.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "tsc 100 comm terminal (9)_aug_3.png": {
+      "class": "TSC 100 Comm Terminal",
+      "original_location": "data/processed/TSC 100 Comm Terminal/tsc 100 comm terminal (9)_aug_3.png",
+      "current_location": "data/test_set/TSC 100 Comm Terminal/tsc 100 comm terminal (9)_aug_3.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "tsc 100 comm terminal (1)_aug_6.png": {
+      "class": "TSC 100 Comm Terminal",
+      "original_location": "data/processed/TSC 100 Comm Terminal/tsc 100 comm terminal (1)_aug_6.png",
+      "current_location": "data/test_set/TSC 100 Comm Terminal/tsc 100 comm terminal (1)_aug_6.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "tsc 100 comm terminal (16)_aug_4.png": {
+      "class": "TSC 100 Comm Terminal",
+      "original_location": "data/processed/TSC 100 Comm Terminal/tsc 100 comm terminal (16)_aug_4.png",
+      "current_location": "data/test_set/TSC 100 Comm Terminal/tsc 100 comm terminal (16)_aug_4.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "tsc 100 comm terminal (6)_orig.png": {
+      "class": "TSC 100 Comm Terminal",
+      "original_location": "data/processed/TSC 100 Comm Terminal/tsc 100 comm terminal (6)_orig.png",
+      "current_location": "data/test_set/TSC 100 Comm Terminal/tsc 100 comm terminal (6)_orig.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "bmp1 apc tank (4)_aug_5.png": {
+      "class": "BMP-1 APC Tank",
+      "original_location": "data/processed/BMP-1 APC Tank/bmp1 apc tank (4)_aug_5.png",
+      "current_location": "data/test_set/BMP-1 APC Tank/bmp1 apc tank (4)_aug_5.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "bmp1 apc tank (4)_aug_3.png": {
+      "class": "BMP-1 APC Tank",
+      "original_location": "data/processed/BMP-1 APC Tank/bmp1 apc tank (4)_aug_3.png",
+      "current_location": "data/test_set/BMP-1 APC Tank/bmp1 apc tank (4)_aug_3.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "bmp1 apc tank (2)_aug_6.png": {
+      "class": "BMP-1 APC Tank",
+      "original_location": "data/processed/BMP-1 APC Tank/bmp1 apc tank (2)_aug_6.png",
+      "current_location": "data/test_set/BMP-1 APC Tank/bmp1 apc tank (2)_aug_6.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "bmp1 apc tank (4)_aug_6.png": {
+      "class": "BMP-1 APC Tank",
+      "original_location": "data/processed/BMP-1 APC Tank/bmp1 apc tank (4)_aug_6.png",
+      "current_location": "data/test_set/BMP-1 APC Tank/bmp1 apc tank (4)_aug_6.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "bmp1 apc tank (2)_aug_3.png": {
+      "class": "BMP-1 APC Tank",
+      "original_location": "data/processed/BMP-1 APC Tank/bmp1 apc tank (2)_aug_3.png",
+      "current_location": "data/test_set/BMP-1 APC Tank/bmp1 apc tank (2)_aug_3.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "armored car (2)_orig.png": {
+      "class": "Armored Car",
+      "original_location": "data/processed/Armored Car/armored car (2)_orig.png",
+      "current_location": "data/test_set/Armored Car/armored car (2)_orig.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "armored car (2)_aug_2.png": {
+      "class": "Armored Car",
+      "original_location": "data/processed/Armored Car/armored car (2)_aug_2.png",
+      "current_location": "data/test_set/Armored Car/armored car (2)_aug_2.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "armored car (17)_aug_5.png": {
+      "class": "Armored Car",
+      "original_location": "data/processed/Armored Car/armored car (17)_aug_5.png",
+      "current_location": "data/test_set/Armored Car/armored car (17)_aug_5.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "armored car (10)_aug_2.png": {
+      "class": "Armored Car",
+      "original_location": "data/processed/Armored Car/armored car (10)_aug_2.png",
+      "current_location": "data/test_set/Armored Car/armored car (10)_aug_2.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "armored car (1)_orig.png": {
+      "class": "Armored Car",
+      "original_location": "data/processed/Armored Car/armored car (1)_orig.png",
+      "current_location": "data/test_set/Armored Car/armored car (1)_orig.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "silo (2)_aug_3.png": {
+      "class": "Silo",
+      "original_location": "data/processed/Silo/silo (2)_aug_3.png",
+      "current_location": "data/test_set/Silo/silo (2)_aug_3.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "silo (13)_orig.png": {
+      "class": "Silo",
+      "original_location": "data/processed/Silo/silo (13)_orig.png",
+      "current_location": "data/test_set/Silo/silo (13)_orig.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "silo (15)_aug_0.png": {
+      "class": "Silo",
+      "original_location": "data/processed/Silo/silo (15)_aug_0.png",
+      "current_location": "data/test_set/Silo/silo (15)_aug_0.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "silo (4)_aug_4.png": {
+      "class": "Silo",
+      "original_location": "data/processed/Silo/silo (4)_aug_4.png",
+      "current_location": "data/test_set/Silo/silo (4)_aug_4.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "silo (8)_orig.png": {
+      "class": "Silo",
+      "original_location": "data/processed/Silo/silo (8)_orig.png",
+      "current_location": "data/test_set/Silo/silo (8)_orig.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "tsc 85b dscs comm terminal (4)_aug_0.png": {
+      "class": "TSC 85B CSCS Comm Terminal",
+      "original_location": "data/processed/TSC 85B CSCS Comm Terminal/tsc 85b dscs comm terminal (4)_aug_0.png",
+      "current_location": "data/test_set/TSC 85B CSCS Comm Terminal/tsc 85b dscs comm terminal (4)_aug_0.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "tsc 85b dscs comm terminal (15)_aug_2.png": {
+      "class": "TSC 85B CSCS Comm Terminal",
+      "original_location": "data/processed/TSC 85B CSCS Comm Terminal/tsc 85b dscs comm terminal (15)_aug_2.png",
+      "current_location": "data/test_set/TSC 85B CSCS Comm Terminal/tsc 85b dscs comm terminal (15)_aug_2.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "tsc 85b dscs comm terminal (6)_aug_3.png": {
+      "class": "TSC 85B CSCS Comm Terminal",
+      "original_location": "data/processed/TSC 85B CSCS Comm Terminal/tsc 85b dscs comm terminal (6)_aug_3.png",
+      "current_location": "data/test_set/TSC 85B CSCS Comm Terminal/tsc 85b dscs comm terminal (6)_aug_3.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "tsc 85b dscs comm terminal (15)_orig.png": {
+      "class": "TSC 85B CSCS Comm Terminal",
+      "original_location": "data/processed/TSC 85B CSCS Comm Terminal/tsc 85b dscs comm terminal (15)_orig.png",
+      "current_location": "data/test_set/TSC 85B CSCS Comm Terminal/tsc 85b dscs comm terminal (15)_orig.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "tsc 85b dscs comm terminal (17)_aug_6.png": {
+      "class": "TSC 85B CSCS Comm Terminal",
+      "original_location": "data/processed/TSC 85B CSCS Comm Terminal/tsc 85b dscs comm terminal (17)_aug_6.png",
+      "current_location": "data/test_set/TSC 85B CSCS Comm Terminal/tsc 85b dscs comm terminal (17)_aug_6.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "patriot antenna (2)_aug_4.png": {
+      "class": "Patriot Antennas",
+      "original_location": "data/processed/Patriot Antennas/patriot antenna (2)_aug_4.png",
+      "current_location": "data/test_set/Patriot Antennas/patriot antenna (2)_aug_4.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "patriot antenna (11)_aug_5.png": {
+      "class": "Patriot Antennas",
+      "original_location": "data/processed/Patriot Antennas/patriot antenna (11)_aug_5.png",
+      "current_location": "data/test_set/Patriot Antennas/patriot antenna (11)_aug_5.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "patriot antenna (15)_aug_6.png": {
+      "class": "Patriot Antennas",
+      "original_location": "data/processed/Patriot Antennas/patriot antenna (15)_aug_6.png",
+      "current_location": "data/test_set/Patriot Antennas/patriot antenna (15)_aug_6.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "patriot antennas (3)_aug_5.png": {
+      "class": "Patriot Antennas",
+      "original_location": "data/processed/Patriot Antennas/patriot antennas (3)_aug_5.png",
+      "current_location": "data/test_set/Patriot Antennas/patriot antennas (3)_aug_5.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "patriot antenna (6)_aug_6.png": {
+      "class": "Patriot Antennas",
+      "original_location": "data/processed/Patriot Antennas/patriot antenna (6)_aug_6.png",
+      "current_location": "data/test_set/Patriot Antennas/patriot antenna (6)_aug_6.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "zsu 23 4 anti aircraft artillery tank (8)_aug_4.png": {
+      "class": "ZSU-23-4 Anti Aircraft Artillery Tank",
+      "original_location": "data/processed/ZSU-23-4 Anti Aircraft Artillery Tank/zsu 23 4 anti aircraft artillery tank (8)_aug_4.png",
+      "current_location": "data/test_set/ZSU-23-4 Anti Aircraft Artillery Tank/zsu 23 4 anti aircraft artillery tank (8)_aug_4.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "zsu 23 4 anti aircraft artillery tank (2)_aug_5.png": {
+      "class": "ZSU-23-4 Anti Aircraft Artillery Tank",
+      "original_location": "data/processed/ZSU-23-4 Anti Aircraft Artillery Tank/zsu 23 4 anti aircraft artillery tank (2)_aug_5.png",
+      "current_location": "data/test_set/ZSU-23-4 Anti Aircraft Artillery Tank/zsu 23 4 anti aircraft artillery tank (2)_aug_5.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "zsu 23 4 anti aircraft artillery tank (9)_aug_4.png": {
+      "class": "ZSU-23-4 Anti Aircraft Artillery Tank",
+      "original_location": "data/processed/ZSU-23-4 Anti Aircraft Artillery Tank/zsu 23 4 anti aircraft artillery tank (9)_aug_4.png",
+      "current_location": "data/test_set/ZSU-23-4 Anti Aircraft Artillery Tank/zsu 23 4 anti aircraft artillery tank (9)_aug_4.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "zsu 23 4 anti aircraft artillery tank (28)_orig.png": {
+      "class": "ZSU-23-4 Anti Aircraft Artillery Tank",
+      "original_location": "data/processed/ZSU-23-4 Anti Aircraft Artillery Tank/zsu 23 4 anti aircraft artillery tank (28)_orig.png",
+      "current_location": "data/test_set/ZSU-23-4 Anti Aircraft Artillery Tank/zsu 23 4 anti aircraft artillery tank (28)_orig.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "zsu 23 4 anti aircraft artillery tank (3)_aug_6.png": {
+      "class": "ZSU-23-4 Anti Aircraft Artillery Tank",
+      "original_location": "data/processed/ZSU-23-4 Anti Aircraft Artillery Tank/zsu 23 4 anti aircraft artillery tank (3)_aug_6.png",
+      "current_location": "data/test_set/ZSU-23-4 Anti Aircraft Artillery Tank/zsu 23 4 anti aircraft artillery tank (3)_aug_6.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "sa3 low blow radar (7)_aug_1.png": {
+      "class": "SA-3 Low Blow Radar",
+      "original_location": "data/processed/SA-3 Low Blow Radar/sa3 low blow radar (7)_aug_1.png",
+      "current_location": "data/test_set/SA-3 Low Blow Radar/sa3 low blow radar (7)_aug_1.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "sa3 low blow radar (1)_aug_5.png": {
+      "class": "SA-3 Low Blow Radar",
+      "original_location": "data/processed/SA-3 Low Blow Radar/sa3 low blow radar (1)_aug_5.png",
+      "current_location": "data/test_set/SA-3 Low Blow Radar/sa3 low blow radar (1)_aug_5.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "sa3 low blow radar (8)_aug_2.png": {
+      "class": "SA-3 Low Blow Radar",
+      "original_location": "data/processed/SA-3 Low Blow Radar/sa3 low blow radar (8)_aug_2.png",
+      "current_location": "data/test_set/SA-3 Low Blow Radar/sa3 low blow radar (8)_aug_2.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "sa3 low blow radar (13)_aug_4.png": {
+      "class": "SA-3 Low Blow Radar",
+      "original_location": "data/processed/SA-3 Low Blow Radar/sa3 low blow radar (13)_aug_4.png",
+      "current_location": "data/test_set/SA-3 Low Blow Radar/sa3 low blow radar (13)_aug_4.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "sa3 low blow radar (4)_aug_2.png": {
+      "class": "SA-3 Low Blow Radar",
+      "original_location": "data/processed/SA-3 Low Blow Radar/sa3 low blow radar (4)_aug_2.png",
+      "current_location": "data/test_set/SA-3 Low Blow Radar/sa3 low blow radar (4)_aug_2.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "athena2 lp (4)_aug_0.png": {
+      "class": "Athena2-LP",
+      "original_location": "data/processed/Athena2-LP/athena2 lp (4)_aug_0.png",
+      "current_location": "data/test_set/Athena2-LP/athena2 lp (4)_aug_0.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "athena2 lp (11)_aug_6.png": {
+      "class": "Athena2-LP",
+      "original_location": "data/processed/Athena2-LP/athena2 lp (11)_aug_6.png",
+      "current_location": "data/test_set/Athena2-LP/athena2 lp (11)_aug_6.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "athena2 lp (15)_aug_5.png": {
+      "class": "Athena2-LP",
+      "original_location": "data/processed/Athena2-LP/athena2 lp (15)_aug_5.png",
+      "current_location": "data/test_set/Athena2-LP/athena2 lp (15)_aug_5.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "athena2 lp (5)_aug_2.png": {
+      "class": "Athena2-LP",
+      "original_location": "data/processed/Athena2-LP/athena2 lp (5)_aug_2.png",
+      "current_location": "data/test_set/Athena2-LP/athena2 lp (5)_aug_2.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "athena2 lp (12)_aug_1.png": {
+      "class": "Athena2-LP",
+      "original_location": "data/processed/Athena2-LP/athena2 lp (12)_aug_1.png",
+      "current_location": "data/test_set/Athena2-LP/athena2 lp (12)_aug_1.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "patriot air defense launcher  (15)_aug_2.png": {
+      "class": "Patriot Air Defense Launcher",
+      "original_location": "data/processed/Patriot Air Defense Launcher/patriot air defense launcher  (15)_aug_2.png",
+      "current_location": "data/test_set/Patriot Air Defense Launcher/patriot air defense launcher  (15)_aug_2.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "patriot air defense launcher  (14)_aug_6.png": {
+      "class": "Patriot Air Defense Launcher",
+      "original_location": "data/processed/Patriot Air Defense Launcher/patriot air defense launcher  (14)_aug_6.png",
+      "current_location": "data/test_set/Patriot Air Defense Launcher/patriot air defense launcher  (14)_aug_6.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "patriot air defense launcher  (18)_aug_6.png": {
+      "class": "Patriot Air Defense Launcher",
+      "original_location": "data/processed/Patriot Air Defense Launcher/patriot air defense launcher  (18)_aug_6.png",
+      "current_location": "data/test_set/Patriot Air Defense Launcher/patriot air defense launcher  (18)_aug_6.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "patriot air defense launcher  (19)_aug_3.png": {
+      "class": "Patriot Air Defense Launcher",
+      "original_location": "data/processed/Patriot Air Defense Launcher/patriot air defense launcher  (19)_aug_3.png",
+      "current_location": "data/test_set/Patriot Air Defense Launcher/patriot air defense launcher  (19)_aug_3.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "patriot air defense launcher  (16)_aug_4.png": {
+      "class": "Patriot Air Defense Launcher",
+      "original_location": "data/processed/Patriot Air Defense Launcher/patriot air defense launcher  (16)_aug_4.png",
+      "current_location": "data/test_set/Patriot Air Defense Launcher/patriot air defense launcher  (16)_aug_4.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "patriot (12)_aug_3.png": {
+      "class": "Patriot",
+      "original_location": "data/processed/Patriot/patriot (12)_aug_3.png",
+      "current_location": "data/test_set/Patriot/patriot (12)_aug_3.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "patriot (18)_aug_1.png": {
+      "class": "Patriot",
+      "original_location": "data/processed/Patriot/patriot (18)_aug_1.png",
+      "current_location": "data/test_set/Patriot/patriot (18)_aug_1.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "patriot (1)_orig.png": {
+      "class": "Patriot",
+      "original_location": "data/processed/Patriot/patriot (1)_orig.png",
+      "current_location": "data/test_set/Patriot/patriot (1)_orig.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "patriot (8)_aug_0.png": {
+      "class": "Patriot",
+      "original_location": "data/processed/Patriot/patriot (8)_aug_0.png",
+      "current_location": "data/test_set/Patriot/patriot (8)_aug_0.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "patriot (11)_aug_1.png": {
+      "class": "Patriot",
+      "original_location": "data/processed/Patriot/patriot (11)_aug_1.png",
+      "current_location": "data/test_set/Patriot/patriot (11)_aug_1.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "thaad launcher (19)_aug_3.png": {
+      "class": "THAAD Launcher",
+      "original_location": "data/processed/THAAD Launcher/thaad launcher (19)_aug_3.png",
+      "current_location": "data/test_set/THAAD Launcher/thaad launcher (19)_aug_3.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "thaad launcher (12)_aug_4.png": {
+      "class": "THAAD Launcher",
+      "original_location": "data/processed/THAAD Launcher/thaad launcher (12)_aug_4.png",
+      "current_location": "data/test_set/THAAD Launcher/thaad launcher (12)_aug_4.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "thaad launcher (26)_aug_5.png": {
+      "class": "THAAD Launcher",
+      "original_location": "data/processed/THAAD Launcher/thaad launcher (26)_aug_5.png",
+      "current_location": "data/test_set/THAAD Launcher/thaad launcher (26)_aug_5.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "thaad launcher (37)_aug_5.png": {
+      "class": "THAAD Launcher",
+      "original_location": "data/processed/THAAD Launcher/thaad launcher (37)_aug_5.png",
+      "current_location": "data/test_set/THAAD Launcher/thaad launcher (37)_aug_5.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "thaad launcher (20)_aug_4.png": {
+      "class": "THAAD Launcher",
+      "original_location": "data/processed/THAAD Launcher/thaad launcher (20)_aug_4.png",
+      "current_location": "data/test_set/THAAD Launcher/thaad launcher (20)_aug_4.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "bakery (25)_aug_1.png": {
+      "class": "Bakery",
+      "original_location": "data/processed/Bakery/bakery (25)_aug_1.png",
+      "current_location": "data/test_set/Bakery/bakery (25)_aug_1.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "bakery (22)_aug_2.png": {
+      "class": "Bakery",
+      "original_location": "data/processed/Bakery/bakery (22)_aug_2.png",
+      "current_location": "data/test_set/Bakery/bakery (22)_aug_2.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "bakery (28)_aug_4.png": {
+      "class": "Bakery",
+      "original_location": "data/processed/Bakery/bakery (28)_aug_4.png",
+      "current_location": "data/test_set/Bakery/bakery (28)_aug_4.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "bakery (2)_aug_0.png": {
+      "class": "Bakery",
+      "original_location": "data/processed/Bakery/bakery (2)_aug_0.png",
+      "current_location": "data/test_set/Bakery/bakery (2)_aug_0.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "bakery (28)_aug_0.png": {
+      "class": "Bakery",
+      "original_location": "data/processed/Bakery/bakery (28)_aug_0.png",
+      "current_location": "data/test_set/Bakery/bakery (28)_aug_0.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "jeep (12)_aug_1.png": {
+      "class": "Jeep",
+      "original_location": "data/processed/Jeep/jeep (12)_aug_1.png",
+      "current_location": "data/test_set/Jeep/jeep (12)_aug_1.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "jeep (35)_aug_3.png": {
+      "class": "Jeep",
+      "original_location": "data/processed/Jeep/jeep (35)_aug_3.png",
+      "current_location": "data/test_set/Jeep/jeep (35)_aug_3.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "jeep (14)_orig.png": {
+      "class": "Jeep",
+      "original_location": "data/processed/Jeep/jeep (14)_orig.png",
+      "current_location": "data/test_set/Jeep/jeep (14)_orig.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "jeep (38)_orig.png": {
+      "class": "Jeep",
+      "original_location": "data/processed/Jeep/jeep (38)_orig.png",
+      "current_location": "data/test_set/Jeep/jeep (38)_orig.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "jeep (31)_orig.png": {
+      "class": "Jeep",
+      "original_location": "data/processed/Jeep/jeep (31)_orig.png",
+      "current_location": "data/test_set/Jeep/jeep (31)_orig.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "scud tel (7)_orig.png": {
+      "class": "Scud Tel",
+      "original_location": "data/processed/Scud Tel/scud tel (7)_orig.png",
+      "current_location": "data/test_set/Scud Tel/scud tel (7)_orig.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "scud tel (7)_aug_0.png": {
+      "class": "Scud Tel",
+      "original_location": "data/processed/Scud Tel/scud tel (7)_aug_0.png",
+      "current_location": "data/test_set/Scud Tel/scud tel (7)_aug_0.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "scud tel (9)_aug_0.png": {
+      "class": "Scud Tel",
+      "original_location": "data/processed/Scud Tel/scud tel (9)_aug_0.png",
+      "current_location": "data/test_set/Scud Tel/scud tel (9)_aug_0.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "scud tel (18)_aug_6.png": {
+      "class": "Scud Tel",
+      "original_location": "data/processed/Scud Tel/scud tel (18)_aug_6.png",
+      "current_location": "data/test_set/Scud Tel/scud tel (18)_aug_6.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "scud tel (20)_aug_3.png": {
+      "class": "Scud Tel",
+      "original_location": "data/processed/Scud Tel/scud tel (20)_aug_3.png",
+      "current_location": "data/test_set/Scud Tel/scud tel (20)_aug_3.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "taurus lp (16)_aug_1.png": {
+      "class": "Taurus LP",
+      "original_location": "data/processed/Taurus LP/taurus lp (16)_aug_1.png",
+      "current_location": "data/test_set/Taurus LP/taurus lp (16)_aug_1.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "taurus lp (20)_aug_4.png": {
+      "class": "Taurus LP",
+      "original_location": "data/processed/Taurus LP/taurus lp (20)_aug_4.png",
+      "current_location": "data/test_set/Taurus LP/taurus lp (20)_aug_4.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "taurus lp (17)_aug_3.png": {
+      "class": "Taurus LP",
+      "original_location": "data/processed/Taurus LP/taurus lp (17)_aug_3.png",
+      "current_location": "data/test_set/Taurus LP/taurus lp (17)_aug_3.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "taurus lp (20)_aug_6.png": {
+      "class": "Taurus LP",
+      "original_location": "data/processed/Taurus LP/taurus lp (20)_aug_6.png",
+      "current_location": "data/test_set/Taurus LP/taurus lp (20)_aug_6.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "taurus lp (16)_aug_5.png": {
+      "class": "Taurus LP",
+      "original_location": "data/processed/Taurus LP/taurus lp (16)_aug_5.png",
+      "current_location": "data/test_set/Taurus LP/taurus lp (16)_aug_5.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "flag pole (4)_aug_4.png": {
+      "class": "Flag Pole",
+      "original_location": "data/processed/Flag Pole/flag pole (4)_aug_4.png",
+      "current_location": "data/test_set/Flag Pole/flag pole (4)_aug_4.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "flag pole (7)_aug_5.png": {
+      "class": "Flag Pole",
+      "original_location": "data/processed/Flag Pole/flag pole (7)_aug_5.png",
+      "current_location": "data/test_set/Flag Pole/flag pole (7)_aug_5.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "flag pole (8)_aug_6.png": {
+      "class": "Flag Pole",
+      "original_location": "data/processed/Flag Pole/flag pole (8)_aug_6.png",
+      "current_location": "data/test_set/Flag Pole/flag pole (8)_aug_6.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "flag pole (12)_aug_5.png": {
+      "class": "Flag Pole",
+      "original_location": "data/processed/Flag Pole/flag pole (12)_aug_5.png",
+      "current_location": "data/test_set/Flag Pole/flag pole (12)_aug_5.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "flag pole (13)_aug_5.png": {
+      "class": "Flag Pole",
+      "original_location": "data/processed/Flag Pole/flag pole (13)_aug_5.png",
+      "current_location": "data/test_set/Flag Pole/flag pole (13)_aug_5.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "bank (17)_aug_5.png": {
+      "class": "Bank",
+      "original_location": "data/processed/Bank/bank (17)_aug_5.png",
+      "current_location": "data/test_set/Bank/bank (17)_aug_5.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "bank (19)_aug_3.png": {
+      "class": "Bank",
+      "original_location": "data/processed/Bank/bank (19)_aug_3.png",
+      "current_location": "data/test_set/Bank/bank (19)_aug_3.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "bank (5)_aug_3.png": {
+      "class": "Bank",
+      "original_location": "data/processed/Bank/bank (5)_aug_3.png",
+      "current_location": "data/test_set/Bank/bank (5)_aug_3.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "bank (20)_aug_0.png": {
+      "class": "Bank",
+      "original_location": "data/processed/Bank/bank (20)_aug_0.png",
+      "current_location": "data/test_set/Bank/bank (20)_aug_0.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "bank (3)_aug_3.png": {
+      "class": "Bank",
+      "original_location": "data/processed/Bank/bank (3)_aug_3.png",
+      "current_location": "data/test_set/Bank/bank (3)_aug_3.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "sa6 air defense system (23)_aug_1.png": {
+      "class": "SA-6 Air Defense System",
+      "original_location": "data/processed/SA-6 Air Defense System/sa6 air defense system (23)_aug_1.png",
+      "current_location": "data/test_set/SA-6 Air Defense System/sa6 air defense system (23)_aug_1.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "sa6 air defense system (6)_aug_1.png": {
+      "class": "SA-6 Air Defense System",
+      "original_location": "data/processed/SA-6 Air Defense System/sa6 air defense system (6)_aug_1.png",
+      "current_location": "data/test_set/SA-6 Air Defense System/sa6 air defense system (6)_aug_1.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "sa6 air defense system (14)_orig.png": {
+      "class": "SA-6 Air Defense System",
+      "original_location": "data/processed/SA-6 Air Defense System/sa6 air defense system (14)_orig.png",
+      "current_location": "data/test_set/SA-6 Air Defense System/sa6 air defense system (14)_orig.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "sa6 air defense system (22)_aug_0.png": {
+      "class": "SA-6 Air Defense System",
+      "original_location": "data/processed/SA-6 Air Defense System/sa6 air defense system (22)_aug_0.png",
+      "current_location": "data/test_set/SA-6 Air Defense System/sa6 air defense system (22)_aug_0.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "sa6 air defense system (15)_aug_3.png": {
+      "class": "SA-6 Air Defense System",
+      "original_location": "data/processed/SA-6 Air Defense System/sa6 air defense system (15)_aug_3.png",
+      "current_location": "data/test_set/SA-6 Air Defense System/sa6 air defense system (15)_aug_3.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "bridge (16)_aug_0.png": {
+      "class": "Bridge",
+      "original_location": "data/processed/Bridge/bridge (16)_aug_0.png",
+      "current_location": "data/test_set/Bridge/bridge (16)_aug_0.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "bridge (10)_aug_2.png": {
+      "class": "Bridge",
+      "original_location": "data/processed/Bridge/bridge (10)_aug_2.png",
+      "current_location": "data/test_set/Bridge/bridge (10)_aug_2.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "bridge (10)_aug_6.png": {
+      "class": "Bridge",
+      "original_location": "data/processed/Bridge/bridge (10)_aug_6.png",
+      "current_location": "data/test_set/Bridge/bridge (10)_aug_6.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "bridge (19)_aug_3.png": {
+      "class": "Bridge",
+      "original_location": "data/processed/Bridge/bridge (19)_aug_3.png",
+      "current_location": "data/test_set/Bridge/bridge (19)_aug_3.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "bridge (3)_aug_1.png": {
+      "class": "Bridge",
+      "original_location": "data/processed/Bridge/bridge (3)_aug_1.png",
+      "current_location": "data/test_set/Bridge/bridge (3)_aug_1.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "slc 4e pad (17)_aug_6.png": {
+      "class": "SLC 4E Pad",
+      "original_location": "data/processed/SLC 4E Pad/slc 4e pad (17)_aug_6.png",
+      "current_location": "data/test_set/SLC 4E Pad/slc 4e pad (17)_aug_6.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "slc 4e pad (17)_orig.png": {
+      "class": "SLC 4E Pad",
+      "original_location": "data/processed/SLC 4E Pad/slc 4e pad (17)_orig.png",
+      "current_location": "data/test_set/SLC 4E Pad/slc 4e pad (17)_orig.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "slc 4e pad (12)_aug_1.png": {
+      "class": "SLC 4E Pad",
+      "original_location": "data/processed/SLC 4E Pad/slc 4e pad (12)_aug_1.png",
+      "current_location": "data/test_set/SLC 4E Pad/slc 4e pad (12)_aug_1.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "slc 4e pad (20)_aug_5.png": {
+      "class": "SLC 4E Pad",
+      "original_location": "data/processed/SLC 4E Pad/slc 4e pad (20)_aug_5.png",
+      "current_location": "data/test_set/SLC 4E Pad/slc 4e pad (20)_aug_5.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "slc 4e pad (3)_aug_1.png": {
+      "class": "SLC 4E Pad",
+      "original_location": "data/processed/SLC 4E Pad/slc 4e pad (3)_aug_1.png",
+      "current_location": "data/test_set/SLC 4E Pad/slc 4e pad (3)_aug_1.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "smart tee (7)_aug_1.png": {
+      "class": "Smart Tee",
+      "original_location": "data/processed/Smart Tee/smart tee (7)_aug_1.png",
+      "current_location": "data/test_set/Smart Tee/smart tee (7)_aug_1.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "smart tee (15)_orig.png": {
+      "class": "Smart Tee",
+      "original_location": "data/processed/Smart Tee/smart tee (15)_orig.png",
+      "current_location": "data/test_set/Smart Tee/smart tee (15)_orig.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "smart tee (5)_orig.png": {
+      "class": "Smart Tee",
+      "original_location": "data/processed/Smart Tee/smart tee (5)_orig.png",
+      "current_location": "data/test_set/Smart Tee/smart tee (5)_orig.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "smart tee (13)_aug_2.png": {
+      "class": "Smart Tee",
+      "original_location": "data/processed/Smart Tee/smart tee (13)_aug_2.png",
+      "current_location": "data/test_set/Smart Tee/smart tee (13)_aug_2.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "smart tee (12)_aug_5.png": {
+      "class": "Smart Tee",
+      "original_location": "data/processed/Smart Tee/smart tee (12)_aug_5.png",
+      "current_location": "data/test_set/Smart Tee/smart tee (12)_aug_5.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "patriot air defense radar (8)_orig.png": {
+      "class": "Patriot Air Defense Radar",
+      "original_location": "data/processed/Patriot Air Defense Radar/patriot air defense radar (8)_orig.png",
+      "current_location": "data/test_set/Patriot Air Defense Radar/patriot air defense radar (8)_orig.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "patriot air defense radar (12)_aug_6.png": {
+      "class": "Patriot Air Defense Radar",
+      "original_location": "data/processed/Patriot Air Defense Radar/patriot air defense radar (12)_aug_6.png",
+      "current_location": "data/test_set/Patriot Air Defense Radar/patriot air defense radar (12)_aug_6.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "patriot air defense radar (3)_aug_1.png": {
+      "class": "Patriot Air Defense Radar",
+      "original_location": "data/processed/Patriot Air Defense Radar/patriot air defense radar (3)_aug_1.png",
+      "current_location": "data/test_set/Patriot Air Defense Radar/patriot air defense radar (3)_aug_1.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "patriot air defense radar (9)_aug_3.png": {
+      "class": "Patriot Air Defense Radar",
+      "original_location": "data/processed/Patriot Air Defense Radar/patriot air defense radar (9)_aug_3.png",
+      "current_location": "data/test_set/Patriot Air Defense Radar/patriot air defense radar (9)_aug_3.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "patriot air defense radar (12)_aug_1.png": {
+      "class": "Patriot Air Defense Radar",
+      "original_location": "data/processed/Patriot Air Defense Radar/patriot air defense radar (12)_aug_1.png",
+      "current_location": "data/test_set/Patriot Air Defense Radar/patriot air defense radar (12)_aug_1.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "maz543 scud tel (5)_orig.png": {
+      "class": "MAZ543 Scud TEL",
+      "original_location": "data/processed/MAZ543 Scud TEL/maz543 scud tel (5)_orig.png",
+      "current_location": "data/test_set/MAZ543 Scud TEL/maz543 scud tel (5)_orig.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "maz543 scud tel (7)_aug_3.png": {
+      "class": "MAZ543 Scud TEL",
+      "original_location": "data/processed/MAZ543 Scud TEL/maz543 scud tel (7)_aug_3.png",
+      "current_location": "data/test_set/MAZ543 Scud TEL/maz543 scud tel (7)_aug_3.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "maz543 scud tel (13)_orig.png": {
+      "class": "MAZ543 Scud TEL",
+      "original_location": "data/processed/MAZ543 Scud TEL/maz543 scud tel (13)_orig.png",
+      "current_location": "data/test_set/MAZ543 Scud TEL/maz543 scud tel (13)_orig.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "maz543 scud tel (19)_aug_6.png": {
+      "class": "MAZ543 Scud TEL",
+      "original_location": "data/processed/MAZ543 Scud TEL/maz543 scud tel (19)_aug_6.png",
+      "current_location": "data/test_set/MAZ543 Scud TEL/maz543 scud tel (19)_aug_6.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "maz543 scud tel (10)_aug_5.png": {
+      "class": "MAZ543 Scud TEL",
+      "original_location": "data/processed/MAZ543 Scud TEL/maz543 scud tel (10)_aug_5.png",
+      "current_location": "data/test_set/MAZ543 Scud TEL/maz543 scud tel (10)_aug_5.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "patriot radar (35)_aug_2.png": {
+      "class": "Patriot Radar",
+      "original_location": "data/processed/Patriot Radar/patriot radar (35)_aug_2.png",
+      "current_location": "data/test_set/Patriot Radar/patriot radar (35)_aug_2.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "patriot radar (31)_aug_3.png": {
+      "class": "Patriot Radar",
+      "original_location": "data/processed/Patriot Radar/patriot radar (31)_aug_3.png",
+      "current_location": "data/test_set/Patriot Radar/patriot radar (31)_aug_3.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "patriot radar (35)_aug_6.png": {
+      "class": "Patriot Radar",
+      "original_location": "data/processed/Patriot Radar/patriot radar (35)_aug_6.png",
+      "current_location": "data/test_set/Patriot Radar/patriot radar (35)_aug_6.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "patriot radar (19)_aug_3.png": {
+      "class": "Patriot Radar",
+      "original_location": "data/processed/Patriot Radar/patriot radar (19)_aug_3.png",
+      "current_location": "data/test_set/Patriot Radar/patriot radar (19)_aug_3.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "patriot radar (22)_aug_6.png": {
+      "class": "Patriot Radar",
+      "original_location": "data/processed/Patriot Radar/patriot radar (22)_aug_6.png",
+      "current_location": "data/test_set/Patriot Radar/patriot radar (22)_aug_6.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "sa10 air defense system (1)_aug_4.png": {
+      "class": "SA-10 Air Defense System",
+      "original_location": "data/processed/SA-10 Air Defense System/sa10 air defense system (1)_aug_4.png",
+      "current_location": "data/test_set/SA-10 Air Defense System/sa10 air defense system (1)_aug_4.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "sa10 air defense system (5)_aug_1.png": {
+      "class": "SA-10 Air Defense System",
+      "original_location": "data/processed/SA-10 Air Defense System/sa10 air defense system (5)_aug_1.png",
+      "current_location": "data/test_set/SA-10 Air Defense System/sa10 air defense system (5)_aug_1.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "sa10 air defense system (20)_aug_6.png": {
+      "class": "SA-10 Air Defense System",
+      "original_location": "data/processed/SA-10 Air Defense System/sa10 air defense system (20)_aug_6.png",
+      "current_location": "data/test_set/SA-10 Air Defense System/sa10 air defense system (20)_aug_6.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "sa10 air defense system (7)_aug_6.png": {
+      "class": "SA-10 Air Defense System",
+      "original_location": "data/processed/SA-10 Air Defense System/sa10 air defense system (7)_aug_6.png",
+      "current_location": "data/test_set/SA-10 Air Defense System/sa10 air defense system (7)_aug_6.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "sa10 air defense system (9)_aug_1.png": {
+      "class": "SA-10 Air Defense System",
+      "original_location": "data/processed/SA-10 Air Defense System/sa10 air defense system (9)_aug_1.png",
+      "current_location": "data/test_set/SA-10 Air Defense System/sa10 air defense system (9)_aug_1.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "power tower (20)_aug_4.png": {
+      "class": "Power Tower",
+      "original_location": "data/processed/Power Tower/power tower (20)_aug_4.png",
+      "current_location": "data/test_set/Power Tower/power tower (20)_aug_4.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "power tower (38)_aug_2.png": {
+      "class": "Power Tower",
+      "original_location": "data/processed/Power Tower/power tower (38)_aug_2.png",
+      "current_location": "data/test_set/Power Tower/power tower (38)_aug_2.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "power tower (15)_aug_3.png": {
+      "class": "Power Tower",
+      "original_location": "data/processed/Power Tower/power tower (15)_aug_3.png",
+      "current_location": "data/test_set/Power Tower/power tower (15)_aug_3.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "power tower (19)_aug_2.png": {
+      "class": "Power Tower",
+      "original_location": "data/processed/Power Tower/power tower (19)_aug_2.png",
+      "current_location": "data/test_set/Power Tower/power tower (19)_aug_2.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "power tower (18)_orig.png": {
+      "class": "Power Tower",
+      "original_location": "data/processed/Power Tower/power tower (18)_orig.png",
+      "current_location": "data/test_set/Power Tower/power tower (18)_orig.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "mse terminal (14)_orig.png": {
+      "class": "MSE Terminal",
+      "original_location": "data/processed/MSE Terminal/mse terminal (14)_orig.png",
+      "current_location": "data/test_set/MSE Terminal/mse terminal (14)_orig.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "mse terminal (19)_aug_5.png": {
+      "class": "MSE Terminal",
+      "original_location": "data/processed/MSE Terminal/mse terminal (19)_aug_5.png",
+      "current_location": "data/test_set/MSE Terminal/mse terminal (19)_aug_5.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "mse terminal (15)_aug_5.png": {
+      "class": "MSE Terminal",
+      "original_location": "data/processed/MSE Terminal/mse terminal (15)_aug_5.png",
+      "current_location": "data/test_set/MSE Terminal/mse terminal (15)_aug_5.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "mse terminal (19)_aug_0.png": {
+      "class": "MSE Terminal",
+      "original_location": "data/processed/MSE Terminal/mse terminal (19)_aug_0.png",
+      "current_location": "data/test_set/MSE Terminal/mse terminal (19)_aug_0.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "mse terminal (16)_orig.png": {
+      "class": "MSE Terminal",
+      "original_location": "data/processed/MSE Terminal/mse terminal (16)_orig.png",
+      "current_location": "data/test_set/MSE Terminal/mse terminal (16)_orig.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "mercava (14)_aug_4.png": {
+      "class": "Mercava",
+      "original_location": "data/processed/Mercava/mercava (14)_aug_4.png",
+      "current_location": "data/test_set/Mercava/mercava (14)_aug_4.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "mercava (12)_aug_1.png": {
+      "class": "Mercava",
+      "original_location": "data/processed/Mercava/mercava (12)_aug_1.png",
+      "current_location": "data/test_set/Mercava/mercava (12)_aug_1.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "mercava (4)_aug_4.png": {
+      "class": "Mercava",
+      "original_location": "data/processed/Mercava/mercava (4)_aug_4.png",
+      "current_location": "data/test_set/Mercava/mercava (4)_aug_4.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "mercava (20)_aug_3.png": {
+      "class": "Mercava",
+      "original_location": "data/processed/Mercava/mercava (20)_aug_3.png",
+      "current_location": "data/test_set/Mercava/mercava (20)_aug_3.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "mercava (11)_aug_1.png": {
+      "class": "Mercava",
+      "original_location": "data/processed/Mercava/mercava (11)_aug_1.png",
+      "current_location": "data/test_set/Mercava/mercava (11)_aug_1.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "ariane-lp (2)_aug_4.png": {
+      "class": "Ariane-LP",
+      "original_location": "data/processed/Ariane-LP/ariane-lp (2)_aug_4.png",
+      "current_location": "data/test_set/Ariane-LP/ariane-lp (2)_aug_4.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "ariane-lp (24)_aug_5.png": {
+      "class": "Ariane-LP",
+      "original_location": "data/processed/Ariane-LP/ariane-lp (24)_aug_5.png",
+      "current_location": "data/test_set/Ariane-LP/ariane-lp (24)_aug_5.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "ariane-lp (5)_aug_4.png": {
+      "class": "Ariane-LP",
+      "original_location": "data/processed/Ariane-LP/ariane-lp (5)_aug_4.png",
+      "current_location": "data/test_set/Ariane-LP/ariane-lp (5)_aug_4.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "ariane-lp (13)_orig.png": {
+      "class": "Ariane-LP",
+      "original_location": "data/processed/Ariane-LP/ariane-lp (13)_orig.png",
+      "current_location": "data/test_set/Ariane-LP/ariane-lp (13)_orig.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "ariane-lp (18)_orig.png": {
+      "class": "Ariane-LP",
+      "original_location": "data/processed/Ariane-LP/ariane-lp (18)_orig.png",
+      "current_location": "data/test_set/Ariane-LP/ariane-lp (18)_orig.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "m2 bradley apc tank (12)_aug_4.png": {
+      "class": "M2 Bradley Apc Tank",
+      "original_location": "data/processed/M2 Bradley Apc Tank/m2 bradley apc tank (12)_aug_4.png",
+      "current_location": "data/test_set/M2 Bradley Apc Tank/m2 bradley apc tank (12)_aug_4.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "m2 bradley apc tank (10)_orig.png": {
+      "class": "M2 Bradley Apc Tank",
+      "original_location": "data/processed/M2 Bradley Apc Tank/m2 bradley apc tank (10)_orig.png",
+      "current_location": "data/test_set/M2 Bradley Apc Tank/m2 bradley apc tank (10)_orig.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "m2 bradley apc tank (10)_aug_3.png": {
+      "class": "M2 Bradley Apc Tank",
+      "original_location": "data/processed/M2 Bradley Apc Tank/m2 bradley apc tank (10)_aug_3.png",
+      "current_location": "data/test_set/M2 Bradley Apc Tank/m2 bradley apc tank (10)_aug_3.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "m2 bradley apc tank (3)_orig.png": {
+      "class": "M2 Bradley Apc Tank",
+      "original_location": "data/processed/M2 Bradley Apc Tank/m2 bradley apc tank (3)_orig.png",
+      "current_location": "data/test_set/M2 Bradley Apc Tank/m2 bradley apc tank (3)_orig.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "m2 bradley apc tank (5)_aug_4.png": {
+      "class": "M2 Bradley Apc Tank",
+      "original_location": "data/processed/M2 Bradley Apc Tank/m2 bradley apc tank (5)_aug_4.png",
+      "current_location": "data/test_set/M2 Bradley Apc Tank/m2 bradley apc tank (5)_aug_4.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "patriot missile truck (17)_aug_6.png": {
+      "class": "Patriot Missile Truck",
+      "original_location": "data/processed/Patriot Missile Truck/patriot missile truck (17)_aug_6.png",
+      "current_location": "data/test_set/Patriot Missile Truck/patriot missile truck (17)_aug_6.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "patriot missile truck (29)_orig.png": {
+      "class": "Patriot Missile Truck",
+      "original_location": "data/processed/Patriot Missile Truck/patriot missile truck (29)_orig.png",
+      "current_location": "data/test_set/Patriot Missile Truck/patriot missile truck (29)_orig.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "patriot missile truck (14)_orig.png": {
+      "class": "Patriot Missile Truck",
+      "original_location": "data/processed/Patriot Missile Truck/patriot missile truck (14)_orig.png",
+      "current_location": "data/test_set/Patriot Missile Truck/patriot missile truck (14)_orig.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "patriot missile truck (23)_aug_3.png": {
+      "class": "Patriot Missile Truck",
+      "original_location": "data/processed/Patriot Missile Truck/patriot missile truck (23)_aug_3.png",
+      "current_location": "data/test_set/Patriot Missile Truck/patriot missile truck (23)_aug_3.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "patriot missile truck (33)_orig.png": {
+      "class": "Patriot Missile Truck",
+      "original_location": "data/processed/Patriot Missile Truck/patriot missile truck (33)_orig.png",
+      "current_location": "data/test_set/Patriot Missile Truck/patriot missile truck (33)_orig.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "brdm avr (18)_aug_2.png": {
+      "class": "BRDM AVR",
+      "original_location": "data/processed/BRDM AVR/brdm avr (18)_aug_2.png",
+      "current_location": "data/test_set/BRDM AVR/brdm avr (18)_aug_2.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "brdm avr (14)_aug_0.png": {
+      "class": "BRDM AVR",
+      "original_location": "data/processed/BRDM AVR/brdm avr (14)_aug_0.png",
+      "current_location": "data/test_set/BRDM AVR/brdm avr (14)_aug_0.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "brdm avr (16)_aug_3.png": {
+      "class": "BRDM AVR",
+      "original_location": "data/processed/BRDM AVR/brdm avr (16)_aug_3.png",
+      "current_location": "data/test_set/BRDM AVR/brdm avr (16)_aug_3.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "brdm avr (3)_aug_1.png": {
+      "class": "BRDM AVR",
+      "original_location": "data/processed/BRDM AVR/brdm avr (3)_aug_1.png",
+      "current_location": "data/test_set/BRDM AVR/brdm avr (3)_aug_1.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "brdm avr (12)_aug_3.png": {
+      "class": "BRDM AVR",
+      "original_location": "data/processed/BRDM AVR/brdm avr (12)_aug_3.png",
+      "current_location": "data/test_set/BRDM AVR/brdm avr (12)_aug_3.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "airfield (15)_aug_2.png": {
+      "class": "Airfield",
+      "original_location": "data/processed/Airfield/airfield (15)_aug_2.png",
+      "current_location": "data/test_set/Airfield/airfield (15)_aug_2.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "airfield (9)_aug_3.png": {
+      "class": "Airfield",
+      "original_location": "data/processed/Airfield/airfield (9)_aug_3.png",
+      "current_location": "data/test_set/Airfield/airfield (9)_aug_3.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "airfield (12)_aug_4.png": {
+      "class": "Airfield",
+      "original_location": "data/processed/Airfield/airfield (12)_aug_4.png",
+      "current_location": "data/test_set/Airfield/airfield (12)_aug_4.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "airfield (4)_orig.png": {
+      "class": "Airfield",
+      "original_location": "data/processed/Airfield/airfield (4)_orig.png",
+      "current_location": "data/test_set/Airfield/airfield (4)_orig.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "airfield (1)_aug_6.png": {
+      "class": "Airfield",
+      "original_location": "data/processed/Airfield/airfield (1)_aug_6.png",
+      "current_location": "data/test_set/Airfield/airfield (1)_aug_6.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "camp (17)_aug_0.png": {
+      "class": "Camp",
+      "original_location": "data/processed/Camp/camp (17)_aug_0.png",
+      "current_location": "data/test_set/Camp/camp (17)_aug_0.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "camp (7)_aug_4.png": {
+      "class": "Camp",
+      "original_location": "data/processed/Camp/camp (7)_aug_4.png",
+      "current_location": "data/test_set/Camp/camp (7)_aug_4.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "camp (4)_aug_0.png": {
+      "class": "Camp",
+      "original_location": "data/processed/Camp/camp (4)_aug_0.png",
+      "current_location": "data/test_set/Camp/camp (4)_aug_0.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "camp (20)_aug_0.png": {
+      "class": "Camp",
+      "original_location": "data/processed/Camp/camp (20)_aug_0.png",
+      "current_location": "data/test_set/Camp/camp (20)_aug_0.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "camp (16)_aug_6.png": {
+      "class": "Camp",
+      "original_location": "data/processed/Camp/camp (16)_aug_6.png",
+      "current_location": "data/test_set/Camp/camp (16)_aug_6.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "military complex (26)_aug_4.png": {
+      "class": "Military Complex",
+      "original_location": "data/processed/Military Complex/military complex (26)_aug_4.png",
+      "current_location": "data/test_set/Military Complex/military complex (26)_aug_4.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "military complex (13)_aug_1.png": {
+      "class": "Military Complex",
+      "original_location": "data/processed/Military Complex/military complex (13)_aug_1.png",
+      "current_location": "data/test_set/Military Complex/military complex (13)_aug_1.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "military complex (1)_orig.png": {
+      "class": "Military Complex",
+      "original_location": "data/processed/Military Complex/military complex (1)_orig.png",
+      "current_location": "data/test_set/Military Complex/military complex (1)_orig.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "military complex (26)_aug_0.png": {
+      "class": "Military Complex",
+      "original_location": "data/processed/Military Complex/military complex (26)_aug_0.png",
+      "current_location": "data/test_set/Military Complex/military complex (26)_aug_0.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "military complex (14)_aug_3.png": {
+      "class": "Military Complex",
+      "original_location": "data/processed/Military Complex/military complex (14)_aug_3.png",
+      "current_location": "data/test_set/Military Complex/military complex (14)_aug_3.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "large oil tank (37)_aug_1.png": {
+      "class": "LargeOil Tank",
+      "original_location": "data/processed/LargeOil Tank/large oil tank (37)_aug_1.png",
+      "current_location": "data/test_set/LargeOil Tank/large oil tank (37)_aug_1.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "large oil tank (24)_aug_5.png": {
+      "class": "LargeOil Tank",
+      "original_location": "data/processed/LargeOil Tank/large oil tank (24)_aug_5.png",
+      "current_location": "data/test_set/LargeOil Tank/large oil tank (24)_aug_5.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "large oil tank (30)_aug_3.png": {
+      "class": "LargeOil Tank",
+      "original_location": "data/processed/LargeOil Tank/large oil tank (30)_aug_3.png",
+      "current_location": "data/test_set/LargeOil Tank/large oil tank (30)_aug_3.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "large oil tank (32)_aug_3.png": {
+      "class": "LargeOil Tank",
+      "original_location": "data/processed/LargeOil Tank/large oil tank (32)_aug_3.png",
+      "current_location": "data/test_set/LargeOil Tank/large oil tank (32)_aug_3.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "large oil tank (18)_aug_6.png": {
+      "class": "LargeOil Tank",
+      "original_location": "data/processed/LargeOil Tank/large oil tank (18)_aug_6.png",
+      "current_location": "data/test_set/LargeOil Tank/large oil tank (18)_aug_6.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "btr80 apc (7)_orig.png": {
+      "class": "BTR-80 APC",
+      "original_location": "data/processed/BTR-80 APC/btr80 apc (7)_orig.png",
+      "current_location": "data/test_set/BTR-80 APC/btr80 apc (7)_orig.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "btr80 apc (1)_aug_5.png": {
+      "class": "BTR-80 APC",
+      "original_location": "data/processed/BTR-80 APC/btr80 apc (1)_aug_5.png",
+      "current_location": "data/test_set/BTR-80 APC/btr80 apc (1)_aug_5.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "btr80 apc (9)_aug_6.png": {
+      "class": "BTR-80 APC",
+      "original_location": "data/processed/BTR-80 APC/btr80 apc (9)_aug_6.png",
+      "current_location": "data/test_set/BTR-80 APC/btr80 apc (9)_aug_6.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "btr80 apc (19)_aug_5.png": {
+      "class": "BTR-80 APC",
+      "original_location": "data/processed/BTR-80 APC/btr80 apc (19)_aug_5.png",
+      "current_location": "data/test_set/BTR-80 APC/btr80 apc (19)_aug_5.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "btr80 apc (11)_aug_2.png": {
+      "class": "BTR-80 APC",
+      "original_location": "data/processed/BTR-80 APC/btr80 apc (11)_aug_2.png",
+      "current_location": "data/test_set/BTR-80 APC/btr80 apc (11)_aug_2.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "sa8 air defense system (7)_aug_3.png": {
+      "class": "SA-8 Air Defense System",
+      "original_location": "data/processed/SA-8 Air Defense System/sa8 air defense system (7)_aug_3.png",
+      "current_location": "data/test_set/SA-8 Air Defense System/sa8 air defense system (7)_aug_3.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "sa8 air defense system (2)_aug_5.png": {
+      "class": "SA-8 Air Defense System",
+      "original_location": "data/processed/SA-8 Air Defense System/sa8 air defense system (2)_aug_5.png",
+      "current_location": "data/test_set/SA-8 Air Defense System/sa8 air defense system (2)_aug_5.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "sa8 air defense system (1)_aug_5.png": {
+      "class": "SA-8 Air Defense System",
+      "original_location": "data/processed/SA-8 Air Defense System/sa8 air defense system (1)_aug_5.png",
+      "current_location": "data/test_set/SA-8 Air Defense System/sa8 air defense system (1)_aug_5.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "sa8 air defense system (4)_aug_6.png": {
+      "class": "SA-8 Air Defense System",
+      "original_location": "data/processed/SA-8 Air Defense System/sa8 air defense system (4)_aug_6.png",
+      "current_location": "data/test_set/SA-8 Air Defense System/sa8 air defense system (4)_aug_6.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "sa8 air defense system (14)_aug_0.png": {
+      "class": "SA-8 Air Defense System",
+      "original_location": "data/processed/SA-8 Air Defense System/sa8 air defense system (14)_aug_0.png",
+      "current_location": "data/test_set/SA-8 Air Defense System/sa8 air defense system (14)_aug_0.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "satdish (8)_aug_3.png": {
+      "class": "SatDish",
+      "original_location": "data/processed/SatDish/satdish (8)_aug_3.png",
+      "current_location": "data/test_set/SatDish/satdish (8)_aug_3.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "satdish (3)_orig.png": {
+      "class": "SatDish",
+      "original_location": "data/processed/SatDish/satdish (3)_orig.png",
+      "current_location": "data/test_set/SatDish/satdish (3)_orig.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "satdish (14)_aug_1.png": {
+      "class": "SatDish",
+      "original_location": "data/processed/SatDish/satdish (14)_aug_1.png",
+      "current_location": "data/test_set/SatDish/satdish (14)_aug_1.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "satdish (10)_aug_1.png": {
+      "class": "SatDish",
+      "original_location": "data/processed/SatDish/satdish (10)_aug_1.png",
+      "current_location": "data/test_set/SatDish/satdish (10)_aug_1.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "satdish (2)_aug_5.png": {
+      "class": "SatDish",
+      "original_location": "data/processed/SatDish/satdish (2)_aug_5.png",
+      "current_location": "data/test_set/SatDish/satdish (2)_aug_5.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "fossil fuel power plant (16)_orig.png": {
+      "class": "Fossil Fuel Power Plant",
+      "original_location": "data/processed/Fossil Fuel Power Plant/fossil fuel power plant (16)_orig.png",
+      "current_location": "data/test_set/Fossil Fuel Power Plant/fossil fuel power plant (16)_orig.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "fossil fuel power plant (29)_aug_5.png": {
+      "class": "Fossil Fuel Power Plant",
+      "original_location": "data/processed/Fossil Fuel Power Plant/fossil fuel power plant (29)_aug_5.png",
+      "current_location": "data/test_set/Fossil Fuel Power Plant/fossil fuel power plant (29)_aug_5.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "fossil fuel power plant (9)_aug_6.png": {
+      "class": "Fossil Fuel Power Plant",
+      "original_location": "data/processed/Fossil Fuel Power Plant/fossil fuel power plant (9)_aug_6.png",
+      "current_location": "data/test_set/Fossil Fuel Power Plant/fossil fuel power plant (9)_aug_6.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "fossil fuel power plant (27)_aug_4.png": {
+      "class": "Fossil Fuel Power Plant",
+      "original_location": "data/processed/Fossil Fuel Power Plant/fossil fuel power plant (27)_aug_4.png",
+      "current_location": "data/test_set/Fossil Fuel Power Plant/fossil fuel power plant (27)_aug_4.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "fossil fuel power plant (9)_orig.png": {
+      "class": "Fossil Fuel Power Plant",
+      "original_location": "data/processed/Fossil Fuel Power Plant/fossil fuel power plant (9)_orig.png",
+      "current_location": "data/test_set/Fossil Fuel Power Plant/fossil fuel power plant (9)_orig.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "tnshdrad (5)_aug_2.png": {
+      "class": "Tnshdrad",
+      "original_location": "data/processed/Tnshdrad/tnshdrad (5)_aug_2.png",
+      "current_location": "data/test_set/Tnshdrad/tnshdrad (5)_aug_2.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "tnshdrad (9)_aug_0.png": {
+      "class": "Tnshdrad",
+      "original_location": "data/processed/Tnshdrad/tnshdrad (9)_aug_0.png",
+      "current_location": "data/test_set/Tnshdrad/tnshdrad (9)_aug_0.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "tnshdrad (11)_orig.png": {
+      "class": "Tnshdrad",
+      "original_location": "data/processed/Tnshdrad/tnshdrad (11)_orig.png",
+      "current_location": "data/test_set/Tnshdrad/tnshdrad (11)_orig.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "tnshdrad (10)_aug_1.png": {
+      "class": "Tnshdrad",
+      "original_location": "data/processed/Tnshdrad/tnshdrad (10)_aug_1.png",
+      "current_location": "data/test_set/Tnshdrad/tnshdrad (10)_aug_1.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "tnshdrad (18)_aug_1.png": {
+      "class": "Tnshdrad",
+      "original_location": "data/processed/Tnshdrad/tnshdrad (18)_aug_1.png",
+      "current_location": "data/test_set/Tnshdrad/tnshdrad (18)_aug_1.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "warrior afv tank (2)_aug_5.png": {
+      "class": "Warrior AFV Tank",
+      "original_location": "data/processed/Warrior AFV Tank/warrior afv tank (2)_aug_5.png",
+      "current_location": "data/test_set/Warrior AFV Tank/warrior afv tank (2)_aug_5.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "warrior afv tank (18)_aug_2.png": {
+      "class": "Warrior AFV Tank",
+      "original_location": "data/processed/Warrior AFV Tank/warrior afv tank (18)_aug_2.png",
+      "current_location": "data/test_set/Warrior AFV Tank/warrior afv tank (18)_aug_2.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "warrior afv tank (18)_aug_3.png": {
+      "class": "Warrior AFV Tank",
+      "original_location": "data/processed/Warrior AFV Tank/warrior afv tank (18)_aug_3.png",
+      "current_location": "data/test_set/Warrior AFV Tank/warrior afv tank (18)_aug_3.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "warrior afv tank (16)_aug_0.png": {
+      "class": "Warrior AFV Tank",
+      "original_location": "data/processed/Warrior AFV Tank/warrior afv tank (16)_aug_0.png",
+      "current_location": "data/test_set/Warrior AFV Tank/warrior afv tank (16)_aug_0.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "warrior afv tank (17)_orig.png": {
+      "class": "Warrior AFV Tank",
+      "original_location": "data/processed/Warrior AFV Tank/warrior afv tank (17)_orig.png",
+      "current_location": "data/test_set/Warrior AFV Tank/warrior afv tank (17)_orig.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "pickup (1)_orig.png": {
+      "class": "PickUp",
+      "original_location": "data/processed/PickUp/pickup (1)_orig.png",
+      "current_location": "data/test_set/PickUp/pickup (1)_orig.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "pickup (18)_aug_1.png": {
+      "class": "PickUp",
+      "original_location": "data/processed/PickUp/pickup (18)_aug_1.png",
+      "current_location": "data/test_set/PickUp/pickup (18)_aug_1.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "pickup (7)_aug_1.png": {
+      "class": "PickUp",
+      "original_location": "data/processed/PickUp/pickup (7)_aug_1.png",
+      "current_location": "data/test_set/PickUp/pickup (7)_aug_1.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "pickup (5)_orig.png": {
+      "class": "PickUp",
+      "original_location": "data/processed/PickUp/pickup (5)_orig.png",
+      "current_location": "data/test_set/PickUp/pickup (5)_orig.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "pickup (17)_aug_2.png": {
+      "class": "PickUp",
+      "original_location": "data/processed/PickUp/pickup (17)_aug_2.png",
+      "current_location": "data/test_set/PickUp/pickup (17)_aug_2.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "maz543 scud tel launcher (6)_aug_1.png": {
+      "class": "MAZ543 Scud Tel Launcher",
+      "original_location": "data/processed/MAZ543 Scud Tel Launcher/maz543 scud tel launcher (6)_aug_1.png",
+      "current_location": "data/test_set/MAZ543 Scud Tel Launcher/maz543 scud tel launcher (6)_aug_1.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "maz543 scud tel launcher (3)_aug_3.png": {
+      "class": "MAZ543 Scud Tel Launcher",
+      "original_location": "data/processed/MAZ543 Scud Tel Launcher/maz543 scud tel launcher (3)_aug_3.png",
+      "current_location": "data/test_set/MAZ543 Scud Tel Launcher/maz543 scud tel launcher (3)_aug_3.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "maz543 scud tel launcher (15)_aug_5.png": {
+      "class": "MAZ543 Scud Tel Launcher",
+      "original_location": "data/processed/MAZ543 Scud Tel Launcher/maz543 scud tel launcher (15)_aug_5.png",
+      "current_location": "data/test_set/MAZ543 Scud Tel Launcher/maz543 scud tel launcher (15)_aug_5.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "maz543 scud tel launcher (18)_orig.png": {
+      "class": "MAZ543 Scud Tel Launcher",
+      "original_location": "data/processed/MAZ543 Scud Tel Launcher/maz543 scud tel launcher (18)_orig.png",
+      "current_location": "data/test_set/MAZ543 Scud Tel Launcher/maz543 scud tel launcher (18)_orig.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "maz543 scud tel launcher (13)_aug_1.png": {
+      "class": "MAZ543 Scud Tel Launcher",
+      "original_location": "data/processed/MAZ543 Scud Tel Launcher/maz543 scud tel launcher (13)_aug_1.png",
+      "current_location": "data/test_set/MAZ543 Scud Tel Launcher/maz543 scud tel launcher (13)_aug_1.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "bowling alley (12)_aug_1.png": {
+      "class": "Bowling Alley",
+      "original_location": "data/processed/Bowling Alley/bowling alley (12)_aug_1.png",
+      "current_location": "data/test_set/Bowling Alley/bowling alley (12)_aug_1.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "bowling alley (16)_orig.png": {
+      "class": "Bowling Alley",
+      "original_location": "data/processed/Bowling Alley/bowling alley (16)_orig.png",
+      "current_location": "data/test_set/Bowling Alley/bowling alley (16)_orig.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "bowling alley (7)_aug_6.png": {
+      "class": "Bowling Alley",
+      "original_location": "data/processed/Bowling Alley/bowling alley (7)_aug_6.png",
+      "current_location": "data/test_set/Bowling Alley/bowling alley (7)_aug_6.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "bowling alley (18)_aug_2.png": {
+      "class": "Bowling Alley",
+      "original_location": "data/processed/Bowling Alley/bowling alley (18)_aug_2.png",
+      "current_location": "data/test_set/Bowling Alley/bowling alley (18)_aug_2.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "bowling alley (6)_orig.png": {
+      "class": "Bowling Alley",
+      "original_location": "data/processed/Bowling Alley/bowling alley (6)_orig.png",
+      "current_location": "data/test_set/Bowling Alley/bowling alley (6)_orig.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "rapier air defense radar (19)_orig.png": {
+      "class": "Rapier Air Defense Radar",
+      "original_location": "data/processed/Rapier Air Defense Radar/rapier air defense radar (19)_orig.png",
+      "current_location": "data/test_set/Rapier Air Defense Radar/rapier air defense radar (19)_orig.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "rapier air defense radar (1)_aug_0.png": {
+      "class": "Rapier Air Defense Radar",
+      "original_location": "data/processed/Rapier Air Defense Radar/rapier air defense radar (1)_aug_0.png",
+      "current_location": "data/test_set/Rapier Air Defense Radar/rapier air defense radar (1)_aug_0.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "rapier air defense radar (11)_aug_1.png": {
+      "class": "Rapier Air Defense Radar",
+      "original_location": "data/processed/Rapier Air Defense Radar/rapier air defense radar (11)_aug_1.png",
+      "current_location": "data/test_set/Rapier Air Defense Radar/rapier air defense radar (11)_aug_1.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "rapier air defense radar (6)_aug_2.png": {
+      "class": "Rapier Air Defense Radar",
+      "original_location": "data/processed/Rapier Air Defense Radar/rapier air defense radar (6)_aug_2.png",
+      "current_location": "data/test_set/Rapier Air Defense Radar/rapier air defense radar (6)_aug_2.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "rapier air defense radar (2)_aug_0.png": {
+      "class": "Rapier Air Defense Radar",
+      "original_location": "data/processed/Rapier Air Defense Radar/rapier air defense radar (2)_aug_0.png",
+      "current_location": "data/test_set/Rapier Air Defense Radar/rapier air defense radar (2)_aug_0.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "m1a1 abrams tank (26)_aug_3.png": {
+      "class": "M-1A1 Abrams Tank",
+      "original_location": "data/processed/M-1A1 Abrams Tank/m1a1 abrams tank (26)_aug_3.png",
+      "current_location": "data/test_set/M-1A1 Abrams Tank/m1a1 abrams tank (26)_aug_3.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "m1a1 abrams tank (33)_aug_1.png": {
+      "class": "M-1A1 Abrams Tank",
+      "original_location": "data/processed/M-1A1 Abrams Tank/m1a1 abrams tank (33)_aug_1.png",
+      "current_location": "data/test_set/M-1A1 Abrams Tank/m1a1 abrams tank (33)_aug_1.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "m1a1 abrams tank (1)_aug_1.png": {
+      "class": "M-1A1 Abrams Tank",
+      "original_location": "data/processed/M-1A1 Abrams Tank/m1a1 abrams tank (1)_aug_1.png",
+      "current_location": "data/test_set/M-1A1 Abrams Tank/m1a1 abrams tank (1)_aug_1.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "m1a1 abrams tank (27)_aug_1.png": {
+      "class": "M-1A1 Abrams Tank",
+      "original_location": "data/processed/M-1A1 Abrams Tank/m1a1 abrams tank (27)_aug_1.png",
+      "current_location": "data/test_set/M-1A1 Abrams Tank/m1a1 abrams tank (27)_aug_1.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "m1a1 abrams tank (13)_aug_2.png": {
+      "class": "M-1A1 Abrams Tank",
+      "original_location": "data/processed/M-1A1 Abrams Tank/m1a1 abrams tank (13)_aug_2.png",
+      "current_location": "data/test_set/M-1A1 Abrams Tank/m1a1 abrams tank (13)_aug_2.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "patriot control (20)_aug_6.png": {
+      "class": "Patriot Control",
+      "original_location": "data/processed/Patriot Control/patriot control (20)_aug_6.png",
+      "current_location": "data/test_set/Patriot Control/patriot control (20)_aug_6.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "patriot control (4)_orig.png": {
+      "class": "Patriot Control",
+      "original_location": "data/processed/Patriot Control/patriot control (4)_orig.png",
+      "current_location": "data/test_set/Patriot Control/patriot control (4)_orig.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "patriot control (5)_orig.png": {
+      "class": "Patriot Control",
+      "original_location": "data/processed/Patriot Control/patriot control (5)_orig.png",
+      "current_location": "data/test_set/Patriot Control/patriot control (5)_orig.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "patriot control (10)_orig.png": {
+      "class": "Patriot Control",
+      "original_location": "data/processed/Patriot Control/patriot control (10)_orig.png",
+      "current_location": "data/test_set/Patriot Control/patriot control (10)_orig.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "patriot control (15)_aug_5.png": {
+      "class": "Patriot Control",
+      "original_location": "data/processed/Patriot Control/patriot control (15)_aug_5.png",
+      "current_location": "data/test_set/Patriot Control/patriot control (15)_aug_5.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "car dealership (3)_aug_5.png": {
+      "class": "Car dealership",
+      "original_location": "data/processed/Car dealership/car dealership (3)_aug_5.png",
+      "current_location": "data/test_set/Car dealership/car dealership (3)_aug_5.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "car dealership (1)_aug_6.png": {
+      "class": "Car dealership",
+      "original_location": "data/processed/Car dealership/car dealership (1)_aug_6.png",
+      "current_location": "data/test_set/Car dealership/car dealership (1)_aug_6.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "car dealership (7)_aug_1.png": {
+      "class": "Car dealership",
+      "original_location": "data/processed/Car dealership/car dealership (7)_aug_1.png",
+      "current_location": "data/test_set/Car dealership/car dealership (7)_aug_1.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "car dealership (5)_orig.png": {
+      "class": "Car dealership",
+      "original_location": "data/processed/Car dealership/car dealership (5)_orig.png",
+      "current_location": "data/test_set/Car dealership/car dealership (5)_orig.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "car dealership (1)_aug_1.png": {
+      "class": "Car dealership",
+      "original_location": "data/processed/Car dealership/car dealership (1)_aug_1.png",
+      "current_location": "data/test_set/Car dealership/car dealership (1)_aug_1.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "t72 tank (23)_aug_0.png": {
+      "class": "T72 Tank",
+      "original_location": "data/processed/T72 Tank/t72 tank (23)_aug_0.png",
+      "current_location": "data/test_set/T72 Tank/t72 tank (23)_aug_0.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "t72 tank (28)_orig.png": {
+      "class": "T72 Tank",
+      "original_location": "data/processed/T72 Tank/t72 tank (28)_orig.png",
+      "current_location": "data/test_set/T72 Tank/t72 tank (28)_orig.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "t72 tank (35)_orig.png": {
+      "class": "T72 Tank",
+      "original_location": "data/processed/T72 Tank/t72 tank (35)_orig.png",
+      "current_location": "data/test_set/T72 Tank/t72 tank (35)_orig.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "t72 tank (25)_aug_6.png": {
+      "class": "T72 Tank",
+      "original_location": "data/processed/T72 Tank/t72 tank (25)_aug_6.png",
+      "current_location": "data/test_set/T72 Tank/t72 tank (25)_aug_6.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "t72 tank (33)_orig.png": {
+      "class": "T72 Tank",
+      "original_location": "data/processed/T72 Tank/t72 tank (33)_orig.png",
+      "current_location": "data/test_set/T72 Tank/t72 tank (33)_orig.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "atlas lp (11)_aug_0.png": {
+      "class": "Atlas LP",
+      "original_location": "data/processed/Atlas LP/atlas lp (11)_aug_0.png",
+      "current_location": "data/test_set/Atlas LP/atlas lp (11)_aug_0.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "atlas lp (20)_aug_3.png": {
+      "class": "Atlas LP",
+      "original_location": "data/processed/Atlas LP/atlas lp (20)_aug_3.png",
+      "current_location": "data/test_set/Atlas LP/atlas lp (20)_aug_3.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "atlas lp (16)_aug_4.png": {
+      "class": "Atlas LP",
+      "original_location": "data/processed/Atlas LP/atlas lp (16)_aug_4.png",
+      "current_location": "data/test_set/Atlas LP/atlas lp (16)_aug_4.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "atlas lp (8)_orig.png": {
+      "class": "Atlas LP",
+      "original_location": "data/processed/Atlas LP/atlas lp (8)_orig.png",
+      "current_location": "data/test_set/Atlas LP/atlas lp (8)_orig.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "atlas lp (5)_aug_4.png": {
+      "class": "Atlas LP",
+      "original_location": "data/processed/Atlas LP/atlas lp (5)_aug_4.png",
+      "current_location": "data/test_set/Atlas LP/atlas lp (5)_aug_4.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "t64 tank (14)_aug_4.png": {
+      "class": "T64 Tank",
+      "original_location": "data/processed/T64 Tank/t64 tank (14)_aug_4.png",
+      "current_location": "data/test_set/T64 Tank/t64 tank (14)_aug_4.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "t64 tank (9)_aug_3.png": {
+      "class": "T64 Tank",
+      "original_location": "data/processed/T64 Tank/t64 tank (9)_aug_3.png",
+      "current_location": "data/test_set/T64 Tank/t64 tank (9)_aug_3.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "t64 tank (13)_aug_2.png": {
+      "class": "T64 Tank",
+      "original_location": "data/processed/T64 Tank/t64 tank (13)_aug_2.png",
+      "current_location": "data/test_set/T64 Tank/t64 tank (13)_aug_2.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "t64 tank (4)_aug_6.png": {
+      "class": "T64 Tank",
+      "original_location": "data/processed/T64 Tank/t64 tank (4)_aug_6.png",
+      "current_location": "data/test_set/T64 Tank/t64 tank (4)_aug_6.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "t64 tank (2)_aug_5.png": {
+      "class": "T64 Tank",
+      "original_location": "data/processed/T64 Tank/t64 tank (2)_aug_5.png",
+      "current_location": "data/test_set/T64 Tank/t64 tank (2)_aug_5.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "sa4 air defense system (3)_aug_5.png": {
+      "class": "SA-4 Air Defense System",
+      "original_location": "data/processed/SA-4 Air Defense System/sa4 air defense system (3)_aug_5.png",
+      "current_location": "data/test_set/SA-4 Air Defense System/sa4 air defense system (3)_aug_5.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "sa4 air defense system (18)_aug_3.png": {
+      "class": "SA-4 Air Defense System",
+      "original_location": "data/processed/SA-4 Air Defense System/sa4 air defense system (18)_aug_3.png",
+      "current_location": "data/test_set/SA-4 Air Defense System/sa4 air defense system (18)_aug_3.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "sa4 air defense system (15)_aug_3.png": {
+      "class": "SA-4 Air Defense System",
+      "original_location": "data/processed/SA-4 Air Defense System/sa4 air defense system (15)_aug_3.png",
+      "current_location": "data/test_set/SA-4 Air Defense System/sa4 air defense system (15)_aug_3.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "sa4 air defense system (13)_orig.png": {
+      "class": "SA-4 Air Defense System",
+      "original_location": "data/processed/SA-4 Air Defense System/sa4 air defense system (13)_orig.png",
+      "current_location": "data/test_set/SA-4 Air Defense System/sa4 air defense system (13)_orig.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "sa4 air defense system (1)_aug_1.png": {
+      "class": "SA-4 Air Defense System",
+      "original_location": "data/processed/SA-4 Air Defense System/sa4 air defense system (1)_aug_1.png",
+      "current_location": "data/test_set/SA-4 Air Defense System/sa4 air defense system (1)_aug_1.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "barn (5)_aug_2.png": {
+      "class": "Barn",
+      "original_location": "data/processed/Barn/barn (5)_aug_2.png",
+      "current_location": "data/test_set/Barn/barn (5)_aug_2.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "barn (3)_orig.png": {
+      "class": "Barn",
+      "original_location": "data/processed/Barn/barn (3)_orig.png",
+      "current_location": "data/test_set/Barn/barn (3)_orig.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "barn (1)_aug_4.png": {
+      "class": "Barn",
+      "original_location": "data/processed/Barn/barn (1)_aug_4.png",
+      "current_location": "data/test_set/Barn/barn (1)_aug_4.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "barn (19)_aug_1.png": {
+      "class": "Barn",
+      "original_location": "data/processed/Barn/barn (19)_aug_1.png",
+      "current_location": "data/test_set/Barn/barn (19)_aug_1.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "barn (4)_aug_6.png": {
+      "class": "Barn",
+      "original_location": "data/processed/Barn/barn (4)_aug_6.png",
+      "current_location": "data/test_set/Barn/barn (4)_aug_6.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "semi tractor tanker (18)_orig.png": {
+      "class": "Semi Tractor Tanker",
+      "original_location": "data/processed/Semi Tractor Tanker/semi tractor tanker (18)_orig.png",
+      "current_location": "data/test_set/Semi Tractor Tanker/semi tractor tanker (18)_orig.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "semi tractor tanker (17)_aug_4.png": {
+      "class": "Semi Tractor Tanker",
+      "original_location": "data/processed/Semi Tractor Tanker/semi tractor tanker (17)_aug_4.png",
+      "current_location": "data/test_set/Semi Tractor Tanker/semi tractor tanker (17)_aug_4.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "semi tractor tanker (8)_aug_1.png": {
+      "class": "Semi Tractor Tanker",
+      "original_location": "data/processed/Semi Tractor Tanker/semi tractor tanker (8)_aug_1.png",
+      "current_location": "data/test_set/Semi Tractor Tanker/semi tractor tanker (8)_aug_1.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "semi tractor tanker (2)_aug_3.png": {
+      "class": "Semi Tractor Tanker",
+      "original_location": "data/processed/Semi Tractor Tanker/semi tractor tanker (2)_aug_3.png",
+      "current_location": "data/test_set/Semi Tractor Tanker/semi tractor tanker (2)_aug_3.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "semi tractor tanker (16)_aug_3.png": {
+      "class": "Semi Tractor Tanker",
+      "original_location": "data/processed/Semi Tractor Tanker/semi tractor tanker (16)_aug_3.png",
+      "current_location": "data/test_set/Semi Tractor Tanker/semi tractor tanker (16)_aug_3.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "water tower (15)_aug_5.png": {
+      "class": "Water Tower",
+      "original_location": "data/processed/Water Tower/water tower (15)_aug_5.png",
+      "current_location": "data/test_set/Water Tower/water tower (15)_aug_5.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "water tower (23)_aug_6.png": {
+      "class": "Water Tower",
+      "original_location": "data/processed/Water Tower/water tower (23)_aug_6.png",
+      "current_location": "data/test_set/Water Tower/water tower (23)_aug_6.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "water tower (24)_orig.png": {
+      "class": "Water Tower",
+      "original_location": "data/processed/Water Tower/water tower (24)_orig.png",
+      "current_location": "data/test_set/Water Tower/water tower (24)_orig.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "water tower (33)_aug_3.png": {
+      "class": "Water Tower",
+      "original_location": "data/processed/Water Tower/water tower (33)_aug_3.png",
+      "current_location": "data/test_set/Water Tower/water tower (33)_aug_3.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "water tower (19)_orig.png": {
+      "class": "Water Tower",
+      "original_location": "data/processed/Water Tower/water tower (19)_orig.png",
+      "current_location": "data/test_set/Water Tower/water tower (19)_orig.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "m163 vulcan (6)_aug_4.png": {
+      "class": "M163 Vulcan",
+      "original_location": "data/processed/M163 Vulcan/m163 vulcan (6)_aug_4.png",
+      "current_location": "data/test_set/M163 Vulcan/m163 vulcan (6)_aug_4.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "m163 vulcan (4)_aug_1.png": {
+      "class": "M163 Vulcan",
+      "original_location": "data/processed/M163 Vulcan/m163 vulcan (4)_aug_1.png",
+      "current_location": "data/test_set/M163 Vulcan/m163 vulcan (4)_aug_1.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "m163 vulcan (16)_orig.png": {
+      "class": "M163 Vulcan",
+      "original_location": "data/processed/M163 Vulcan/m163 vulcan (16)_orig.png",
+      "current_location": "data/test_set/M163 Vulcan/m163 vulcan (16)_orig.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "m163 vulcan (2)_aug_0.png": {
+      "class": "M163 Vulcan",
+      "original_location": "data/processed/M163 Vulcan/m163 vulcan (2)_aug_0.png",
+      "current_location": "data/test_set/M163 Vulcan/m163 vulcan (2)_aug_0.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "m163 vulcan (3)_aug_1.png": {
+      "class": "M163 Vulcan",
+      "original_location": "data/processed/M163 Vulcan/m163 vulcan (3)_aug_1.png",
+      "current_location": "data/test_set/M163 Vulcan/m163 vulcan (3)_aug_1.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "semi tractor (20)_aug_0.png": {
+      "class": "Semi Tractor",
+      "original_location": "data/processed/Semi Tractor/semi tractor (20)_aug_0.png",
+      "current_location": "data/test_set/Semi Tractor/semi tractor (20)_aug_0.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "semi tractor (6)_aug_0.png": {
+      "class": "Semi Tractor",
+      "original_location": "data/processed/Semi Tractor/semi tractor (6)_aug_0.png",
+      "current_location": "data/test_set/Semi Tractor/semi tractor (6)_aug_0.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "semi tractor (13)_orig.png": {
+      "class": "Semi Tractor",
+      "original_location": "data/processed/Semi Tractor/semi tractor (13)_orig.png",
+      "current_location": "data/test_set/Semi Tractor/semi tractor (13)_orig.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "semi tractor (12)_orig.png": {
+      "class": "Semi Tractor",
+      "original_location": "data/processed/Semi Tractor/semi tractor (12)_orig.png",
+      "current_location": "data/test_set/Semi Tractor/semi tractor (12)_orig.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "semi tractor (5)_aug_0.png": {
+      "class": "Semi Tractor",
+      "original_location": "data/processed/Semi Tractor/semi tractor (5)_aug_0.png",
+      "current_location": "data/test_set/Semi Tractor/semi tractor (5)_aug_0.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "m109a3 self propelled gun (19)_aug_0.png": {
+      "class": "M-109A3 Self Propelled Gun",
+      "original_location": "data/processed/M-109A3 Self Propelled Gun/m109a3 self propelled gun (19)_aug_0.png",
+      "current_location": "data/test_set/M-109A3 Self Propelled Gun/m109a3 self propelled gun (19)_aug_0.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "m109a3 self propelled gun (17)_aug_2.png": {
+      "class": "M-109A3 Self Propelled Gun",
+      "original_location": "data/processed/M-109A3 Self Propelled Gun/m109a3 self propelled gun (17)_aug_2.png",
+      "current_location": "data/test_set/M-109A3 Self Propelled Gun/m109a3 self propelled gun (17)_aug_2.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "m109a3 self propelled gun (7)_aug_3.png": {
+      "class": "M-109A3 Self Propelled Gun",
+      "original_location": "data/processed/M-109A3 Self Propelled Gun/m109a3 self propelled gun (7)_aug_3.png",
+      "current_location": "data/test_set/M-109A3 Self Propelled Gun/m109a3 self propelled gun (7)_aug_3.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "m109a3 self propelled gun (19)_orig.png": {
+      "class": "M-109A3 Self Propelled Gun",
+      "original_location": "data/processed/M-109A3 Self Propelled Gun/m109a3 self propelled gun (19)_orig.png",
+      "current_location": "data/test_set/M-109A3 Self Propelled Gun/m109a3 self propelled gun (19)_orig.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "m109a3 self propelled gun (2)_orig.png": {
+      "class": "M-109A3 Self Propelled Gun",
+      "original_location": "data/processed/M-109A3 Self Propelled Gun/m109a3 self propelled gun (2)_orig.png",
+      "current_location": "data/test_set/M-109A3 Self Propelled Gun/m109a3 self propelled gun (2)_orig.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "bmp2 apc tank (5)_orig.png": {
+      "class": "BMP-2 APC Tank",
+      "original_location": "data/processed/BMP-2 APC Tank/bmp2 apc tank (5)_orig.png",
+      "current_location": "data/test_set/BMP-2 APC Tank/bmp2 apc tank (5)_orig.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "bmp2 apc tank (18)_orig.png": {
+      "class": "BMP-2 APC Tank",
+      "original_location": "data/processed/BMP-2 APC Tank/bmp2 apc tank (18)_orig.png",
+      "current_location": "data/test_set/BMP-2 APC Tank/bmp2 apc tank (18)_orig.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "bmp2 apc tank (2)_aug_4.png": {
+      "class": "BMP-2 APC Tank",
+      "original_location": "data/processed/BMP-2 APC Tank/bmp2 apc tank (2)_aug_4.png",
+      "current_location": "data/test_set/BMP-2 APC Tank/bmp2 apc tank (2)_aug_4.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "bmp2 apc tank (19)_orig.png": {
+      "class": "BMP-2 APC Tank",
+      "original_location": "data/processed/BMP-2 APC Tank/bmp2 apc tank (19)_orig.png",
+      "current_location": "data/test_set/BMP-2 APC Tank/bmp2 apc tank (19)_orig.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "bmp2 apc tank (10)_aug_0.png": {
+      "class": "BMP-2 APC Tank",
+      "original_location": "data/processed/BMP-2 APC Tank/bmp2 apc tank (10)_aug_0.png",
+      "current_location": "data/test_set/BMP-2 APC Tank/bmp2 apc tank (10)_aug_0.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "lighthouse (9)_aug_3.png": {
+      "class": "LightHouse",
+      "original_location": "data/processed/LightHouse/lighthouse (9)_aug_3.png",
+      "current_location": "data/test_set/LightHouse/lighthouse (9)_aug_3.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "lighthouse (4)_aug_0.png": {
+      "class": "LightHouse",
+      "original_location": "data/processed/LightHouse/lighthouse (4)_aug_0.png",
+      "current_location": "data/test_set/LightHouse/lighthouse (4)_aug_0.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "lighthouse (19)_aug_2.png": {
+      "class": "LightHouse",
+      "original_location": "data/processed/LightHouse/lighthouse (19)_aug_2.png",
+      "current_location": "data/test_set/LightHouse/lighthouse (19)_aug_2.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "lighthouse (15)_aug_3.png": {
+      "class": "LightHouse",
+      "original_location": "data/processed/LightHouse/lighthouse (15)_aug_3.png",
+      "current_location": "data/test_set/LightHouse/lighthouse (15)_aug_3.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "lighthouse (18)_aug_3.png": {
+      "class": "LightHouse",
+      "original_location": "data/processed/LightHouse/lighthouse (18)_aug_3.png",
+      "current_location": "data/test_set/LightHouse/lighthouse (18)_aug_3.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "m981 fist (18)_aug_3.png": {
+      "class": "M-981 FISTV",
+      "original_location": "data/processed/M-981 FISTV/m981 fist (18)_aug_3.png",
+      "current_location": "data/test_set/M-981 FISTV/m981 fist (18)_aug_3.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "m981 fist (27)_orig.png": {
+      "class": "M-981 FISTV",
+      "original_location": "data/processed/M-981 FISTV/m981 fist (27)_orig.png",
+      "current_location": "data/test_set/M-981 FISTV/m981 fist (27)_orig.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "m981 fist (22)_aug_3.png": {
+      "class": "M-981 FISTV",
+      "original_location": "data/processed/M-981 FISTV/m981 fist (22)_aug_3.png",
+      "current_location": "data/test_set/M-981 FISTV/m981 fist (22)_aug_3.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "m981 fist (16)_aug_1.png": {
+      "class": "M-981 FISTV",
+      "original_location": "data/processed/M-981 FISTV/m981 fist (16)_aug_1.png",
+      "current_location": "data/test_set/M-981 FISTV/m981 fist (16)_aug_1.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "m981 fist (14)_orig.png": {
+      "class": "M-981 FISTV",
+      "original_location": "data/processed/M-981 FISTV/m981 fist (14)_orig.png",
+      "current_location": "data/test_set/M-981 FISTV/m981 fist (14)_orig.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "t62 tank (14)_aug_6.png": {
+      "class": "T62 Tank",
+      "original_location": "data/processed/T62 Tank/t62 tank (14)_aug_6.png",
+      "current_location": "data/test_set/T62 Tank/t62 tank (14)_aug_6.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "t62 tank (4)_aug_2.png": {
+      "class": "T62 Tank",
+      "original_location": "data/processed/T62 Tank/t62 tank (4)_aug_2.png",
+      "current_location": "data/test_set/T62 Tank/t62 tank (4)_aug_2.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "t62 tank (17)_aug_5.png": {
+      "class": "T62 Tank",
+      "original_location": "data/processed/T62 Tank/t62 tank (17)_aug_5.png",
+      "current_location": "data/test_set/T62 Tank/t62 tank (17)_aug_5.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "t62 tank (13)_aug_3.png": {
+      "class": "T62 Tank",
+      "original_location": "data/processed/T62 Tank/t62 tank (13)_aug_3.png",
+      "current_location": "data/test_set/T62 Tank/t62 tank (13)_aug_3.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "t62 tank (3)_aug_2.png": {
+      "class": "T62 Tank",
+      "original_location": "data/processed/T62 Tank/t62 tank (3)_aug_2.png",
+      "current_location": "data/test_set/T62 Tank/t62 tank (3)_aug_2.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "satellite ground station (20)_aug_1.png": {
+      "class": "Satellite Ground Station",
+      "original_location": "data/processed/Satellite Ground Station/satellite ground station (20)_aug_1.png",
+      "current_location": "data/test_set/Satellite Ground Station/satellite ground station (20)_aug_1.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "satellite ground station (30)_aug_2.png": {
+      "class": "Satellite Ground Station",
+      "original_location": "data/processed/Satellite Ground Station/satellite ground station (30)_aug_2.png",
+      "current_location": "data/test_set/Satellite Ground Station/satellite ground station (30)_aug_2.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "satellite ground station (21)_aug_6.png": {
+      "class": "Satellite Ground Station",
+      "original_location": "data/processed/Satellite Ground Station/satellite ground station (21)_aug_6.png",
+      "current_location": "data/test_set/Satellite Ground Station/satellite ground station (21)_aug_6.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "satellite ground station (18)_aug_0.png": {
+      "class": "Satellite Ground Station",
+      "original_location": "data/processed/Satellite Ground Station/satellite ground station (18)_aug_0.png",
+      "current_location": "data/test_set/Satellite Ground Station/satellite ground station (18)_aug_0.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "satellite ground station (13)_aug_4.png": {
+      "class": "Satellite Ground Station",
+      "original_location": "data/processed/Satellite Ground Station/satellite ground station (13)_aug_4.png",
+      "current_location": "data/test_set/Satellite Ground Station/satellite ground station (13)_aug_4.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "hawk air defense (19)_aug_1.png": {
+      "class": "Hawk Air Defense",
+      "original_location": "data/processed/Hawk Air Defense/hawk air defense (19)_aug_1.png",
+      "current_location": "data/test_set/Hawk Air Defense/hawk air defense (19)_aug_1.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "hawk air defense (15)_aug_2.png": {
+      "class": "Hawk Air Defense",
+      "original_location": "data/processed/Hawk Air Defense/hawk air defense (15)_aug_2.png",
+      "current_location": "data/test_set/Hawk Air Defense/hawk air defense (15)_aug_2.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "hawk air defense (16)_orig.png": {
+      "class": "Hawk Air Defense",
+      "original_location": "data/processed/Hawk Air Defense/hawk air defense (16)_orig.png",
+      "current_location": "data/test_set/Hawk Air Defense/hawk air defense (16)_orig.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "hawk air defense (1)_aug_2.png": {
+      "class": "Hawk Air Defense",
+      "original_location": "data/processed/Hawk Air Defense/hawk air defense (1)_aug_2.png",
+      "current_location": "data/test_set/Hawk Air Defense/hawk air defense (1)_aug_2.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "hawk air defense (16)_aug_4.png": {
+      "class": "Hawk Air Defense",
+      "original_location": "data/processed/Hawk Air Defense/hawk air defense (16)_aug_4.png",
+      "current_location": "data/test_set/Hawk Air Defense/hawk air defense (16)_aug_4.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "m981 mobile air defense (4)_aug_3.png": {
+      "class": "M-981 Mobile Air Defense",
+      "original_location": "data/processed/M-981 Mobile Air Defense/m981 mobile air defense (4)_aug_3.png",
+      "current_location": "data/test_set/M-981 Mobile Air Defense/m981 mobile air defense (4)_aug_3.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "m981 mobile air defense (23)_orig.png": {
+      "class": "M-981 Mobile Air Defense",
+      "original_location": "data/processed/M-981 Mobile Air Defense/m981 mobile air defense (23)_orig.png",
+      "current_location": "data/test_set/M-981 Mobile Air Defense/m981 mobile air defense (23)_orig.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "m981 mobile air defense (28)_aug_2.png": {
+      "class": "M-981 Mobile Air Defense",
+      "original_location": "data/processed/M-981 Mobile Air Defense/m981 mobile air defense (28)_aug_2.png",
+      "current_location": "data/test_set/M-981 Mobile Air Defense/m981 mobile air defense (28)_aug_2.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "m981 mobile air defense (9)_aug_4.png": {
+      "class": "M-981 Mobile Air Defense",
+      "original_location": "data/processed/M-981 Mobile Air Defense/m981 mobile air defense (9)_aug_4.png",
+      "current_location": "data/test_set/M-981 Mobile Air Defense/m981 mobile air defense (9)_aug_4.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "m981 mobile air defense (7)_aug_0.png": {
+      "class": "M-981 Mobile Air Defense",
+      "original_location": "data/processed/M-981 Mobile Air Defense/m981 mobile air defense (7)_aug_0.png",
+      "current_location": "data/test_set/M-981 Mobile Air Defense/m981 mobile air defense (7)_aug_0.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "scamp (16)_aug_6.png": {
+      "class": "Scamp",
+      "original_location": "data/processed/Scamp/scamp (16)_aug_6.png",
+      "current_location": "data/test_set/Scamp/scamp (16)_aug_6.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "scamp (11)_aug_4.png": {
+      "class": "Scamp",
+      "original_location": "data/processed/Scamp/scamp (11)_aug_4.png",
+      "current_location": "data/test_set/Scamp/scamp (11)_aug_4.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "scamp (15)_aug_1.png": {
+      "class": "Scamp",
+      "original_location": "data/processed/Scamp/scamp (15)_aug_1.png",
+      "current_location": "data/test_set/Scamp/scamp (15)_aug_1.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "scamp (8)_aug_4.png": {
+      "class": "Scamp",
+      "original_location": "data/processed/Scamp/scamp (8)_aug_4.png",
+      "current_location": "data/test_set/Scamp/scamp (8)_aug_4.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "scamp (17)_aug_6.png": {
+      "class": "Scamp",
+      "original_location": "data/processed/Scamp/scamp (17)_aug_6.png",
+      "current_location": "data/test_set/Scamp/scamp (17)_aug_6.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "aav tank (14)_orig.png": {
+      "class": "AAV Tank",
+      "original_location": "data/processed/AAV Tank/aav tank (14)_orig.png",
+      "current_location": "data/test_set/AAV Tank/aav tank (14)_orig.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "aav tank (10)_orig.png": {
+      "class": "AAV Tank",
+      "original_location": "data/processed/AAV Tank/aav tank (10)_orig.png",
+      "current_location": "data/test_set/AAV Tank/aav tank (10)_orig.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "aav tank (6)_aug_0.png": {
+      "class": "AAV Tank",
+      "original_location": "data/processed/AAV Tank/aav tank (6)_aug_0.png",
+      "current_location": "data/test_set/AAV Tank/aav tank (6)_aug_0.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "aav tank (19)_aug_5.png": {
+      "class": "AAV Tank",
+      "original_location": "data/processed/AAV Tank/aav tank (19)_aug_5.png",
+      "current_location": "data/test_set/AAV Tank/aav tank (19)_aug_5.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "aav tank (8)_aug_6.png": {
+      "class": "AAV Tank",
+      "original_location": "data/processed/AAV Tank/aav tank (8)_aug_6.png",
+      "current_location": "data/test_set/AAV Tank/aav tank (8)_aug_6.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "m35a truck (25)_orig.png": {
+      "class": "M35-A Truck",
+      "original_location": "data/processed/M35-A Truck/m35a truck (25)_orig.png",
+      "current_location": "data/test_set/M35-A Truck/m35a truck (25)_orig.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "m35a truck (24)_orig.png": {
+      "class": "M35-A Truck",
+      "original_location": "data/processed/M35-A Truck/m35a truck (24)_orig.png",
+      "current_location": "data/test_set/M35-A Truck/m35a truck (24)_orig.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "m35a truck (30)_orig.png": {
+      "class": "M35-A Truck",
+      "original_location": "data/processed/M35-A Truck/m35a truck (30)_orig.png",
+      "current_location": "data/test_set/M35-A Truck/m35a truck (30)_orig.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "m35a truck (24)_aug_0.png": {
+      "class": "M35-A Truck",
+      "original_location": "data/processed/M35-A Truck/m35a truck (24)_aug_0.png",
+      "current_location": "data/test_set/M35-A Truck/m35a truck (24)_aug_0.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "m35a truck (13)_aug_5.png": {
+      "class": "M35-A Truck",
+      "original_location": "data/processed/M35-A Truck/m35a truck (13)_aug_5.png",
+      "current_location": "data/test_set/M35-A Truck/m35a truck (13)_aug_5.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "humvee stingers (17)_aug_6.png": {
+      "class": "Humvee with Stingers",
+      "original_location": "data/processed/Humvee with Stingers/humvee stingers (17)_aug_6.png",
+      "current_location": "data/test_set/Humvee with Stingers/humvee stingers (17)_aug_6.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "humvee stingers (23)_aug_2.png": {
+      "class": "Humvee with Stingers",
+      "original_location": "data/processed/Humvee with Stingers/humvee stingers (23)_aug_2.png",
+      "current_location": "data/test_set/Humvee with Stingers/humvee stingers (23)_aug_2.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "humvee stingers (36)_aug_5.png": {
+      "class": "Humvee with Stingers",
+      "original_location": "data/processed/Humvee with Stingers/humvee stingers (36)_aug_5.png",
+      "current_location": "data/test_set/Humvee with Stingers/humvee stingers (36)_aug_5.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "humvee stingers (37)_aug_3.png": {
+      "class": "Humvee with Stingers",
+      "original_location": "data/processed/Humvee with Stingers/humvee stingers (37)_aug_3.png",
+      "current_location": "data/test_set/Humvee with Stingers/humvee stingers (37)_aug_3.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "humvee stingers (20)_aug_5.png": {
+      "class": "Humvee with Stingers",
+      "original_location": "data/processed/Humvee with Stingers/humvee stingers (20)_aug_5.png",
+      "current_location": "data/test_set/Humvee with Stingers/humvee stingers (20)_aug_5.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "t54 tank (22)_aug_4.png": {
+      "class": "T54 Tank",
+      "original_location": "data/processed/T54 Tank/t54 tank (22)_aug_4.png",
+      "current_location": "data/test_set/T54 Tank/t54 tank (22)_aug_4.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "t54 tank (36)_aug_5.png": {
+      "class": "T54 Tank",
+      "original_location": "data/processed/T54 Tank/t54 tank (36)_aug_5.png",
+      "current_location": "data/test_set/T54 Tank/t54 tank (36)_aug_5.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "t54 tank (19)_aug_2.png": {
+      "class": "T54 Tank",
+      "original_location": "data/processed/T54 Tank/t54 tank (19)_aug_2.png",
+      "current_location": "data/test_set/T54 Tank/t54 tank (19)_aug_2.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "t54 tank (33)_orig.png": {
+      "class": "T54 Tank",
+      "original_location": "data/processed/T54 Tank/t54 tank (33)_orig.png",
+      "current_location": "data/test_set/T54 Tank/t54 tank (33)_orig.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "t54 tank (22)_aug_3.png": {
+      "class": "T54 Tank",
+      "original_location": "data/processed/T54 Tank/t54 tank (22)_aug_3.png",
+      "current_location": "data/test_set/T54 Tank/t54 tank (22)_aug_3.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "thaad radar (15)_aug_0.png": {
+      "class": "THAAD Radar",
+      "original_location": "data/processed/THAAD Radar/thaad radar (15)_aug_0.png",
+      "current_location": "data/test_set/THAAD Radar/thaad radar (15)_aug_0.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "thaad radar (35)_aug_6.png": {
+      "class": "THAAD Radar",
+      "original_location": "data/processed/THAAD Radar/thaad radar (35)_aug_6.png",
+      "current_location": "data/test_set/THAAD Radar/thaad radar (35)_aug_6.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "thaad radar (16)_aug_0.png": {
+      "class": "THAAD Radar",
+      "original_location": "data/processed/THAAD Radar/thaad radar (16)_aug_0.png",
+      "current_location": "data/test_set/THAAD Radar/thaad radar (16)_aug_0.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "thaad radar (25)_aug_5.png": {
+      "class": "THAAD Radar",
+      "original_location": "data/processed/THAAD Radar/thaad radar (25)_aug_5.png",
+      "current_location": "data/test_set/THAAD Radar/thaad radar (25)_aug_5.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "thaad radar (17)_aug_4.png": {
+      "class": "THAAD Radar",
+      "original_location": "data/processed/THAAD Radar/thaad radar (17)_aug_4.png",
+      "current_location": "data/test_set/THAAD Radar/thaad radar (17)_aug_4.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "semi tractor trailer (3)_aug_3.png": {
+      "class": "Semi Tractor Trailer",
+      "original_location": "data/processed/Semi Tractor Trailer/semi tractor trailer (3)_aug_3.png",
+      "current_location": "data/test_set/Semi Tractor Trailer/semi tractor trailer (3)_aug_3.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "semi tractor trailer (4)_aug_5.png": {
+      "class": "Semi Tractor Trailer",
+      "original_location": "data/processed/Semi Tractor Trailer/semi tractor trailer (4)_aug_5.png",
+      "current_location": "data/test_set/Semi Tractor Trailer/semi tractor trailer (4)_aug_5.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "semi tractor trailer (1)_aug_1.png": {
+      "class": "Semi Tractor Trailer",
+      "original_location": "data/processed/Semi Tractor Trailer/semi tractor trailer (1)_aug_1.png",
+      "current_location": "data/test_set/Semi Tractor Trailer/semi tractor trailer (1)_aug_1.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "semi tractor trailer (6)_aug_2.png": {
+      "class": "Semi Tractor Trailer",
+      "original_location": "data/processed/Semi Tractor Trailer/semi tractor trailer (6)_aug_2.png",
+      "current_location": "data/test_set/Semi Tractor Trailer/semi tractor trailer (6)_aug_2.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "semi tractor trailer (9)_aug_1.png": {
+      "class": "Semi Tractor Trailer",
+      "original_location": "data/processed/Semi Tractor Trailer/semi tractor trailer (9)_aug_1.png",
+      "current_location": "data/test_set/Semi Tractor Trailer/semi tractor trailer (9)_aug_1.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "t80 tank (10)_aug_6.png": {
+      "class": "T80 Tank",
+      "original_location": "data/processed/T80 Tank/t80 tank (10)_aug_6.png",
+      "current_location": "data/test_set/T80 Tank/t80 tank (10)_aug_6.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "t80 tank (4)_aug_3.png": {
+      "class": "T80 Tank",
+      "original_location": "data/processed/T80 Tank/t80 tank (4)_aug_3.png",
+      "current_location": "data/test_set/T80 Tank/t80 tank (4)_aug_3.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "t80 tank (4)_aug_1.png": {
+      "class": "T80 Tank",
+      "original_location": "data/processed/T80 Tank/t80 tank (4)_aug_1.png",
+      "current_location": "data/test_set/T80 Tank/t80 tank (4)_aug_1.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "t80 tank (17)_aug_3.png": {
+      "class": "T80 Tank",
+      "original_location": "data/processed/T80 Tank/t80 tank (17)_aug_3.png",
+      "current_location": "data/test_set/T80 Tank/t80 tank (17)_aug_3.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "t80 tank (18)_aug_4.png": {
+      "class": "T80 Tank",
+      "original_location": "data/processed/T80 Tank/t80 tank (18)_aug_4.png",
+      "current_location": "data/test_set/T80 Tank/t80 tank (18)_aug_4.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "BGM-109_Tomahawk_Cruise (9)_aug_5.png": {
+      "class": "BGM-109 Tomahawk Cruise",
+      "original_location": "data/processed/BGM-109 Tomahawk Cruise/BGM-109_Tomahawk_Cruise (9)_aug_5.png",
+      "current_location": "data/test_set/BGM-109 Tomahawk Cruise/BGM-109_Tomahawk_Cruise (9)_aug_5.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "BGM-109_Tomahawk_Cruise (10)_aug_0.png": {
+      "class": "BGM-109 Tomahawk Cruise",
+      "original_location": "data/processed/BGM-109 Tomahawk Cruise/BGM-109_Tomahawk_Cruise (10)_aug_0.png",
+      "current_location": "data/test_set/BGM-109 Tomahawk Cruise/BGM-109_Tomahawk_Cruise (10)_aug_0.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "BGM-109_Tomahawk_Cruise (18)_aug_1.png": {
+      "class": "BGM-109 Tomahawk Cruise",
+      "original_location": "data/processed/BGM-109 Tomahawk Cruise/BGM-109_Tomahawk_Cruise (18)_aug_1.png",
+      "current_location": "data/test_set/BGM-109 Tomahawk Cruise/BGM-109_Tomahawk_Cruise (18)_aug_1.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "BGM-109_Tomahawk_Cruise (11)_aug_5.png": {
+      "class": "BGM-109 Tomahawk Cruise",
+      "original_location": "data/processed/BGM-109 Tomahawk Cruise/BGM-109_Tomahawk_Cruise (11)_aug_5.png",
+      "current_location": "data/test_set/BGM-109 Tomahawk Cruise/BGM-109_Tomahawk_Cruise (11)_aug_5.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "BGM-109_Tomahawk_Cruise (7)_aug_2.png": {
+      "class": "BGM-109 Tomahawk Cruise",
+      "original_location": "data/processed/BGM-109 Tomahawk Cruise/BGM-109_Tomahawk_Cruise (7)_aug_2.png",
+      "current_location": "data/test_set/BGM-109 Tomahawk Cruise/BGM-109_Tomahawk_Cruise (7)_aug_2.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "factory (14)_orig.png": {
+      "class": "Factory",
+      "original_location": "data/processed/Factory/factory (14)_orig.png",
+      "current_location": "data/test_set/Factory/factory (14)_orig.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "factory (17)_aug_6.png": {
+      "class": "Factory",
+      "original_location": "data/processed/Factory/factory (17)_aug_6.png",
+      "current_location": "data/test_set/Factory/factory (17)_aug_6.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "factory (16)_aug_2.png": {
+      "class": "Factory",
+      "original_location": "data/processed/Factory/factory (16)_aug_2.png",
+      "current_location": "data/test_set/Factory/factory (16)_aug_2.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "factory (35)_orig.png": {
+      "class": "Factory",
+      "original_location": "data/processed/Factory/factory (35)_orig.png",
+      "current_location": "data/test_set/Factory/factory (35)_orig.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "factory (2)_aug_4.png": {
+      "class": "Factory",
+      "original_location": "data/processed/Factory/factory (2)_aug_4.png",
+      "current_location": "data/test_set/Factory/factory (2)_aug_4.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "titan4b lp (14)_aug_3.png": {
+      "class": "Titan4B LP",
+      "original_location": "data/processed/Titan4B LP/titan4b lp (14)_aug_3.png",
+      "current_location": "data/test_set/Titan4B LP/titan4b lp (14)_aug_3.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "titan4b lp (1)_aug_2.png": {
+      "class": "Titan4B LP",
+      "original_location": "data/processed/Titan4B LP/titan4b lp (1)_aug_2.png",
+      "current_location": "data/test_set/Titan4B LP/titan4b lp (1)_aug_2.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "titan4b lp (16)_orig.png": {
+      "class": "Titan4B LP",
+      "original_location": "data/processed/Titan4B LP/titan4b lp (16)_orig.png",
+      "current_location": "data/test_set/Titan4B LP/titan4b lp (16)_orig.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "titan4b lp (13)_aug_4.png": {
+      "class": "Titan4B LP",
+      "original_location": "data/processed/Titan4B LP/titan4b lp (13)_aug_4.png",
+      "current_location": "data/test_set/Titan4B LP/titan4b lp (13)_aug_4.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "titan4b lp (17)_aug_6.png": {
+      "class": "Titan4B LP",
+      "original_location": "data/processed/Titan4B LP/titan4b lp (17)_aug_6.png",
+      "current_location": "data/test_set/Titan4B LP/titan4b lp (17)_aug_6.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "building (6)_aug_6.png": {
+      "class": "Building",
+      "original_location": "data/processed/Building/building (6)_aug_6.png",
+      "current_location": "data/test_set/Building/building (6)_aug_6.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "building (16)_aug_3.png": {
+      "class": "Building",
+      "original_location": "data/processed/Building/building (16)_aug_3.png",
+      "current_location": "data/test_set/Building/building (16)_aug_3.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "building (18)_aug_0.png": {
+      "class": "Building",
+      "original_location": "data/processed/Building/building (18)_aug_0.png",
+      "current_location": "data/test_set/Building/building (18)_aug_0.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "building (13)_aug_5.png": {
+      "class": "Building",
+      "original_location": "data/processed/Building/building (13)_aug_5.png",
+      "current_location": "data/test_set/Building/building (13)_aug_5.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "building (1)_aug_3.png": {
+      "class": "Building",
+      "original_location": "data/processed/Building/building (1)_aug_3.png",
+      "current_location": "data/test_set/Building/building (1)_aug_3.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "facility hex (18)_aug_6.png": {
+      "class": "Facility Hex",
+      "original_location": "data/processed/Facility Hex/facility hex (18)_aug_6.png",
+      "current_location": "data/test_set/Facility Hex/facility hex (18)_aug_6.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "facility hex (12)_aug_5.png": {
+      "class": "Facility Hex",
+      "original_location": "data/processed/Facility Hex/facility hex (12)_aug_5.png",
+      "current_location": "data/test_set/Facility Hex/facility hex (12)_aug_5.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "facility hex (1)_aug_2.png": {
+      "class": "Facility Hex",
+      "original_location": "data/processed/Facility Hex/facility hex (1)_aug_2.png",
+      "current_location": "data/test_set/Facility Hex/facility hex (1)_aug_2.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "facility hex (3)_aug_0.png": {
+      "class": "Facility Hex",
+      "original_location": "data/processed/Facility Hex/facility hex (3)_aug_0.png",
+      "current_location": "data/test_set/Facility Hex/facility hex (3)_aug_0.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "facility hex (15)_orig.png": {
+      "class": "Facility Hex",
+      "original_location": "data/processed/Facility Hex/facility hex (15)_orig.png",
+      "current_location": "data/test_set/Facility Hex/facility hex (15)_orig.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "humvee (18)_aug_6.png": {
+      "class": "Humvee",
+      "original_location": "data/processed/Humvee/humvee (18)_aug_6.png",
+      "current_location": "data/test_set/Humvee/humvee (18)_aug_6.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "humvee (3)_orig.png": {
+      "class": "Humvee",
+      "original_location": "data/processed/Humvee/humvee (3)_orig.png",
+      "current_location": "data/test_set/Humvee/humvee (3)_orig.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "humvee (14)_orig.png": {
+      "class": "Humvee",
+      "original_location": "data/processed/Humvee/humvee (14)_orig.png",
+      "current_location": "data/test_set/Humvee/humvee (14)_orig.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "humvee (16)_aug_1.png": {
+      "class": "Humvee",
+      "original_location": "data/processed/Humvee/humvee (16)_aug_1.png",
+      "current_location": "data/test_set/Humvee/humvee (16)_aug_1.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    },
+    "humvee (13)_aug_4.png": {
+      "class": "Humvee",
+      "original_location": "data/processed/Humvee/humvee (13)_aug_4.png",
+      "current_location": "data/test_set/Humvee/humvee (13)_aug_4.png",
+      "moved_date": "2025-09-04T10:18:28.363016",
+      "in_test_set": true
+    }
+  },
+  "summary": {
+    "total_tracked_images": 415,
+    "validation_status": "PASSED"
+  }
+}
