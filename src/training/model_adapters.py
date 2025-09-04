@@ -18,7 +18,7 @@ import logging
 from pathlib import Path
 import json
 from PIL import Image
-from torchvision.models import ResNet50_Weights
+from torchvision.models import ResNet50_Weights, ResNet18_Weights
 
 
 
@@ -409,6 +409,249 @@ class IRResNet50Adapter(BaseModelAdapter):
         return optimizer
 
 
+class IRResNet18Adapter(BaseModelAdapter):
+    """
+    Adapter for ResNet18 model fine-tuned for IR image embedding extraction.
+    
+    This adapter modifies ResNet18 to output embeddings instead of classifications,
+    with IR-specific preprocessing and fine-tuning capabilities. Uses a lighter
+    architecture compared to ResNet50 while maintaining 512-dimensional output.
+    """
+    
+    def __init__(self, embedding_dim: int = 512, device: Optional[str] = None, pretrained: bool = True):
+        """
+        Initialize ResNet18 adapter for IR images.
+        
+        Args:
+            embedding_dim: Dimension of output embeddings (default 512 for compatibility)
+            device: Device to run model on
+            pretrained: Whether to use ImageNet pre-trained weights
+        """
+        super().__init__("resnet18_ir", embedding_dim, device)
+        self.pretrained = pretrained
+        self.transform = None
+        self._setup_transforms()
+    
+    def _setup_transforms(self) -> None:
+        """Setup image preprocessing transforms for ResNet18."""
+        # IR-specific transforms - same as ResNet50 for consistency
+        self.transform = transforms.Compose([
+            transforms.ToPILImage(),
+            transforms.Resize((224, 224)),
+            transforms.Grayscale(num_output_channels=3),  # Convert grayscale to 3-channel for ResNet
+            transforms.ToTensor(),
+            transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])  # ImageNet normalization
+        ])
+    
+    def load_model(self, model_path: Optional[str] = None, **kwargs) -> None:
+        """
+        Load ResNet18 model with custom embedding head.
+        
+        Args:
+            model_path: Path to saved model weights (optional)
+            **kwargs: Additional configuration parameters
+        """
+        try:
+            # Load base ResNet18 with proper weights parameter
+            if self.pretrained:
+                resnet_model = models.resnet18(weights=ResNet18_Weights.IMAGENET1K_V1)
+            else:
+                resnet_model = models.resnet18(weights=None)
+            
+            # Replace final fully connected layer with embedding layer
+            num_features = resnet_model.fc.in_features  # ResNet18 has 512 features
+            # Type ignore per permettere la sostituzione del layer fc
+            resnet_model.fc = nn.Sequential(  # type: ignore
+                nn.Linear(num_features, self.embedding_dim),
+                nn.ReLU(),
+                nn.Dropout(0.2),
+                nn.Linear(self.embedding_dim, self.embedding_dim),
+                L2Norm(dim=1)  # L2 normalization for better embeddings
+            )
+            
+            self.model = resnet_model
+            
+            # Load fine-tuned weights if provided
+            if model_path and Path(model_path).exists():
+                checkpoint = torch.load(model_path, map_location=self.device)
+                self.model.load_state_dict(checkpoint['model_state_dict'])
+                self.config = checkpoint.get('config', {})
+                logger.info(f"Loaded fine-tuned weights from {model_path}")
+            
+            # Move model to device and set to evaluation mode
+            self.model.to(self.device)
+            self.model.eval()
+            self.is_loaded = True
+            
+            # Update configuration
+            self.config.update({
+                'architecture': 'resnet18',
+                'pretrained': self.pretrained,
+                'embedding_dim': self.embedding_dim,
+                'input_size': (224, 224),
+                'num_parameters': sum(p.numel() for p in self.model.parameters())
+            })
+            
+            logger.info(f"ResNet18 IR adapter loaded successfully with {self.config['num_parameters']} parameters")
+            
+        except Exception as e:
+            logger.error(f"Failed to load ResNet18 model: {str(e)}")
+            raise RuntimeError(f"Model loading failed: {str(e)}")
+    
+    def preprocess_image(self, image: np.ndarray) -> torch.Tensor:
+        """
+        Preprocess IR image for ResNet18 input.
+        
+        Args:
+            image: Input IR image as numpy array (grayscale, 0-1 normalized)
+            
+        Returns:
+            torch.Tensor: Preprocessed image tensor ready for model input
+        """
+        self._validate_image_input(image)
+        
+        if self.transform is None:
+            raise RuntimeError("Transform not initialized. Call load_model() first.")
+        
+        # Ensure image is in correct format (0-255 uint8)
+        if image.dtype != np.uint8:
+            image = (image * 255).astype(np.uint8)
+        
+        # Apply transforms
+        tensor = self.transform(image)
+        
+        # Add batch dimension
+        if isinstance(tensor, torch.Tensor):
+            tensor = tensor.unsqueeze(0)
+        else:
+            raise RuntimeError("Transform did not return a tensor")
+        
+        return tensor.to(self.device)
+    
+    def extract_embedding(self, image: np.ndarray) -> np.ndarray:
+        """
+        Extract embedding from IR image using ResNet18.
+        
+        Args:
+            image: Preprocessed IR image as numpy array
+            
+        Returns:
+            np.ndarray: Embedding vector
+        """
+        if not self.is_loaded or self.model is None:
+            raise RuntimeError("Model not loaded. Call load_model() first.")
+        
+        # Preprocess image
+        input_tensor = self.preprocess_image(image)
+        
+        # Extract embedding
+        with torch.no_grad():
+            embedding = self.model(input_tensor)
+            embedding = embedding.cpu().numpy().flatten()
+        
+        return embedding
+    
+    def batch_extract(self, images: List[np.ndarray], batch_size: int = 32) -> List[np.ndarray]:
+        """
+        Extract embeddings from multiple images efficiently.
+        
+        Args:
+            images: List of IR images
+            batch_size: Batch size for processing
+            
+        Returns:
+            List[np.ndarray]: List of embedding vectors
+        """
+        if not self.is_loaded or self.model is None:
+            raise RuntimeError("Model not loaded. Call load_model() first.")
+        
+        embeddings = []
+        
+        for i in range(0, len(images), batch_size):
+            batch_images = images[i:i + batch_size]
+            
+            # Preprocess batch
+            batch_tensors = torch.stack([
+                self.preprocess_image(img).squeeze(0) for img in batch_images
+            ])
+            
+            # Extract embeddings
+            with torch.no_grad():
+                batch_embeddings = self.model(batch_tensors)
+                batch_embeddings = batch_embeddings.cpu().numpy()
+            
+            embeddings.extend(batch_embeddings)
+        
+        return embeddings
+    
+    def validate_embedding_quality(self, embedding: np.ndarray) -> float:
+        """
+        Assess the quality of an extracted embedding.
+        
+        Args:
+            embedding: Feature embedding vector
+            
+        Returns:
+            float: Quality score (0.0-1.0, higher is better)
+        """
+        if not isinstance(embedding, np.ndarray):
+            return 0.0
+        
+        # Check for invalid values
+        if np.any(np.isnan(embedding)) or np.any(np.isinf(embedding)):
+            return 0.0
+        
+        # Check embedding dimension
+        if len(embedding) != self.embedding_dim:
+            return 0.0
+        
+        # Calculate quality metrics
+        # 1. L2 norm should be close to 1 (normalized embeddings)
+        l2_norm = np.linalg.norm(embedding)
+        norm_score = 1.0 - abs(l2_norm - 1.0)  # Closer to 1 is better
+        
+        # 2. Check for diversity (not all zeros or all same values)
+        diversity_score = 1.0 - (np.std(embedding) < 1e-6)  # Low std indicates poor diversity
+        
+        # 3. Check value range (should be reasonable, not extreme)
+        range_score = 1.0 if np.all(np.abs(embedding) < 10.0) else 0.5
+        
+        # Combine scores
+        quality_score = (norm_score * 0.5 + diversity_score * 0.3 + range_score * 0.2)
+        return max(0.0, min(1.0, float(quality_score)))
+    
+    def fine_tune_setup(self, learning_rate: float = 1e-4, freeze_backbone: bool = False) -> torch.optim.Optimizer:
+        """
+        Setup model for fine-tuning on IR images.
+        
+        Args:
+            learning_rate: Learning rate for fine-tuning
+            freeze_backbone: Whether to freeze ResNet backbone layers
+            
+        Returns:
+            torch.optim.Optimizer: Configured optimizer
+        """
+        if not self.is_loaded or self.model is None:
+            raise RuntimeError("Model not loaded. Call load_model() first.")
+        
+        # Freeze backbone if requested
+        if freeze_backbone:
+            for name, param in self.model.named_parameters():
+                if 'fc' not in name:  # Don't freeze the final embedding layers
+                    param.requires_grad = False
+            logger.info("Backbone layers frozen for fine-tuning")
+        
+        # Setup optimizer
+        optimizer = torch.optim.AdamW(
+            filter(lambda p: p.requires_grad, self.model.parameters()),
+            lr=learning_rate,
+            weight_decay=1e-4
+        )
+        
+        self.model.train()
+        return optimizer
+
+
 class QwenVLMAdapter(BaseModelAdapter):
     """
     Adapter for Qwen Vision Language Model for IR image embedding extraction.
@@ -640,7 +883,7 @@ class ModelAdapterFactory:
         Create a model adapter based on type.
         
         Args:
-            model_type: Type of model adapter ('resnet50' or 'qwen_vlm')
+            model_type: Type of model adapter ('resnet50', 'resnet18', or 'qwen_vlm')
             **kwargs: Additional configuration parameters
             
         Returns:
@@ -648,15 +891,17 @@ class ModelAdapterFactory:
         """
         if model_type.lower() == 'resnet50':
             return IRResNet50Adapter(**kwargs)
+        elif model_type.lower() == 'resnet18':
+            return IRResNet18Adapter(**kwargs)
         elif model_type.lower() == 'qwen_vlm':
             return QwenVLMAdapter(**kwargs)
         else:
-            raise ValueError(f"Unknown model type: {model_type}. Supported types: 'resnet50', 'qwen_vlm'")
+            raise ValueError(f"Unknown model type: {model_type}. Supported types: 'resnet50', 'resnet18', 'qwen_vlm'")
     
     @staticmethod
     def get_available_adapters() -> List[str]:
         """Get list of available model adapter types."""
-        return ['resnet50', 'qwen_vlm']
+        return ['resnet50', 'resnet18', 'qwen_vlm']
 
 
 # Custom L2 normalization layer

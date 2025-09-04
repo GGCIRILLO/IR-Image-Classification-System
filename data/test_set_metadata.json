@@ -1,0 +1,1091 @@
+{
+  "split_date": "2025-09-04T10:18:28.363016",
+  "images_per_class": 5,
+  "classes": {
+    "Challenger Tank": {
+      "total_original": 93,
+      "test_images": 5,
+      "training_images": 88,
+      "test_files": [
+        "challenger tank (20)_aug_4.png",
+        "challenger tank (11)_aug_2.png",
+        "challenger tank (13)_orig.png",
+        "challenger tank (16)_aug_6.png",
+        "challenger tank (16)_aug_3.png"
+      ],
+      "test_ratio": 0.053763440860215055
+    },
+    "Fuel Truck": {
+      "total_original": 133,
+      "test_images": 5,
+      "training_images": 128,
+      "test_files": [
+        "fuel truck (10)_orig.png",
+        "fuel truck (15)_aug_2.png",
+        "fuel truck (25)_aug_3.png",
+        "fuel truck (25)_aug_1.png",
+        "fuel truck (14)_aug_4.png"
+      ],
+      "test_ratio": 0.03759398496240601
+    },
+    "TSC 100 Comm Terminal": {
+      "total_original": 95,
+      "test_images": 5,
+      "training_images": 90,
+      "test_files": [
+        "tsc 100 comm terminal (19)_aug_4.png",
+        "tsc 100 comm terminal (9)_aug_3.png",
+        "tsc 100 comm terminal (1)_aug_6.png",
+        "tsc 100 comm terminal (16)_aug_4.png",
+        "tsc 100 comm terminal (6)_orig.png"
+      ],
+      "test_ratio": 0.05263157894736842
+    },
+    "BMP-1 APC Tank": {
+      "total_original": 91,
+      "test_images": 5,
+      "training_images": 86,
+      "test_files": [
+        "bmp1 apc tank (4)_aug_5.png",
+        "bmp1 apc tank (4)_aug_3.png",
+        "bmp1 apc tank (2)_aug_6.png",
+        "bmp1 apc tank (4)_aug_6.png",
+        "bmp1 apc tank (2)_aug_3.png"
+      ],
+      "test_ratio": 0.054945054945054944
+    },
+    "Armored Car": {
+      "total_original": 90,
+      "test_images": 5,
+      "training_images": 85,
+      "test_files": [
+        "armored car (2)_orig.png",
+        "armored car (2)_aug_2.png",
+        "armored car (17)_aug_5.png",
+        "armored car (10)_aug_2.png",
+        "armored car (1)_orig.png"
+      ],
+      "test_ratio": 0.05555555555555555
+    },
+    "Silo": {
+      "total_original": 75,
+      "test_images": 5,
+      "training_images": 70,
+      "test_files": [
+        "silo (2)_aug_3.png",
+        "silo (13)_orig.png",
+        "silo (15)_aug_0.png",
+        "silo (4)_aug_4.png",
+        "silo (8)_orig.png"
+      ],
+      "test_ratio": 0.06666666666666667
+    },
+    "TSC 85B CSCS Comm Terminal": {
+      "total_original": 85,
+      "test_images": 5,
+      "training_images": 80,
+      "test_files": [
+        "tsc 85b dscs comm terminal (4)_aug_0.png",
+        "tsc 85b dscs comm terminal (15)_aug_2.png",
+        "tsc 85b dscs comm terminal (6)_aug_3.png",
+        "tsc 85b dscs comm terminal (15)_orig.png",
+        "tsc 85b dscs comm terminal (17)_aug_6.png"
+      ],
+      "test_ratio": 0.058823529411764705
+    },
+    "Patriot Antennas": {
+      "total_original": 148,
+      "test_images": 5,
+      "training_images": 143,
+      "test_files": [
+        "patriot antenna (2)_aug_4.png",
+        "patriot antenna (11)_aug_5.png",
+        "patriot antenna (15)_aug_6.png",
+        "patriot antennas (3)_aug_5.png",
+        "patriot antenna (6)_aug_6.png"
+      ],
+      "test_ratio": 0.033783783783783786
+    },
+    "ZSU-23-4 Anti Aircraft Artillery Tank": {
+      "total_original": 136,
+      "test_images": 5,
+      "training_images": 131,
+      "test_files": [
+        "zsu 23 4 anti aircraft artillery tank (8)_aug_4.png",
+        "zsu 23 4 anti aircraft artillery tank (2)_aug_5.png",
+        "zsu 23 4 anti aircraft artillery tank (9)_aug_4.png",
+        "zsu 23 4 anti aircraft artillery tank (28)_orig.png",
+        "zsu 23 4 anti aircraft artillery tank (3)_aug_6.png"
+      ],
+      "test_ratio": 0.03676470588235294
+    },
+    "SA-3 Low Blow Radar": {
+      "total_original": 99,
+      "test_images": 5,
+      "training_images": 94,
+      "test_files": [
+        "sa3 low blow radar (7)_aug_1.png",
+        "sa3 low blow radar (1)_aug_5.png",
+        "sa3 low blow radar (8)_aug_2.png",
+        "sa3 low blow radar (13)_aug_4.png",
+        "sa3 low blow radar (4)_aug_2.png"
+      ],
+      "test_ratio": 0.050505050505050504
+    },
+    "Athena2-LP": {
+      "total_original": 86,
+      "test_images": 5,
+      "training_images": 81,
+      "test_files": [
+        "athena2 lp (4)_aug_0.png",
+        "athena2 lp (11)_aug_6.png",
+        "athena2 lp (15)_aug_5.png",
+        "athena2 lp (5)_aug_2.png",
+        "athena2 lp (12)_aug_1.png"
+      ],
+      "test_ratio": 0.05813953488372093
+    },
+    "Patriot Air Defense Launcher": {
+      "total_original": 100,
+      "test_images": 5,
+      "training_images": 95,
+      "test_files": [
+        "patriot air defense launcher  (15)_aug_2.png",
+        "patriot air defense launcher  (14)_aug_6.png",
+        "patriot air defense launcher  (18)_aug_6.png",
+        "patriot air defense launcher  (19)_aug_3.png",
+        "patriot air defense launcher  (16)_aug_4.png"
+      ],
+      "test_ratio": 0.05
+    },
+    "Patriot": {
+      "total_original": 88,
+      "test_images": 5,
+      "training_images": 83,
+      "test_files": [
+        "patriot (12)_aug_3.png",
+        "patriot (18)_aug_1.png",
+        "patriot (1)_orig.png",
+        "patriot (8)_aug_0.png",
+        "patriot (11)_aug_1.png"
+      ],
+      "test_ratio": 0.056818181818181816
+    },
+    "THAAD Launcher": {
+      "total_original": 142,
+      "test_images": 5,
+      "training_images": 137,
+      "test_files": [
+        "thaad launcher (19)_aug_3.png",
+        "thaad launcher (12)_aug_4.png",
+        "thaad launcher (26)_aug_5.png",
+        "thaad launcher (37)_aug_5.png",
+        "thaad launcher (20)_aug_4.png"
+      ],
+      "test_ratio": 0.035211267605633804
+    },
+    "Bakery": {
+      "total_original": 144,
+      "test_images": 5,
+      "training_images": 139,
+      "test_files": [
+        "bakery (25)_aug_1.png",
+        "bakery (22)_aug_2.png",
+        "bakery (28)_aug_4.png",
+        "bakery (2)_aug_0.png",
+        "bakery (28)_aug_0.png"
+      ],
+      "test_ratio": 0.034722222222222224
+    },
+    "Jeep": {
+      "total_original": 126,
+      "test_images": 5,
+      "training_images": 121,
+      "test_files": [
+        "jeep (12)_aug_1.png",
+        "jeep (35)_aug_3.png",
+        "jeep (14)_orig.png",
+        "jeep (38)_orig.png",
+        "jeep (31)_orig.png"
+      ],
+      "test_ratio": 0.03968253968253968
+    },
+    "Scud Tel": {
+      "total_original": 77,
+      "test_images": 5,
+      "training_images": 72,
+      "test_files": [
+        "scud tel (7)_orig.png",
+        "scud tel (7)_aug_0.png",
+        "scud tel (9)_aug_0.png",
+        "scud tel (18)_aug_6.png",
+        "scud tel (20)_aug_3.png"
+      ],
+      "test_ratio": 0.06493506493506493
+    },
+    "Taurus LP": {
+      "total_original": 78,
+      "test_images": 5,
+      "training_images": 73,
+      "test_files": [
+        "taurus lp (16)_aug_1.png",
+        "taurus lp (20)_aug_4.png",
+        "taurus lp (17)_aug_3.png",
+        "taurus lp (20)_aug_6.png",
+        "taurus lp (16)_aug_5.png"
+      ],
+      "test_ratio": 0.0641025641025641
+    },
+    "Flag Pole": {
+      "total_original": 99,
+      "test_images": 5,
+      "training_images": 94,
+      "test_files": [
+        "flag pole (4)_aug_4.png",
+        "flag pole (7)_aug_5.png",
+        "flag pole (8)_aug_6.png",
+        "flag pole (12)_aug_5.png",
+        "flag pole (13)_aug_5.png"
+      ],
+      "test_ratio": 0.050505050505050504
+    },
+    "Bank": {
+      "total_original": 94,
+      "test_images": 5,
+      "training_images": 89,
+      "test_files": [
+        "bank (17)_aug_5.png",
+        "bank (19)_aug_3.png",
+        "bank (5)_aug_3.png",
+        "bank (20)_aug_0.png",
+        "bank (3)_aug_3.png"
+      ],
+      "test_ratio": 0.05319148936170213
+    },
+    "SA-6 Air Defense System": {
+      "total_original": 132,
+      "test_images": 5,
+      "training_images": 127,
+      "test_files": [
+        "sa6 air defense system (23)_aug_1.png",
+        "sa6 air defense system (6)_aug_1.png",
+        "sa6 air defense system (14)_orig.png",
+        "sa6 air defense system (22)_aug_0.png",
+        "sa6 air defense system (15)_aug_3.png"
+      ],
+      "test_ratio": 0.03787878787878788
+    },
+    "Bridge": {
+      "total_original": 133,
+      "test_images": 5,
+      "training_images": 128,
+      "test_files": [
+        "bridge (16)_aug_0.png",
+        "bridge (10)_aug_2.png",
+        "bridge (10)_aug_6.png",
+        "bridge (19)_aug_3.png",
+        "bridge (3)_aug_1.png"
+      ],
+      "test_ratio": 0.03759398496240601
+    },
+    "SLC 4E Pad": {
+      "total_original": 92,
+      "test_images": 5,
+      "training_images": 87,
+      "test_files": [
+        "slc 4e pad (17)_aug_6.png",
+        "slc 4e pad (17)_orig.png",
+        "slc 4e pad (12)_aug_1.png",
+        "slc 4e pad (20)_aug_5.png",
+        "slc 4e pad (3)_aug_1.png"
+      ],
+      "test_ratio": 0.05434782608695652
+    },
+    "Smart Tee": {
+      "total_original": 85,
+      "test_images": 5,
+      "training_images": 80,
+      "test_files": [
+        "smart tee (7)_aug_1.png",
+        "smart tee (15)_orig.png",
+        "smart tee (5)_orig.png",
+        "smart tee (13)_aug_2.png",
+        "smart tee (12)_aug_5.png"
+      ],
+      "test_ratio": 0.058823529411764705
+    },
+    "Patriot Air Defense Radar": {
+      "total_original": 72,
+      "test_images": 5,
+      "training_images": 67,
+      "test_files": [
+        "patriot air defense radar (8)_orig.png",
+        "patriot air defense radar (12)_aug_6.png",
+        "patriot air defense radar (3)_aug_1.png",
+        "patriot air defense radar (9)_aug_3.png",
+        "patriot air defense radar (12)_aug_1.png"
+      ],
+      "test_ratio": 0.06944444444444445
+    },
+    "MAZ543 Scud TEL": {
+      "total_original": 86,
+      "test_images": 5,
+      "training_images": 81,
+      "test_files": [
+        "maz543 scud tel (5)_orig.png",
+        "maz543 scud tel (7)_aug_3.png",
+        "maz543 scud tel (13)_orig.png",
+        "maz543 scud tel (19)_aug_6.png",
+        "maz543 scud tel (10)_aug_5.png"
+      ],
+      "test_ratio": 0.05813953488372093
+    },
+    "Patriot Radar": {
+      "total_original": 140,
+      "test_images": 5,
+      "training_images": 135,
+      "test_files": [
+        "patriot radar (35)_aug_2.png",
+        "patriot radar (31)_aug_3.png",
+        "patriot radar (35)_aug_6.png",
+        "patriot radar (19)_aug_3.png",
+        "patriot radar (22)_aug_6.png"
+      ],
+      "test_ratio": 0.03571428571428571
+    },
+    "SA-10 Air Defense System": {
+      "total_original": 96,
+      "test_images": 5,
+      "training_images": 91,
+      "test_files": [
+        "sa10 air defense system (1)_aug_4.png",
+        "sa10 air defense system (5)_aug_1.png",
+        "sa10 air defense system (20)_aug_6.png",
+        "sa10 air defense system (7)_aug_6.png",
+        "sa10 air defense system (9)_aug_1.png"
+      ],
+      "test_ratio": 0.052083333333333336
+    },
+    "Power Tower": {
+      "total_original": 147,
+      "test_images": 5,
+      "training_images": 142,
+      "test_files": [
+        "power tower (20)_aug_4.png",
+        "power tower (38)_aug_2.png",
+        "power tower (15)_aug_3.png",
+        "power tower (19)_aug_2.png",
+        "power tower (18)_orig.png"
+      ],
+      "test_ratio": 0.034013605442176874
+    },
+    "MSE Terminal": {
+      "total_original": 91,
+      "test_images": 5,
+      "training_images": 86,
+      "test_files": [
+        "mse terminal (14)_orig.png",
+        "mse terminal (19)_aug_5.png",
+        "mse terminal (15)_aug_5.png",
+        "mse terminal (19)_aug_0.png",
+        "mse terminal (16)_orig.png"
+      ],
+      "test_ratio": 0.054945054945054944
+    },
+    "Mercava": {
+      "total_original": 84,
+      "test_images": 5,
+      "training_images": 79,
+      "test_files": [
+        "mercava (14)_aug_4.png",
+        "mercava (12)_aug_1.png",
+        "mercava (4)_aug_4.png",
+        "mercava (20)_aug_3.png",
+        "mercava (11)_aug_1.png"
+      ],
+      "test_ratio": 0.05952380952380952
+    },
+    "Ariane-LP": {
+      "total_original": 125,
+      "test_images": 5,
+      "training_images": 120,
+      "test_files": [
+        "ariane-lp (2)_aug_4.png",
+        "ariane-lp (24)_aug_5.png",
+        "ariane-lp (5)_aug_4.png",
+        "ariane-lp (13)_orig.png",
+        "ariane-lp (18)_orig.png"
+      ],
+      "test_ratio": 0.04
+    },
+    "M2 Bradley Apc Tank": {
+      "total_original": 84,
+      "test_images": 5,
+      "training_images": 79,
+      "test_files": [
+        "m2 bradley apc tank (12)_aug_4.png",
+        "m2 bradley apc tank (10)_orig.png",
+        "m2 bradley apc tank (10)_aug_3.png",
+        "m2 bradley apc tank (3)_orig.png",
+        "m2 bradley apc tank (5)_aug_4.png"
+      ],
+      "test_ratio": 0.05952380952380952
+    },
+    "Patriot Missile Truck": {
+      "total_original": 140,
+      "test_images": 5,
+      "training_images": 135,
+      "test_files": [
+        "patriot missile truck (17)_aug_6.png",
+        "patriot missile truck (29)_orig.png",
+        "patriot missile truck (14)_orig.png",
+        "patriot missile truck (23)_aug_3.png",
+        "patriot missile truck (33)_orig.png"
+      ],
+      "test_ratio": 0.03571428571428571
+    },
+    "BRDM AVR": {
+      "total_original": 81,
+      "test_images": 5,
+      "training_images": 76,
+      "test_files": [
+        "brdm avr (18)_aug_2.png",
+        "brdm avr (14)_aug_0.png",
+        "brdm avr (16)_aug_3.png",
+        "brdm avr (3)_aug_1.png",
+        "brdm avr (12)_aug_3.png"
+      ],
+      "test_ratio": 0.06172839506172839
+    },
+    "Airfield": {
+      "total_original": 91,
+      "test_images": 5,
+      "training_images": 86,
+      "test_files": [
+        "airfield (15)_aug_2.png",
+        "airfield (9)_aug_3.png",
+        "airfield (12)_aug_4.png",
+        "airfield (4)_orig.png",
+        "airfield (1)_aug_6.png"
+      ],
+      "test_ratio": 0.054945054945054944
+    },
+    "Camp": {
+      "total_original": 95,
+      "test_images": 5,
+      "training_images": 90,
+      "test_files": [
+        "camp (17)_aug_0.png",
+        "camp (7)_aug_4.png",
+        "camp (4)_aug_0.png",
+        "camp (20)_aug_0.png",
+        "camp (16)_aug_6.png"
+      ],
+      "test_ratio": 0.05263157894736842
+    },
+    "Military Complex": {
+      "total_original": 135,
+      "test_images": 5,
+      "training_images": 130,
+      "test_files": [
+        "military complex (26)_aug_4.png",
+        "military complex (13)_aug_1.png",
+        "military complex (1)_orig.png",
+        "military complex (26)_aug_0.png",
+        "military complex (14)_aug_3.png"
+      ],
+      "test_ratio": 0.037037037037037035
+    },
+    "LargeOil Tank": {
+      "total_original": 138,
+      "test_images": 5,
+      "training_images": 133,
+      "test_files": [
+        "large oil tank (37)_aug_1.png",
+        "large oil tank (24)_aug_5.png",
+        "large oil tank (30)_aug_3.png",
+        "large oil tank (32)_aug_3.png",
+        "large oil tank (18)_aug_6.png"
+      ],
+      "test_ratio": 0.036231884057971016
+    },
+    "BTR-80 APC": {
+      "total_original": 81,
+      "test_images": 5,
+      "training_images": 76,
+      "test_files": [
+        "btr80 apc (7)_orig.png",
+        "btr80 apc (1)_aug_5.png",
+        "btr80 apc (9)_aug_6.png",
+        "btr80 apc (19)_aug_5.png",
+        "btr80 apc (11)_aug_2.png"
+      ],
+      "test_ratio": 0.06172839506172839
+    },
+    "SA-8 Air Defense System": {
+      "total_original": 92,
+      "test_images": 5,
+      "training_images": 87,
+      "test_files": [
+        "sa8 air defense system (7)_aug_3.png",
+        "sa8 air defense system (2)_aug_5.png",
+        "sa8 air defense system (1)_aug_5.png",
+        "sa8 air defense system (4)_aug_6.png",
+        "sa8 air defense system (14)_aug_0.png"
+      ],
+      "test_ratio": 0.05434782608695652
+    },
+    "SatDish": {
+      "total_original": 86,
+      "test_images": 5,
+      "training_images": 81,
+      "test_files": [
+        "satdish (8)_aug_3.png",
+        "satdish (3)_orig.png",
+        "satdish (14)_aug_1.png",
+        "satdish (10)_aug_1.png",
+        "satdish (2)_aug_5.png"
+      ],
+      "test_ratio": 0.05813953488372093
+    },
+    "Fossil Fuel Power Plant": {
+      "total_original": 117,
+      "test_images": 5,
+      "training_images": 112,
+      "test_files": [
+        "fossil fuel power plant (16)_orig.png",
+        "fossil fuel power plant (29)_aug_5.png",
+        "fossil fuel power plant (9)_aug_6.png",
+        "fossil fuel power plant (27)_aug_4.png",
+        "fossil fuel power plant (9)_orig.png"
+      ],
+      "test_ratio": 0.042735042735042736
+    },
+    "Tnshdrad": {
+      "total_original": 86,
+      "test_images": 5,
+      "training_images": 81,
+      "test_files": [
+        "tnshdrad (5)_aug_2.png",
+        "tnshdrad (9)_aug_0.png",
+        "tnshdrad (11)_orig.png",
+        "tnshdrad (10)_aug_1.png",
+        "tnshdrad (18)_aug_1.png"
+      ],
+      "test_ratio": 0.05813953488372093
+    },
+    "Warrior AFV Tank": {
+      "total_original": 79,
+      "test_images": 5,
+      "training_images": 74,
+      "test_files": [
+        "warrior afv tank (2)_aug_5.png",
+        "warrior afv tank (18)_aug_2.png",
+        "warrior afv tank (18)_aug_3.png",
+        "warrior afv tank (16)_aug_0.png",
+        "warrior afv tank (17)_orig.png"
+      ],
+      "test_ratio": 0.06329113924050633
+    },
+    "PickUp": {
+      "total_original": 85,
+      "test_images": 5,
+      "training_images": 80,
+      "test_files": [
+        "pickup (1)_orig.png",
+        "pickup (18)_aug_1.png",
+        "pickup (7)_aug_1.png",
+        "pickup (5)_orig.png",
+        "pickup (17)_aug_2.png"
+      ],
+      "test_ratio": 0.058823529411764705
+    },
+    "MAZ543 Scud Tel Launcher": {
+      "total_original": 87,
+      "test_images": 5,
+      "training_images": 82,
+      "test_files": [
+        "maz543 scud tel launcher (6)_aug_1.png",
+        "maz543 scud tel launcher (3)_aug_3.png",
+        "maz543 scud tel launcher (15)_aug_5.png",
+        "maz543 scud tel launcher (18)_orig.png",
+        "maz543 scud tel launcher (13)_aug_1.png"
+      ],
+      "test_ratio": 0.05747126436781609
+    },
+    "Bowling Alley": {
+      "total_original": 97,
+      "test_images": 5,
+      "training_images": 92,
+      "test_files": [
+        "bowling alley (12)_aug_1.png",
+        "bowling alley (16)_orig.png",
+        "bowling alley (7)_aug_6.png",
+        "bowling alley (18)_aug_2.png",
+        "bowling alley (6)_orig.png"
+      ],
+      "test_ratio": 0.05154639175257732
+    },
+    "Rapier Air Defense Radar": {
+      "total_original": 89,
+      "test_images": 5,
+      "training_images": 84,
+      "test_files": [
+        "rapier air defense radar (19)_orig.png",
+        "rapier air defense radar (1)_aug_0.png",
+        "rapier air defense radar (11)_aug_1.png",
+        "rapier air defense radar (6)_aug_2.png",
+        "rapier air defense radar (2)_aug_0.png"
+      ],
+      "test_ratio": 0.056179775280898875
+    },
+    "M-1A1 Abrams Tank": {
+      "total_original": 136,
+      "test_images": 5,
+      "training_images": 131,
+      "test_files": [
+        "m1a1 abrams tank (26)_aug_3.png",
+        "m1a1 abrams tank (33)_aug_1.png",
+        "m1a1 abrams tank (1)_aug_1.png",
+        "m1a1 abrams tank (27)_aug_1.png",
+        "m1a1 abrams tank (13)_aug_2.png"
+      ],
+      "test_ratio": 0.03676470588235294
+    },
+    "Patriot Control": {
+      "total_original": 88,
+      "test_images": 5,
+      "training_images": 83,
+      "test_files": [
+        "patriot control (20)_aug_6.png",
+        "patriot control (4)_orig.png",
+        "patriot control (5)_orig.png",
+        "patriot control (10)_orig.png",
+        "patriot control (15)_aug_5.png"
+      ],
+      "test_ratio": 0.056818181818181816
+    },
+    "Car dealership": {
+      "total_original": 36,
+      "test_images": 5,
+      "training_images": 31,
+      "test_files": [
+        "car dealership (3)_aug_5.png",
+        "car dealership (1)_aug_6.png",
+        "car dealership (7)_aug_1.png",
+        "car dealership (5)_orig.png",
+        "car dealership (1)_aug_1.png"
+      ],
+      "test_ratio": 0.1388888888888889
+    },
+    "T72 Tank": {
+      "total_original": 90,
+      "test_images": 5,
+      "training_images": 85,
+      "test_files": [
+        "t72 tank (23)_aug_0.png",
+        "t72 tank (28)_orig.png",
+        "t72 tank (35)_orig.png",
+        "t72 tank (25)_aug_6.png",
+        "t72 tank (33)_orig.png"
+      ],
+      "test_ratio": 0.05555555555555555
+    },
+    "Atlas LP": {
+      "total_original": 85,
+      "test_images": 5,
+      "training_images": 80,
+      "test_files": [
+        "atlas lp (11)_aug_0.png",
+        "atlas lp (20)_aug_3.png",
+        "atlas lp (16)_aug_4.png",
+        "atlas lp (8)_orig.png",
+        "atlas lp (5)_aug_4.png"
+      ],
+      "test_ratio": 0.058823529411764705
+    },
+    "T64 Tank": {
+      "total_original": 91,
+      "test_images": 5,
+      "training_images": 86,
+      "test_files": [
+        "t64 tank (14)_aug_4.png",
+        "t64 tank (9)_aug_3.png",
+        "t64 tank (13)_aug_2.png",
+        "t64 tank (4)_aug_6.png",
+        "t64 tank (2)_aug_5.png"
+      ],
+      "test_ratio": 0.054945054945054944
+    },
+    "SA-4 Air Defense System": {
+      "total_original": 98,
+      "test_images": 5,
+      "training_images": 93,
+      "test_files": [
+        "sa4 air defense system (3)_aug_5.png",
+        "sa4 air defense system (18)_aug_3.png",
+        "sa4 air defense system (15)_aug_3.png",
+        "sa4 air defense system (13)_orig.png",
+        "sa4 air defense system (1)_aug_1.png"
+      ],
+      "test_ratio": 0.05102040816326531
+    },
+    "Barn": {
+      "total_original": 95,
+      "test_images": 5,
+      "training_images": 90,
+      "test_files": [
+        "barn (5)_aug_2.png",
+        "barn (3)_orig.png",
+        "barn (1)_aug_4.png",
+        "barn (19)_aug_1.png",
+        "barn (4)_aug_6.png"
+      ],
+      "test_ratio": 0.05263157894736842
+    },
+    "Semi Tractor Tanker": {
+      "total_original": 106,
+      "test_images": 5,
+      "training_images": 101,
+      "test_files": [
+        "semi tractor tanker (18)_orig.png",
+        "semi tractor tanker (17)_aug_4.png",
+        "semi tractor tanker (8)_aug_1.png",
+        "semi tractor tanker (2)_aug_3.png",
+        "semi tractor tanker (16)_aug_3.png"
+      ],
+      "test_ratio": 0.04716981132075472
+    },
+    "Water Tower": {
+      "total_original": 143,
+      "test_images": 5,
+      "training_images": 138,
+      "test_files": [
+        "water tower (15)_aug_5.png",
+        "water tower (23)_aug_6.png",
+        "water tower (24)_orig.png",
+        "water tower (33)_aug_3.png",
+        "water tower (19)_orig.png"
+      ],
+      "test_ratio": 0.03496503496503497
+    },
+    "M163 Vulcan": {
+      "total_original": 86,
+      "test_images": 5,
+      "training_images": 81,
+      "test_files": [
+        "m163 vulcan (6)_aug_4.png",
+        "m163 vulcan (4)_aug_1.png",
+        "m163 vulcan (16)_orig.png",
+        "m163 vulcan (2)_aug_0.png",
+        "m163 vulcan (3)_aug_1.png"
+      ],
+      "test_ratio": 0.05813953488372093
+    },
+    "Semi Tractor": {
+      "total_original": 76,
+      "test_images": 5,
+      "training_images": 71,
+      "test_files": [
+        "semi tractor (20)_aug_0.png",
+        "semi tractor (6)_aug_0.png",
+        "semi tractor (13)_orig.png",
+        "semi tractor (12)_orig.png",
+        "semi tractor (5)_aug_0.png"
+      ],
+      "test_ratio": 0.06578947368421052
+    },
+    "M-109A3 Self Propelled Gun": {
+      "total_original": 96,
+      "test_images": 5,
+      "training_images": 91,
+      "test_files": [
+        "m109a3 self propelled gun (19)_aug_0.png",
+        "m109a3 self propelled gun (17)_aug_2.png",
+        "m109a3 self propelled gun (7)_aug_3.png",
+        "m109a3 self propelled gun (19)_orig.png",
+        "m109a3 self propelled gun (2)_orig.png"
+      ],
+      "test_ratio": 0.052083333333333336
+    },
+    "BMP-2 APC Tank": {
+      "total_original": 89,
+      "test_images": 5,
+      "training_images": 84,
+      "test_files": [
+        "bmp2 apc tank (5)_orig.png",
+        "bmp2 apc tank (18)_orig.png",
+        "bmp2 apc tank (2)_aug_4.png",
+        "bmp2 apc tank (19)_orig.png",
+        "bmp2 apc tank (10)_aug_0.png"
+      ],
+      "test_ratio": 0.056179775280898875
+    },
+    "LightHouse": {
+      "total_original": 96,
+      "test_images": 5,
+      "training_images": 91,
+      "test_files": [
+        "lighthouse (9)_aug_3.png",
+        "lighthouse (4)_aug_0.png",
+        "lighthouse (19)_aug_2.png",
+        "lighthouse (15)_aug_3.png",
+        "lighthouse (18)_aug_3.png"
+      ],
+      "test_ratio": 0.052083333333333336
+    },
+    "M-981 FISTV": {
+      "total_original": 141,
+      "test_images": 5,
+      "training_images": 136,
+      "test_files": [
+        "m981 fist (18)_aug_3.png",
+        "m981 fist (27)_orig.png",
+        "m981 fist (22)_aug_3.png",
+        "m981 fist (16)_aug_1.png",
+        "m981 fist (14)_orig.png"
+      ],
+      "test_ratio": 0.03546099290780142
+    },
+    "T62 Tank": {
+      "total_original": 99,
+      "test_images": 5,
+      "training_images": 94,
+      "test_files": [
+        "t62 tank (14)_aug_6.png",
+        "t62 tank (4)_aug_2.png",
+        "t62 tank (17)_aug_5.png",
+        "t62 tank (13)_aug_3.png",
+        "t62 tank (3)_aug_2.png"
+      ],
+      "test_ratio": 0.050505050505050504
+    },
+    "Satellite Ground Station": {
+      "total_original": 138,
+      "test_images": 5,
+      "training_images": 133,
+      "test_files": [
+        "satellite ground station (20)_aug_1.png",
+        "satellite ground station (30)_aug_2.png",
+        "satellite ground station (21)_aug_6.png",
+        "satellite ground station (18)_aug_0.png",
+        "satellite ground station (13)_aug_4.png"
+      ],
+      "test_ratio": 0.036231884057971016
+    },
+    "Hawk Air Defense": {
+      "total_original": 86,
+      "test_images": 5,
+      "training_images": 81,
+      "test_files": [
+        "hawk air defense (19)_aug_1.png",
+        "hawk air defense (15)_aug_2.png",
+        "hawk air defense (16)_orig.png",
+        "hawk air defense (1)_aug_2.png",
+        "hawk air defense (16)_aug_4.png"
+      ],
+      "test_ratio": 0.05813953488372093
+    },
+    "M-981 Mobile Air Defense": {
+      "total_original": 136,
+      "test_images": 5,
+      "training_images": 131,
+      "test_files": [
+        "m981 mobile air defense (4)_aug_3.png",
+        "m981 mobile air defense (23)_orig.png",
+        "m981 mobile air defense (28)_aug_2.png",
+        "m981 mobile air defense (9)_aug_4.png",
+        "m981 mobile air defense (7)_aug_0.png"
+      ],
+      "test_ratio": 0.03676470588235294
+    },
+    "Scamp": {
+      "total_original": 95,
+      "test_images": 5,
+      "training_images": 90,
+      "test_files": [
+        "scamp (16)_aug_6.png",
+        "scamp (11)_aug_4.png",
+        "scamp (15)_aug_1.png",
+        "scamp (8)_aug_4.png",
+        "scamp (17)_aug_6.png"
+      ],
+      "test_ratio": 0.05263157894736842
+    },
+    "AAV Tank": {
+      "total_original": 128,
+      "test_images": 5,
+      "training_images": 123,
+      "test_files": [
+        "aav tank (14)_orig.png",
+        "aav tank (10)_orig.png",
+        "aav tank (6)_aug_0.png",
+        "aav tank (19)_aug_5.png",
+        "aav tank (8)_aug_6.png"
+      ],
+      "test_ratio": 0.0390625
+    },
+    "M35-A Truck": {
+      "total_original": 137,
+      "test_images": 5,
+      "training_images": 132,
+      "test_files": [
+        "m35a truck (25)_orig.png",
+        "m35a truck (24)_orig.png",
+        "m35a truck (30)_orig.png",
+        "m35a truck (24)_aug_0.png",
+        "m35a truck (13)_aug_5.png"
+      ],
+      "test_ratio": 0.0364963503649635
+    },
+    "Humvee with Stingers": {
+      "total_original": 125,
+      "test_images": 5,
+      "training_images": 120,
+      "test_files": [
+        "humvee stingers (17)_aug_6.png",
+        "humvee stingers (23)_aug_2.png",
+        "humvee stingers (36)_aug_5.png",
+        "humvee stingers (37)_aug_3.png",
+        "humvee stingers (20)_aug_5.png"
+      ],
+      "test_ratio": 0.04
+    },
+    "T54 Tank": {
+      "total_original": 154,
+      "test_images": 5,
+      "training_images": 149,
+      "test_files": [
+        "t54 tank (22)_aug_4.png",
+        "t54 tank (36)_aug_5.png",
+        "t54 tank (19)_aug_2.png",
+        "t54 tank (33)_orig.png",
+        "t54 tank (22)_aug_3.png"
+      ],
+      "test_ratio": 0.032467532467532464
+    },
+    "THAAD Radar": {
+      "total_original": 114,
+      "test_images": 5,
+      "training_images": 109,
+      "test_files": [
+        "thaad radar (15)_aug_0.png",
+        "thaad radar (35)_aug_6.png",
+        "thaad radar (16)_aug_0.png",
+        "thaad radar (25)_aug_5.png",
+        "thaad radar (17)_aug_4.png"
+      ],
+      "test_ratio": 0.043859649122807015
+    },
+    "Semi Tractor Trailer": {
+      "total_original": 94,
+      "test_images": 5,
+      "training_images": 89,
+      "test_files": [
+        "semi tractor trailer (3)_aug_3.png",
+        "semi tractor trailer (4)_aug_5.png",
+        "semi tractor trailer (1)_aug_1.png",
+        "semi tractor trailer (6)_aug_2.png",
+        "semi tractor trailer (9)_aug_1.png"
+      ],
+      "test_ratio": 0.05319148936170213
+    },
+    "T80 Tank": {
+      "total_original": 89,
+      "test_images": 5,
+      "training_images": 84,
+      "test_files": [
+        "t80 tank (10)_aug_6.png",
+        "t80 tank (4)_aug_3.png",
+        "t80 tank (4)_aug_1.png",
+        "t80 tank (17)_aug_3.png",
+        "t80 tank (18)_aug_4.png"
+      ],
+      "test_ratio": 0.056179775280898875
+    },
+    "BGM-109 Tomahawk Cruise": {
+      "total_original": 94,
+      "test_images": 5,
+      "training_images": 89,
+      "test_files": [
+        "BGM-109_Tomahawk_Cruise (9)_aug_5.png",
+        "BGM-109_Tomahawk_Cruise (10)_aug_0.png",
+        "BGM-109_Tomahawk_Cruise (18)_aug_1.png",
+        "BGM-109_Tomahawk_Cruise (11)_aug_5.png",
+        "BGM-109_Tomahawk_Cruise (7)_aug_2.png"
+      ],
+      "test_ratio": 0.05319148936170213
+    },
+    "Factory": {
+      "total_original": 165,
+      "test_images": 5,
+      "training_images": 160,
+      "test_files": [
+        "factory (14)_orig.png",
+        "factory (17)_aug_6.png",
+        "factory (16)_aug_2.png",
+        "factory (35)_orig.png",
+        "factory (2)_aug_4.png"
+      ],
+      "test_ratio": 0.030303030303030304
+    },
+    "Titan4B LP": {
+      "total_original": 84,
+      "test_images": 5,
+      "training_images": 79,
+      "test_files": [
+        "titan4b lp (14)_aug_3.png",
+        "titan4b lp (1)_aug_2.png",
+        "titan4b lp (16)_orig.png",
+        "titan4b lp (13)_aug_4.png",
+        "titan4b lp (17)_aug_6.png"
+      ],
+      "test_ratio": 0.05952380952380952
+    },
+    "Building": {
+      "total_original": 89,
+      "test_images": 5,
+      "training_images": 84,
+      "test_files": [
+        "building (6)_aug_6.png",
+        "building (16)_aug_3.png",
+        "building (18)_aug_0.png",
+        "building (13)_aug_5.png",
+        "building (1)_aug_3.png"
+      ],
+      "test_ratio": 0.056179775280898875
+    },
+    "Facility Hex": {
+      "total_original": 82,
+      "test_images": 5,
+      "training_images": 77,
+      "test_files": [
+        "facility hex (18)_aug_6.png",
+        "facility hex (12)_aug_5.png",
+        "facility hex (1)_aug_2.png",
+        "facility hex (3)_aug_0.png",
+        "facility hex (15)_orig.png"
+      ],
+      "test_ratio": 0.06097560975609756
+    },
+    "Humvee": {
+      "total_original": 87,
+      "test_images": 5,
+      "training_images": 82,
+      "test_files": [
+        "humvee (18)_aug_6.png",
+        "humvee (3)_orig.png",
+        "humvee (14)_orig.png",
+        "humvee (16)_aug_1.png",
+        "humvee (13)_aug_4.png"
+      ],
+      "test_ratio": 0.05747126436781609
+    }
+  },
+  "total_test_images": 415,
+  "total_training_images": 8158,
+  "split_ratio": {
+    "test_percentage": 4.8407791904817445,
+    "training_percentage": 95.15922080951825
+  }
+}
