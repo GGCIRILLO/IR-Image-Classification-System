@@ -24,6 +24,7 @@ The IR Image Classification system is designed for processing, analyzing, and cl
 - [Technical Documentation](TECHNICAL_DOCUMENTATION.md): Detailed technical information about the system
 - [Scripts](scripts.md): Documentation for utility scripts
 - [Streamlit App](streamlit_app.md): Documentation for the web-based user interface
+- [Test Set Management](test_set_management.md): Comprehensive guide for test set utilities and data leakage prevention
 
 ## Getting Started
 
@@ -40,7 +41,7 @@ To get started with the IR Image Classification system:
    - Copy `.env.example` to `.env` and adjust the settings
    - Review and modify configuration files in the `config` directory
 
-> Actually, every param in the config can be overwritten by command line arguments. 
+> Actually, every param in the config can be overwritten by command line arguments.
 
 3. Run the Streamlit application:
 
