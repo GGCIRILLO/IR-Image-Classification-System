@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 """
 Script to populate the database with embeddings from processed images.
+
+Enhanced with ResNet18 support and multi-database configuration.
+Ensures only training images are processed (excludes test set).
 """
 
 import argparse
@@ -8,7 +11,7 @@ import sys
 import os
 from pathlib import Path
 import logging
-from typing import List, Optional
+from typing import List, Optional, Set
 import json
 from datetime import datetime
 import numpy as np
@@ -20,6 +23,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 
 from src.embedding.extractor import EmbeddingExtractor
 from src.database.vector_store import ChromaVectorStore
+from src.database.db_manager import DatabaseManager, ModelType
 from src.data.ir_processor import IRImageProcessor
 from src.models.data_models import Embedding
 
@@ -31,38 +35,105 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 class DatabasePopulator:
-    """Populates the database with embeddings from processed images."""
+    """
+    Populates the database with embeddings from processed images.
     
-    def __init__(self, database_path: str, model_type: str = "resnet50", model_path: str = None):
-        """Initialize the populator with database path and model type."""
-        self.database_path = database_path
+    Enhanced with ResNet18 support and multi-database configuration.
+    Ensures only training images are processed (excludes test set).
+    """
+    
+    def __init__(self, model_type: ModelType = ModelType.RESNET50, 
+                 model_path: Optional[str] = None,
+                 database_path: Optional[str] = None,
+                 collection_name: Optional[str] = None):
+        """
+        Initialize the populator with model type and optional overrides.
+        
+        Args:
+            model_type: Model type (ResNet18 or ResNet50)
+            model_path: Optional path to fine-tuned model
+            database_path: Optional database path override
+            collection_name: Optional collection name override
+        """
         self.model_type = model_type
         self.model_path = model_path
         
+        # Initialize database manager for multi-database support
+        self.db_manager = DatabaseManager(model_type=model_type)
+        
+        # Use provided overrides or get from database manager
+        self.database_path = database_path or self.db_manager.database_path
+        self.collection_name = collection_name or self.db_manager.collection_name
+        
         # Initialize components
         self.embedding_extractor = EmbeddingExtractor(
-            model_type=model_type,
-            model_path=model_path  # Use custom model if provided
+            model_type=model_type.value,
+            model_path=model_path
         )
         
         self.vector_store = ChromaVectorStore(
-            db_path=database_path,
-            collection_name="ir_embeddings"
+            db_path=self.database_path,
+            collection_name=self.collection_name
         )
         self.ir_processor = IRImageProcessor()
         
-        logger.info(f"✅ Initialized database populator: {database_path}")
+        # Load test set filenames to exclude them
+        self.test_set_filenames = self._load_test_set_filenames()
+        
+        logger.info(f"✅ Initialized database populator for {model_type.value}")
+        logger.info(f"   📁 Database: {self.database_path}")
+        logger.info(f"   📊 Collection: {self.collection_name}")
+        logger.info(f"   🚫 Test images excluded: {len(self.test_set_filenames)}")
         if model_path:
-            logger.info(f"✅ Using fine-tuned model: {model_path}")
+            logger.info(f"   🤖 Fine-tuned model: {model_path}")
+    
+    def _load_test_set_filenames(self) -> Set[str]:
+        """
+        Load test set filenames to exclude them from training database.
+        
+        Returns:
+            Set[str]: Set of test image filenames
+        """
+        test_filenames = set()
+        metadata_file = Path("data/test_set_metadata.json")
+        
+        try:
+            if metadata_file.exists():
+                with open(metadata_file, 'r') as f:
+                    metadata = json.load(f)
+                
+                for class_data in metadata.get('classes', {}).values():
+                    test_filenames.update(class_data.get('test_files', []))
+                
+                logger.info(f"📋 Loaded {len(test_filenames)} test image filenames to exclude")
+            else:
+                logger.warning("⚠️ Test set metadata not found - no images will be excluded")
+                
+        except Exception as e:
+            logger.error(f"❌ Error loading test set metadata: {e}")
+            logger.warning("⚠️ Continuing without test set exclusion")
+        
+        return test_filenames
 
-    def get_sample_images(self, processed_dir: str, max_per_class: int = 5, 
-                         max_total: int = 50) -> List[tuple]:
-        """Get sample images from the processed dataset."""
+    def get_training_images(self, processed_dir: str, max_per_class: int = 5, 
+                           max_total: int = 50) -> List[tuple]:
+        """
+        Get training images from the processed dataset, excluding test set images.
+        
+        Args:
+            processed_dir: Directory containing processed images
+            max_per_class: Maximum images per class (0 for all)
+            max_total: Maximum total images (0 for all)
+            
+        Returns:
+            List[tuple]: List of (image_path, class_name) tuples
+        """
         processed_path = Path(processed_dir)
         if not processed_path.exists():
             raise FileNotFoundError(f"Directory not found: {processed_dir}")
 
         image_files = []
+        excluded_count = 0
         
         for class_dir in processed_path.iterdir():
             if not class_dir.is_dir():
@@ -70,37 +141,57 @@ class DatabasePopulator:
                 
             class_name = class_dir.name
             class_images = []
+            class_excluded = 0
             
-            # Get images from this class
+            # Get images from this class, excluding test set images
             for img_file in class_dir.iterdir():
                 if img_file.suffix.lower() in ['.png', '.jpg', '.jpeg']:
+                    # Check if this image is in the test set
+                    if img_file.name in self.test_set_filenames:
+                        class_excluded += 1
+                        excluded_count += 1
+                        continue
+                    
                     class_images.append((str(img_file), class_name))
                     # Only break if we're limiting per class and have reached the limit
                     if max_per_class > 0 and len(class_images) >= max_per_class:
                         break
             
             image_files.extend(class_images)
-            logger.info(f"📁 Class '{class_name}': {len(class_images)} images")
+            logger.info(f"📁 Class '{class_name}': {len(class_images)} training images "
+                       f"({class_excluded} test images excluded)")
             
             # Only break if we're limiting total and have reached the limit
             if max_total > 0 and len(image_files) >= max_total:
                 break
+        
+        logger.info(f"🚫 Total test images excluded: {excluded_count}")
         
         # Only limit if max_total is positive
         return image_files if max_total <= 0 else image_files[:max_total]
     
     def populate_database(self, processed_dir: str, max_per_class: int = 5, 
                          max_total: int = 50, dry_run: bool = False):
-        """Populate the database with embeddings from images."""
+        """
+        Populate the database with embeddings from training images only.
         
-        logger.info(f"🔄 Starting database population...")
+        Args:
+            processed_dir: Directory containing processed images
+            max_per_class: Maximum images per class (0 for all)
+            max_total: Maximum total images (0 for all)
+            dry_run: If True, only show what would be processed
+        """
+        
+        logger.info(f"🔄 Starting database population for {self.model_type.value}...")
         logger.info(f"   📊 Max per class: {max_per_class}")
         logger.info(f"   📊 Max total: {max_total}")
         logger.info(f"   🧪 Dry run: {dry_run}")
+        logger.info(f"   📁 Database: {self.database_path}")
+        logger.info(f"   📊 Collection: {self.collection_name}")
         
-        # Get sample images
-        image_files = self.get_sample_images(processed_dir, max_per_class, max_total)
-        logger.info(f"📸 Found {len(image_files)} images to process")
+        # Get training images (excluding test set)
+        image_files = self.get_training_images(processed_dir, max_per_class, max_total)
+        logger.info(f"📸 Found {len(image_files)} training images to process")
         
         if dry_run:
             logger.info("🧪 DRY RUN - No embeddings will be saved")
@@ -109,13 +200,15 @@ class DatabasePopulator:
             return
         
         # Initialize components
-        logger.info("🤖 Initializing embedding extractor...")
+        logger.info(f"🤖 Initializing {self.model_type.value} embedding extractor...")
         self.embedding_extractor.load_model(self.model_path)
 
         logger.info("🗄️ Initializing database...")
+        # Get model-specific configuration
+        db_config = self.db_manager._get_model_database_config(self.model_type)
         config = {
-            'embedding_dimension': 512,  # ResNet50 final embedding dimension
-            'metric': 'cosine'
+            'embedding_dimension': db_config.get('embedding_dimension', 512),
+            'metric': db_config.get('distance_metric', 'cosine')
         }
         self.vector_store.initialize_database(config)
         
@@ -157,7 +250,7 @@ class DatabasePopulator:
                     id=embedding_id,
                     image_id=image_id,
                     vector=embedding_vector,
-                    model_version=self.model_type,
+                    model_version=self.model_type.value,
                     extraction_timestamp=datetime.now()
                 )
                 
@@ -224,7 +317,8 @@ def main():
     parser.add_argument(
         "--model",
         default="resnet50",
-        help="Model for embedding (default: resnet50)"
+        choices=["resnet18", "resnet50"],
+        help="Model for embedding (default: resnet50, choices: resnet18, resnet50)"
     )
     
     parser.add_argument(
@@ -267,11 +361,15 @@ def main():
     args = parser.parse_args()
     
     try:
+        # Convert model string to ModelType enum
+        model_type = ModelType.RESNET18 if args.model == "resnet18" else ModelType.RESNET50
+        
         # Initialize populator
         populator = DatabasePopulator(
-            database_path=args.database_path,
-            model_type=args.model,
-            model_path=args.model_path
+            model_type=model_type,
+            model_path=args.model_path,
+            database_path=args.database_path if args.database_path != "data/vector_db" else None,
+            collection_name=None  # Let DatabaseManager handle model-specific naming
         )
         
         if args.verify_only:

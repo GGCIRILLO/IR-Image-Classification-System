@@ -177,7 +177,7 @@ class EmbeddingExtractor(BaseEmbeddingExtractor):
         Initialize embedding extractor.
         
         Args:
-            model_type: Type of model to use ('resnet50' or 'qwen_vlm')
+            model_type: Type of model to use ('resnet18', 'resnet50', or 'qwen_vlm')
             config: Configuration for extraction parameters
             model_path: Path to fine-tuned model weights
         """
