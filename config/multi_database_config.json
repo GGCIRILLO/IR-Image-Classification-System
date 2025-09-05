@@ -1,0 +1,37 @@
+{
+  "version": "1.0.0",
+  "description": "Multi-database configuration for different model types",
+  "databases": {
+    "resnet50": {
+      "model_type": "resnet50",
+      "database_path": "./data/vector_db",
+      "collection_name": "ir_embeddings",
+      "embedding_dimension": 512,
+      "distance_metric": "cosine",
+      "description": "ResNet50 model database (existing/legacy)"
+    },
+    "resnet18": {
+      "model_type": "resnet18",
+      "database_path": "./data/vector_db_resnet18",
+      "collection_name": "ir_embeddings_resnet18",
+      "embedding_dimension": 512,
+      "distance_metric": "cosine",
+      "description": "ResNet18 model database (new)"
+    }
+  },
+  "index": {
+    "type": "hnsw",
+    "hnsw_m": 16,
+    "hnsw_ef_construction": 200,
+    "hnsw_ef_search": 100,
+    "enable_exact_search": true,
+    "cache_size": 1000
+  },
+  "search": {
+    "default_k": 5,
+    "confidence_threshold": 0.7,
+    "max_search_time_ms": 2000.0,
+    "enable_reranking": true,
+    "cache_queries": true
+  }
+}

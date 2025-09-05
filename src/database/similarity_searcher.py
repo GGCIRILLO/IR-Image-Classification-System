@@ -4,6 +4,8 @@ Similarity search implementation for IR image embeddings.
 This module provides the SimilaritySearcher class for performing efficient
 similarity searches using both exact and approximate methods. Optimized
 for military IR image classification with cosine similarity.
+
+Enhanced with multi-database support for different model types (ResNet18, ResNet50).
 """
 
 import time
@@ -15,6 +17,7 @@ import chromadb
 from chromadb.config import Settings
 
 from ..models.data_models import Embedding, SimilarityResult
+from .db_manager import ModelType, DatabaseManager
 
 
 class SearchMode(Enum):
@@ -53,18 +56,51 @@ class SimilaritySearcher:
     
     Provides both exact and approximate search capabilities with intelligent
     fallback mechanisms and performance optimization for military applications.
+    
+    Enhanced with multi-database support for different model types.
     """
     
-    def __init__(self, database_path: str, collection_name: str = "ir_embeddings"):
+    def __init__(self, database_path: Optional[str] = None, 
+                 collection_name: Optional[str] = None,
+                 model_type: Optional[ModelType] = None):
         """
-        Initialize similarity searcher.
+        Initialize similarity searcher with flexible configuration options.
         
         Args:
-            database_path: Path to the ChromaDB database
-            collection_name: Name of the collection to search
+            database_path: Path to the ChromaDB database (optional if model_type provided)
+            collection_name: Name of the collection to search (optional if model_type provided)
+            model_type: Model type for automatic database configuration
+            
+        Note:
+            If model_type is provided, it takes precedence over database_path and collection_name.
+            If neither model_type nor database_path is provided, defaults to ResNet50 configuration.
         """
-        self.database_path = database_path
-        self.collection_name = collection_name
+        self.model_type = model_type
+        self.db_manager = DatabaseManager()
+        
+        # Determine database configuration
+        if model_type:
+            # Use model type configuration
+            self.db_manager.switch_database(model_type)
+            self.database_path = self.db_manager.database_path
+            self.collection_name = self.db_manager.collection_name
+            db_config = self.db_manager._get_model_database_config(model_type)
+            self.embedding_dimension = db_config.get("embedding_dimension", 512)
+        elif database_path and collection_name:
+            # Use provided parameters (legacy mode)
+            self.database_path = database_path
+            self.collection_name = collection_name
+            self.model_type = ModelType.RESNET50  # Default assumption
+            self.embedding_dimension = 512
+        else:
+            # Default to ResNet50 configuration
+            self.model_type = ModelType.RESNET50
+            self.db_manager.switch_database(ModelType.RESNET50)
+            self.database_path = self.db_manager.database_path
+            self.collection_name = self.db_manager.collection_name
+            db_config = self.db_manager._get_model_database_config(ModelType.RESNET50)
+            self.embedding_dimension = db_config.get("embedding_dimension", 512)
+        
         self.client = None  # chromadb.PersistentClient
         self.collection = None  # chromadb Collection
         self.config = SearchConfig()
@@ -191,6 +227,70 @@ class SimilaritySearcher:
             )
             
             return [], error_metrics
+    
+    def switch_database(self, model_type: ModelType) -> bool:
+        """
+        Switch to a different database for the specified model type.
+        
+        Args:
+            model_type: Model type to switch to
+            
+        Returns:
+            bool: True if switch was successful
+        """
+        try:
+            # Use database manager to switch
+            if self.db_manager.switch_database(model_type):
+                # Close current connection if exists
+                if self.client:
+                    # ChromaDB doesn't have explicit close, but we can reset
+                    self.client = None
+                    self.collection = None
+                    self.is_initialized = False
+                
+                # Update configuration
+                self.model_type = model_type
+                self.database_path = self.db_manager.database_path
+                self.collection_name = self.db_manager.collection_name
+                db_config = self.db_manager._get_model_database_config(model_type)
+                self.embedding_dimension = db_config.get("embedding_dimension", 512)
+                
+                # Clear cache since we're switching databases
+                self.clear_cache()
+                
+                print(f"Switched to {model_type.value} database: {self.database_path}")
+                return True
+            else:
+                return False
+            
+        except Exception as e:
+            print(f"Failed to switch to {model_type.value} database: {e}")
+            return False
+    
+    def get_current_model_type(self) -> ModelType:
+        """
+        Get the current model type being used.
+        
+        Returns:
+            ModelType: Current model type
+        """
+        return self.model_type
+    
+    def get_database_info(self) -> Dict[str, Any]:
+        """
+        Get information about the current database configuration.
+        
+        Returns:
+            Dict[str, Any]: Database information
+        """
+        return {
+            "model_type": self.model_type.value if self.model_type else "unknown",
+            "database_path": self.database_path,
+            "collection_name": self.collection_name,
+            "embedding_dimension": self.embedding_dimension,
+            "is_initialized": self.is_initialized,
+            "collection_count": self.collection.count() if self.collection else 0
+        }
     
     def _exact_search(self, query_embedding: np.ndarray, k: int, 
                      filters: Optional[Dict[str, Any]]) -> Tuple[List[SimilarityResult], int]:
@@ -600,3 +700,69 @@ class SimilaritySearcher:
         """Clear stored search metrics."""
         self.search_metrics.clear()
         print("Search metrics cleared")
+
+
+# Factory functions for easy creation of SimilaritySearcher instances
+
+def create_similarity_searcher(model_type: ModelType, 
+                             config: Optional[SearchConfig] = None) -> SimilaritySearcher:
+    """
+    Factory function to create SimilaritySearcher for specified model type.
+    
+    Args:
+        model_type: Model type to create searcher for
+        config: Optional search configuration
+        
+    Returns:
+        SimilaritySearcher: Configured similarity searcher
+    """
+    searcher = SimilaritySearcher(model_type=model_type)
+    if config:
+        searcher.config = config
+    return searcher
+
+
+def create_resnet18_searcher(config: Optional[SearchConfig] = None) -> SimilaritySearcher:
+    """
+    Convenience function to create ResNet18 similarity searcher.
+    
+    Args:
+        config: Optional search configuration
+        
+    Returns:
+        SimilaritySearcher: ResNet18 similarity searcher
+    """
+    return create_similarity_searcher(ModelType.RESNET18, config)
+
+
+def create_resnet50_searcher(config: Optional[SearchConfig] = None) -> SimilaritySearcher:
+    """
+    Convenience function to create ResNet50 similarity searcher.
+    
+    Args:
+        config: Optional search configuration
+        
+    Returns:
+        SimilaritySearcher: ResNet50 similarity searcher
+    """
+    return create_similarity_searcher(ModelType.RESNET50, config)
+
+
+def create_legacy_searcher(database_path: str, 
+                          collection_name: str = "ir_embeddings",
+                          config: Optional[SearchConfig] = None) -> SimilaritySearcher:
+    """
+    Create similarity searcher using legacy parameters for backward compatibility.
+    
+    Args:
+        database_path: Path to the ChromaDB database
+        collection_name: Name of the collection to search
+        config: Optional search configuration
+        
+    Returns:
+        SimilaritySearcher: Configured similarity searcher
+    """
+    searcher = SimilaritySearcher(database_path=database_path, collection_name=collection_name)
+    if config:
+        searcher.config = config
+    return searcher

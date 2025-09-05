@@ -25,6 +25,7 @@ The IR Image Classification system is designed for processing, analyzing, and cl
 - [Scripts](scripts.md): Documentation for utility scripts
 - [Streamlit App](streamlit_app.md): Documentation for the web-based user interface
 - [Test Set Management](test_set_management.md): Comprehensive guide for test set utilities and data leakage prevention
+- [Multi-Database System](multi_database_system.md): Documentation for the enhanced multi-database system supporting different model types
 
 ## Getting Started
 
