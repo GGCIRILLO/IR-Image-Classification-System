@@ -62,7 +62,7 @@ class QueryProcessorConfig:
     enable_approximate_search: bool = True  # Use approximate search for speed
     
     # Model configuration
-    model_type: str = "resnet50"  # Model type: "resnet50" or "qwen_vlm"
+    model_type: str = "resnet50"  # Model type: "resnet18", "resnet50", or "qwen_vlm"
     embedding_dimension: int = 512  # Expected embedding dimension
     model_confidence_threshold: float = 0.8  # Model confidence threshold
     

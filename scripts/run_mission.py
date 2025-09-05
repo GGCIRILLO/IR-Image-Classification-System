@@ -98,10 +98,15 @@ Examples:
             help='Path to the fine-tuned model weights (.pth file)'
         )
         model_group.add_argument(
+            '--model-type',
+            choices=['resnet18', 'resnet50'],
+            default='resnet50',
+            help='Model architecture type (default: resnet50, choices: resnet18, resnet50)'
+        )
+        model_group.add_argument(
             '--collection',
             type=str,
-            default='ir_embeddings',
-            help='Vector database collection name (default: ir_embeddings)'
+            help='Vector database collection name (auto-determined from model-type if not specified)'
         )
         
         # Query configuration presets
@@ -252,6 +257,7 @@ Examples:
         else:
             # Create custom configuration
             config = QueryProcessorConfig(
+                model_type=getattr(args, 'model_type', 'resnet50'),
                 max_query_time=args.max_query_time,
                 min_confidence_threshold=args.confidence_threshold,
                 top_k_results=args.max_results,
@@ -314,14 +320,16 @@ Examples:
         if not args.quiet:
             print(f"🚀 Initializing IR Classification System...")
             print(f"   Mission ID: {self.mission_id}")
-            print(f"   Database: {args.database}")
+            print(f"   Model Type: {getattr(args, 'model_type', 'resnet50')}")
+            print(f"   Database: {args.database or 'Auto-determined'}")
             print(f"   Model: {args.model or 'Default'}")
-            print(f"   Collection: {args.collection}")
+            print(f"   Collection: {args.collection or 'Auto-determined'}")
         
         self.processor = QueryProcessor(
             database_path=args.database,
             model_path=args.model,
             collection_name=args.collection,
+            model_type=getattr(args, 'model_type', 'resnet50'),
             config=config
         )
         

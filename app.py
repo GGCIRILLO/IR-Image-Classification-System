@@ -94,6 +94,7 @@ def run_mission(params: Dict[str, Any]) -> Tuple[bool, str, Optional[Dict[str, A
         "confidence_strategy": "confidence-strategy",
         "validation_mode": "validation-mode",
         "max_query_time": "max-query-time",
+        "model_type": "model-type",
         "disable_gpu": "disable-gpu",
         "disable_cache": "disable-cache",
         "enable_diversity": "enable-diversity",
@@ -419,6 +420,13 @@ def main():
         database = st.text_input("Database Path", DATABASE_DIR)
         model = st.text_input("Model Path (optional)", value="")
         
+        model_type = st.selectbox(
+            "Model Type",
+            ["resnet50", "resnet18"],
+            index=0,  # Default to ResNet50
+            help="Choose the model architecture. ResNet18 is faster, ResNet50 may be more accurate."
+        )
+        
         preset = st.selectbox(
             "Configuration Preset",
             ["", "military", "development", "production", "testing"],
@@ -526,6 +534,7 @@ def main():
             params = {
                 "image": image_path,
                 "database": database,
+                "model_type": model_type,
                 "preset": preset if preset else None,
                 "confidence_threshold": confidence_threshold,
                 "similarity_threshold": similarity_threshold,

@@ -57,23 +57,36 @@ class QueryProcessor:
     """
     
     def __init__(self, 
-                 database_path: str,
+                 database_path: Optional[str] = None,
                  model_path: Optional[str] = None,
-                 collection_name: str = "ir_embeddings",
-                 config: Optional[Dict[str, Any]] = None):
+                 collection_name: Optional[str] = None,
+                 config: Optional[Dict[str, Any]] = None,
+                 model_type: Optional[str] = None):
         """
         Initialize query processor with required components.
         
         Args:
-            database_path: Path to the vector database
+            database_path: Path to the vector database (optional, auto-determined from model_type)
             model_path: Path to the fine-tuned embedding model
-            collection_name: Name of the vector database collection
+            collection_name: Name of the vector database collection (optional, auto-determined from model_type)
             config: Optional configuration parameters
+            model_type: Model type for automatic database selection ('resnet18', 'resnet50')
         """
-        self.database_path = database_path
-        self.model_path = model_path
-        self.collection_name = collection_name
         self.config = config or {}
+        
+        # Determine model type from various sources
+        self.model_type = (
+            model_type or 
+            self.config.get('model_type') or 
+            'resnet50'  # Default fallback
+        )
+        
+        # Auto-configure database path and collection name based on model type
+        self.database_path, self.collection_name = self._get_database_config(
+            database_path, collection_name, self.model_type
+        )
+        
+        self.model_path = model_path
         
         # Initialize components
         self.image_processor: Optional[IImageProcessor] = None
@@ -117,7 +130,52 @@ class QueryProcessor:
         self.max_cache_size = self.config.get('max_cache_size', 1000)
         
         self.is_initialized = False
-        logger.info(f"QueryProcessor created with database: {database_path}")
+        logger.info(f"QueryProcessor created with model: {self.model_type}, database: {self.database_path}")
+    
+    def _get_database_config(self, 
+                           database_path: Optional[str], 
+                           collection_name: Optional[str], 
+                           model_type: str) -> Tuple[str, str]:
+        """
+        Get database path and collection name based on model type.
+        
+        Args:
+            database_path: Explicit database path (takes precedence)
+            collection_name: Explicit collection name (takes precedence)
+            model_type: Model type for auto-configuration
+            
+        Returns:
+            Tuple[str, str]: (database_path, collection_name)
+        """
+        # Import here to avoid circular imports
+        from ..database.db_manager import DatabaseManager, ModelType
+        
+        try:
+            # Convert string to ModelType enum
+            if model_type.lower() == 'resnet18':
+                model_enum = ModelType.RESNET18
+            elif model_type.lower() == 'resnet50':
+                model_enum = ModelType.RESNET50
+            else:
+                logger.warning(f"Unknown model type '{model_type}', defaulting to ResNet50")
+                model_enum = ModelType.RESNET50
+            
+            # Use DatabaseManager to get model-specific configuration
+            db_manager = DatabaseManager(model_type=model_enum)
+            
+            # Use explicit values if provided, otherwise use auto-configured values
+            final_database_path = database_path or db_manager.database_path
+            final_collection_name = collection_name or db_manager.collection_name
+            
+            logger.info(f"Database config for {model_type}: {final_database_path} / {final_collection_name}")
+            return final_database_path, final_collection_name
+            
+        except Exception as e:
+            logger.warning(f"Failed to auto-configure database for {model_type}: {e}")
+            # Fallback to defaults
+            fallback_db_path = database_path or "./data/vector_db"
+            fallback_collection = collection_name or "ir_embeddings"
+            return fallback_db_path, fallback_collection
     
     def initialize(self) -> bool:
         """
@@ -139,19 +197,19 @@ class QueryProcessor:
             )
             logger.info("Image processor initialized")
             
-            # Initialize embedding extractor
-            self.embedding_extractor = EmbeddingExtractor()
+            # Initialize embedding extractor with correct model type
+            self.embedding_extractor = EmbeddingExtractor(model_type=self.model_type)
             if self.model_path:
                 # Load custom model
                 self.embedding_extractor.load_model(self.model_path)
-                logger.info(f"Embedding extractor initialized with custom model: {self.model_path}")
+                logger.info(f"Embedding extractor initialized with custom {self.model_type} model: {self.model_path}")
             else:
                 # Load default pretrained model (without fine-tuning)
                 try:
-                    self.embedding_extractor.load_model(None)  # This will use base ResNet50
-                    logger.info("Embedding extractor initialized with default ResNet50 model")
+                    self.embedding_extractor.load_model(None)  # This will use the specified model type
+                    logger.info(f"Embedding extractor initialized with default {self.model_type} model")
                 except Exception as e:
-                    logger.warning(f"Failed to load default model: {e}")
+                    logger.warning(f"Failed to load default {self.model_type} model: {e}")
                     logger.info("Embedding extractor will use basic feature extraction")
             
             # Initialize similarity searcher
@@ -690,11 +748,149 @@ class QueryProcessor:
         """Get confidence calibration metrics."""
         return self.confidence_calculator.get_calibration_metrics()
     
+    def switch_model_type(self, new_model_type: str, new_model_path: Optional[str] = None) -> bool:
+        """
+        Switch to a different model type and corresponding database.
+        
+        Args:
+            new_model_type: New model type ('resnet18' or 'resnet50')
+            new_model_path: Optional path to fine-tuned model for the new type
+            
+        Returns:
+            bool: True if switch was successful
+        """
+        try:
+            logger.info(f"Switching from {self.model_type} to {new_model_type}")
+            
+            # Update model type and get new database configuration
+            old_model_type = self.model_type
+            self.model_type = new_model_type
+            self.model_path = new_model_path
+            
+            # Get new database configuration
+            self.database_path, self.collection_name = self._get_database_config(
+                None, None, new_model_type
+            )
+            
+            # Clear cache since we're switching models
+            self.clear_cache()
+            
+            # Mark as uninitialized to force re-initialization
+            self.is_initialized = False
+            
+            # Re-initialize with new configuration
+            success = self.initialize()
+            
+            if success:
+                logger.info(f"Successfully switched to {new_model_type} model")
+                logger.info(f"New database: {self.database_path} / {self.collection_name}")
+                return True
+            else:
+                # Rollback on failure
+                logger.error(f"Failed to switch to {new_model_type}, rolling back to {old_model_type}")
+                self.model_type = old_model_type
+                self.database_path, self.collection_name = self._get_database_config(
+                    None, None, old_model_type
+                )
+                self.initialize()  # Try to restore previous state
+                return False
+                
+        except Exception as e:
+            logger.error(f"Error switching model type: {e}")
+            return False
+    
+    def get_current_model_info(self) -> Dict[str, Any]:
+        """
+        Get information about the current model configuration.
+        
+        Returns:
+            Dict[str, Any]: Current model and database configuration
+        """
+        return {
+            'model_type': self.model_type,
+            'model_path': self.model_path,
+            'database_path': self.database_path,
+            'collection_name': self.collection_name,
+            'is_initialized': self.is_initialized,
+            'embedding_extractor_info': (
+                self.embedding_extractor.get_model_info() 
+                if self.embedding_extractor and hasattr(self.embedding_extractor, 'get_model_info')
+                else None
+            )
+        }
+    
     def update_confidence_accuracy(self, 
                                  predicted_confidence: float,
                                  actual_accuracy: float,
                                  object_class: str) -> None:
         """Update historical accuracy data for confidence calibration."""
-        self.confidence_calculator.update_historical_accuracy(
-            predicted_confidence, actual_accuracy, object_class
-        )
+        if hasattr(self.confidence_calculator, 'update_accuracy'):
+            self.confidence_calculator.update_accuracy(
+                predicted_confidence, actual_accuracy, object_class
+            )
+
+
+def create_query_processor_for_model(model_type: str, 
+                                   model_path: Optional[str] = None,
+                                   config_overrides: Optional[Dict[str, Any]] = None) -> QueryProcessor:
+    """
+    Factory function to create QueryProcessor for specific model type.
+    
+    Args:
+        model_type: Model type ('resnet18' or 'resnet50')
+        model_path: Optional path to fine-tuned model
+        config_overrides: Optional configuration overrides
+        
+    Returns:
+        QueryProcessor: Configured query processor for the specified model
+    """
+    from .config import QueryProcessorConfig
+    
+    # Create base configuration for the model type
+    config = QueryProcessorConfig(model_type=model_type)
+    
+    # Apply any overrides
+    if config_overrides:
+        config_dict = config.to_dict()
+        config_dict.update(config_overrides)
+        config = QueryProcessorConfig.from_dict(config_dict)
+    
+    # Create and return processor
+    processor = QueryProcessor(
+        model_type=model_type,
+        model_path=model_path,
+        config=config.to_dict()
+    )
+    
+    logger.info(f"Created QueryProcessor for {model_type} model")
+    return processor
+
+
+def create_resnet18_query_processor(model_path: Optional[str] = None,
+                                  config_overrides: Optional[Dict[str, Any]] = None) -> QueryProcessor:
+    """
+    Convenience function to create ResNet18 QueryProcessor.
+    
+    Args:
+        model_path: Optional path to fine-tuned ResNet18 model
+        config_overrides: Optional configuration overrides
+        
+    Returns:
+        QueryProcessor: ResNet18 query processor
+    """
+    return create_query_processor_for_model('resnet18', model_path, config_overrides)
+
+
+def create_resnet50_query_processor(model_path: Optional[str] = None,
+                                  config_overrides: Optional[Dict[str, Any]] = None) -> QueryProcessor:
+    """
+    Convenience function to create ResNet50 QueryProcessor.
+    
+    Args:
+        model_path: Optional path to fine-tuned ResNet50 model
+        config_overrides: Optional configuration overrides
+        
+    Returns:
+        QueryProcessor: ResNet50 query processor
+    """
+    return create_query_processor_for_model('resnet50', model_path, config_overrides)

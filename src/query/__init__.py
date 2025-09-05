@@ -6,7 +6,14 @@ including the main QueryProcessor class, result ranking, confidence scoring,
 configuration classes, and related exceptions.
 """
 
-from .processor import QueryProcessor, QueryValidationError, QueryProcessingError
+from .processor import (
+    QueryProcessor, 
+    QueryValidationError, 
+    QueryProcessingError,
+    create_query_processor_for_model,
+    create_resnet18_query_processor,
+    create_resnet50_query_processor
+)
 from .config import (
     QueryProcessorConfig,
     MilitaryQueryConfig,
@@ -35,6 +42,9 @@ __all__ = [
     'QueryProcessor',
     'QueryValidationError', 
     'QueryProcessingError',
+    'create_query_processor_for_model',
+    'create_resnet18_query_processor',
+    'create_resnet50_query_processor',
     'QueryProcessorConfig',
     'MilitaryQueryConfig',
     'DevelopmentQueryConfig',
