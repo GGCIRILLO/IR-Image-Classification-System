@@ -267,12 +267,12 @@ class SimilaritySearcher:
             print(f"Failed to switch to {model_type.value} database: {e}")
             return False
     
-    def get_current_model_type(self) -> ModelType:
+    def get_current_model_type(self) -> Optional[ModelType]:
         """
         Get the current model type being used.
         
         Returns:
-            ModelType: Current model type
+            Optional[ModelType]: Current model type or None if not set
         """
         return self.model_type
     
@@ -438,15 +438,19 @@ class SimilaritySearcher:
             # Enhanced similarity score computation for IR images
             if self.config.distance_metric == "cosine":
                 # Better similarity calculation for IR images with proper scaling
-                if distance < 0.3:
+                if distance < 0.001:  # Very small distances - amplify differences
+                    similarity_score = 0.99 - (distance * 1000)  # Scale by 1000x for small differences
+                elif distance < 0.01:  # Small distances
+                    similarity_score = 0.9 - ((distance - 0.001) * 100)  # Scale by 100x
+                elif distance < 0.3:
                     # Very close matches
-                    similarity_score = 0.95 - (distance * 0.5)
+                    similarity_score = 0.8 - (distance - 0.01) * 2.0
                 elif distance < 0.6:
                     # Good matches
-                    similarity_score = 0.85 - (distance - 0.3) * 1.0
+                    similarity_score = 0.7 - (distance - 0.3) * 1.0
                 elif distance < 0.9:
                     # Moderate matches - use linear scaling
-                    similarity_score = 0.55 - (distance - 0.6) * 0.8
+                    similarity_score = 0.4 - (distance - 0.6) * 0.8
                 else:
                     # Distant matches - still provide some variation
                     similarity_score = max(0.1, 0.25 - (distance - 0.9) * 0.5)

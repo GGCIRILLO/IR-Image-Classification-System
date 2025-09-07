@@ -12,11 +12,11 @@
     },
     "resnet18": {
       "model_type": "resnet18",
-      "database_path": "./data/vector_db_resnet18",
+      "database_path": "./data/vector_db_resnet18_ir_finetuned",
       "collection_name": "ir_embeddings_resnet18",
       "embedding_dimension": 512,
       "distance_metric": "cosine",
-      "description": "ResNet18 model database (new)"
+      "description": "ResNet18 fine-tuned model database"
     }
   },
   "index": {
